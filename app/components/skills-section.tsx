@@ -1,18 +1,10 @@
 import { Wrench, Palette, Brush, Award, Video } from "lucide-react";
 
-interface SkillsSectionProps {
-  animatedSections: Set<string>;
-}
-
-export default function SkillsSection({
-  animatedSections,
-}: SkillsSectionProps) {
+export function SkillsSection() {
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div
-          className={`text-center mb-12 transition-all duration-1000 ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills</h2>
           <p className="text-base text-gray-600 mx-auto">
             An overview of my technical skills, tools, and areas of expertise in
@@ -21,10 +13,7 @@ export default function SkillsSection({
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Web Development */}
-          <div
-            className={`bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-700 transform hover:scale-105 group ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ transitionDelay: "100ms" }}
-          >
+          <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 shadow-lg group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
                 <Wrench className="w-6 h-6 text-white" />
@@ -51,10 +40,7 @@ export default function SkillsSection({
             </div>
           </div>
           {/* Programming Languages */}
-          <div
-            className={`bg-gradient-to-br from-green-50 to-white border border-green-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-700 transform hover:scale-105 group ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ transitionDelay: "200ms" }}
-          >
+          <div className="bg-gradient-to-br from-green-50 to-white border border-green-200 rounded-xl p-6 shadow-lg group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-700 rounded-lg flex items-center justify-center">
                 <Palette className="w-6 h-6 text-white" />
@@ -86,10 +72,7 @@ export default function SkillsSection({
             </div>
           </div>
           {/* Frameworks & Libraries */}
-          <div
-            className={`bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-700 transform hover:scale-105 group ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ transitionDelay: "300ms" }}
-          >
+          <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-6 shadow-lg group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg flex items-center justify-center">
                 <Brush className="w-6 h-6 text-white" />
@@ -114,10 +97,7 @@ export default function SkillsSection({
             </div>
           </div>
           {/* Databases */}
-          <div
-            className={`bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-700 transform hover:scale-105 group ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ transitionDelay: "400ms" }}
-          >
+          <div className="bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-xl p-6 shadow-lg group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-700 rounded-lg flex items-center justify-center">
                 <Award className="w-6 h-6 text-white" />
@@ -142,10 +122,7 @@ export default function SkillsSection({
             </div>
           </div>
           {/* Multimedia & Design */}
-          <div
-            className={`bg-gradient-to-br from-pink-50 to-white border border-pink-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-700 transform hover:scale-105 group ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ transitionDelay: "500ms" }}
-          >
+          <div className="bg-gradient-to-br from-pink-50 to-white border border-pink-200 rounded-xl p-6 shadow-lg group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-700 rounded-lg flex items-center justify-center">
                 <Video className="w-6 h-6 text-white" />
@@ -205,10 +182,7 @@ export default function SkillsSection({
             </div>
           </div>
           {/* Soft Skills */}
-          <div
-            className={`bg-gradient-to-br from-teal-50 to-white border border-teal-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-700 transform hover:scale-105 group ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            style={{ transitionDelay: "600ms" }}
-          >
+          <div className="bg-gradient-to-br from-teal-50 to-white border border-teal-200 rounded-xl p-6 shadow-lg group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-teal-700 rounded-lg flex items-center justify-center">
                 <Award className="w-6 h-6 text-white" />

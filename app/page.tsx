@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   MessageCircle,
   X,
@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 import Chat from "./components/chat";
 import NavigationBar from "./components/navigation-bar";
-import HomeSection from "./components/home-section";
-import SkillsSection from "./components/skills-section";
+import { SkillsSection } from "./components/skills-section";
+import { HomeSection } from "./components/home-section";
 import ProjectsSection from "./components/projects-section";
 import ContactSection from "./components/contact-section";
 
@@ -27,27 +27,6 @@ export default function Page() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [formMessage, setFormMessage] = useState("");
-  const [animatedSections, setAnimatedSections] = useState<Set<string>>(
-    new Set(),
-  );
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !animatedSections.has(entry.target.id)) {
-            setAnimatedSections((prev) => new Set(prev).add(entry.target.id));
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, [animatedSections]);
 
   async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -91,28 +70,21 @@ export default function Page() {
       {/* Navigation */}
       <NavigationBar />
 
-      {/* Hero Section */}
-      <HomeSection
-        animatedSections={animatedSections}
-        setShowChat={setShowChat}
-      />
+      {/* Home Section */}
+      <HomeSection setShowChat={setShowChat} />
 
       {/* Skills Section */}
-      <SkillsSection animatedSections={animatedSections} />
+      <SkillsSection />
 
       {/* Projects Section */}
-      <ProjectsSection animatedSections={animatedSections} />
+      <ProjectsSection />
 
       {/* Contact Section */}
       <ContactSection
-        animatedSections={animatedSections}
         formStatus={formStatus}
         formMessage={formMessage}
         handleContactSubmit={handleContactSubmit}
       />
-
-      {/* CTA Section */}
-      {/* Contact section is now handled by the ContactSection component */}
 
       {/* Floating Chat Button */}
       {!showChat && (

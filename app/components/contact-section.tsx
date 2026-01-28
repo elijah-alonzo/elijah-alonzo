@@ -1,14 +1,12 @@
 import { Mail, Linkedin, Github, ExternalLink } from "lucide-react";
 
 interface ContactSectionProps {
-  animatedSections: Set<string>;
   formStatus: "idle" | "submitting" | "success" | "error";
   formMessage: string;
   handleContactSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export default function ContactSection({
-  animatedSections,
   formStatus,
   formMessage,
   handleContactSubmit,
@@ -18,9 +16,7 @@ export default function ContactSection({
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
-          <div
-            className={`transition-all duration-1000 ${animatedSections.has("contact") ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
-          >
+          <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Let's Connect
             </h2>
@@ -139,9 +135,7 @@ export default function ContactSection({
             </div>
           </div>
           {/* Right Column - Contact Form */}
-          <div
-            className={`bg-gradient-to-br from-white to-blue-50 border border-blue-200 rounded-xl p-8 backdrop-blur-md shadow-lg transition-all duration-1000 delay-200 ${animatedSections.has("contact") ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
-          >
+          <div className="bg-gradient-to-br from-white to-blue-50 border border-blue-200 rounded-xl p-8 backdrop-blur-md shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send a Message
             </h3>

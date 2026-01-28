@@ -1,27 +1,17 @@
 import { Github } from "lucide-react";
 
-interface ProjectsSectionProps {
-  animatedSections: Set<string>;
-}
-
-export default function ProjectsSection({
-  animatedSections,
-}: ProjectsSectionProps) {
+export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div
-          className={`text-center mb-12 transition-all duration-1000 ${animatedSections.has("projects") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Projects</h2>
           <p className="text-base text-gray-600 mx-auto">
             A portfolio of functional systems I have designed, developed, and
             successfully deployed throughout my career.
           </p>
         </div>
-        <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-1000 ${animatedSections.has("projects") ? "opacity-100" : "opacity-0"}`}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Digital Twin */}
           <div className="bg-gradient-to-br from-cyan-50 to-white border border-cyan-200 rounded-xl overflow-hidden hover:border-cyan-400 hover:shadow-lg transition transform hover:scale-105 group shadow-lg">
             <div className="h-48 overflow-hidden relative">

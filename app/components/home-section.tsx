@@ -1,14 +1,10 @@
 import { MessageCircle } from "lucide-react";
 
-interface HeroSectionProps {
-  animatedSections: Set<string>;
+interface HomeSectionProps {
   setShowChat: (show: boolean) => void;
 }
 
-export default function HeroSection({
-  animatedSections,
-  setShowChat,
-}: HeroSectionProps) {
+export function HomeSection({ setShowChat }: HomeSectionProps) {
   return (
     <section
       id="home"
@@ -17,9 +13,7 @@ export default function HeroSection({
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div
-            className={`space-y-8 transition-all duration-1000 ${animatedSections.has("home") ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
-          >
+          <div className="space-y-8">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight whitespace-nowrap">
               <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
                 Elijah Alonzo
@@ -51,9 +45,7 @@ export default function HeroSection({
           </div>
 
           {/* Right Side - Profile Image */}
-          <div
-            className={`flex justify-center transition-all duration-1000 delay-300 ${animatedSections.has("home") ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
-          >
+          <div className="flex justify-center">
             <div className="relative w-80 h-80">
               {/* Image Container */}
               <div className="relative w-full h-full rounded-full shadow-lg">
