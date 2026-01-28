@@ -2,8 +2,11 @@ import { Database, Code, Layers } from "lucide-react";
 
 export function ToolsSection() {
   return (
-    <section id="tools" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="tools"
+      className="py-32 px-4 sm:px-6 lg:px-8 bg-white min-h-screen flex items-center"
+    >
+      <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Tools</h2>
           <p className="text-base text-gray-600 mx-auto">
