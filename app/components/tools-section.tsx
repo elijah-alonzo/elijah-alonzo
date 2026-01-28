@@ -1,4 +1,5 @@
 import { Brush, Award, Video, Code } from "lucide-react";
+import { Database } from "lucide-react";
 
 export function ToolsSection() {
   return (
@@ -15,11 +16,11 @@ export function ToolsSection() {
           </p>
         </div>
 
-        {/* Programming */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* Programming */}
           <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
                 <Code className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
@@ -57,7 +58,7 @@ export function ToolsSection() {
               ].map((lang) => (
                 <span
                   key={lang.name}
-                  className="px-3 py-1 border border-gray-300 rounded-full text-gray-700 text-xs font-medium flex items-center gap-2"
+                  className="px-3 py-1 border border-gray-200 rounded-full text-gray-700 text-xs font-medium flex items-center gap-2"
                   title={lang.name}
                 >
                   <img
@@ -99,10 +100,10 @@ export function ToolsSection() {
           </div>
 
           {/* Databases */}
-          <div className="bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-xl p-6 shadow-lg">
+          <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-700 rounded-lg flex items-center justify-center">
-                <Award className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                <Database className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">Databases</h3>
             </div>
@@ -113,16 +114,41 @@ export function ToolsSection() {
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {["MySQL", "PostgreSQL", "SQLite", "MariaDB", "MongoDB"].map(
-                (db) => (
-                  <span
-                    key={db}
-                    className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium"
-                  >
-                    {db}
-                  </span>
-                ),
-              )}
+              {[
+                {
+                  name: "MySQL",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+                },
+                {
+                  name: "PostgreSQL",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+                },
+                {
+                  name: "SQLite",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+                },
+                {
+                  name: "MariaDB",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg",
+                },
+                {
+                  name: "MongoDB",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+                },
+              ].map((db) => (
+                <span
+                  key={db.name}
+                  className="px-3 py-1 border border-gray-200 rounded-full text-gray-700 text-xs font-medium flex items-center gap-2"
+                  title={db.name}
+                >
+                  <img
+                    src={db.logo}
+                    alt={`${db.name} logo`}
+                    className="w-4 h-4 object-contain"
+                  />
+                  {db.name}
+                </span>
+              ))}
             </div>
           </div>
 
