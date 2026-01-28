@@ -1,5 +1,4 @@
-import { Brush, Award, Video, Code } from "lucide-react";
-import { Database } from "lucide-react";
+import { Database, Code, Layers } from "lucide-react";
 
 export function ToolsSection() {
   return (
@@ -16,7 +15,7 @@ export function ToolsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Programming */}
           <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
@@ -72,10 +71,10 @@ export function ToolsSection() {
             </div>
           </div>
           {/* Frameworks */}
-          <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-6 shadow-lg">
+          <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                <Layers className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
                 Frameworks
@@ -88,12 +87,43 @@ export function ToolsSection() {
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {["Laravel", "React", "Next.js", "Django"].map((framework) => (
+              {[
+                {
+                  name: "Laravel",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+                },
+                {
+                  name: "React",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                },
+                {
+                  name: "Next.js",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+                },
+                {
+                  name: "Django",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+                },
+                {
+                  name: "Tailwind",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+                },
+                {
+                  name: "Bootstrap",
+                  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+                },
+              ].map((framework) => (
                 <span
-                  key={framework}
-                  className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium"
+                  key={framework.name}
+                  className="px-3 py-1 border border-gray-200 rounded-full text-gray-700 text-xs font-medium flex items-center gap-2"
+                  title={framework.name}
                 >
-                  {framework}
+                  <img
+                    src={framework.logo}
+                    alt={`${framework.name} logo`}
+                    className="w-4 h-4 object-contain"
+                  />
+                  {framework.name}
                 </span>
               ))}
             </div>
@@ -148,33 +178,6 @@ export function ToolsSection() {
                   />
                   {db.name}
                 </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Multimedia */}
-          <div className="bg-gradient-to-br from-pink-50 to-white border border-pink-200 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-700 rounded-lg flex items-center justify-center">
-                <Video className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Multimedia
-              </h3>
-            </div>
-
-            <p className="text-gray-600 text-sm mb-4">
-              Creative skills in graphic design, video editing, and multimedia
-              production.
-            </p>
-
-            <div className="space-y-2">
-              {["Graphics", "Video", "Tools"].map((label, i) => (
-                <div key={label} className="flex flex-wrap gap-2">
-                  <span className="text-xs font-medium text-gray-500">
-                    {label}:
-                  </span>
-                </div>
               ))}
             </div>
           </div>
