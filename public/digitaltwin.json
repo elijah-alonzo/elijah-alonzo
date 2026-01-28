@@ -1,0 +1,241 @@
+{
+  "personal": {
+    "name": "Elijah Alonzo",
+    "title": "Information Technology Student",
+    "location": "Pasig City, Philippines",
+    "summary": "An IT enthusiast currently pursuing a Bachelor's degree in Information Technology in St. Paul University Philippines. I am passionate about technology and interested in specializing in Cloud Computing, Cyber Security, Data Analytics, Project Management, and Web Development.",
+    "contact": {
+      "email": "elijahalonzo.me@gmail.com",
+      "linkedin": "https://linkedin.com/in/elijah-alonzo",
+      "github": "https://github.com/elijah-alonzo",
+      "facebook": "https://www.facebook.com/share/1B6SvsQLH2/?mibextid=wwXIfr",
+      "instagram": "https://www.instagram.com/eljhalnz/"
+    }
+  },
+  "skills": {
+    "technical": {
+      "programming_languages": [
+        {"language": "PHP", "proficiency": "Intermediate"},
+        {"language": "Python", "proficiency": "Intermediate"},
+        {"language": "JavaScript", "proficiency": "Intermediate"},
+        {"language": "Java", "proficiency": "Beginner"}
+      ],
+      "frameworks": ["Laravel", "React", "Next.js", "Django"],
+      "databases": ["MySQL", "PostgreSQL", "SQLite", "MariaDB", "MongoDB"],
+      "web_development": ["Frontend & Backend Development", "REST API Development", "Responsive UI/UX Implementation"],
+      "graphic_editing": ["Photo Retouching", "Color Correction", "Layout & Composition"],
+      "video_editing": ["Cutting & Sequencing", "Color Grading", "Audio Cleanup", "Motion Graphics"],
+      "content_editing": ["Copy Editing", "Script Editing", "Social Media Content Optimization", "Proofreading"],
+      "technical_editing": ["UI/UX Asset Editing", "Code Cleanup & Minor Refactoring", "Documentation Editing", "Version Control Review (Git)"],
+      "additional_it_skills": [
+        "Database Design & Optimization (MySQL, PostgreSQL, SQLite, MariaDB, MongoDB)",
+        "Server & Deployment Basics (Apache, Nginx)",
+        "API Integration",
+        "Linux Command Line Basics",
+        "Basic Cybersecurity Practices",
+        "Project Management (Agile, SCRUM)"
+      ],
+      "multimedia_tools": ["Adobe Photoshop", "Adobe Premiere", "Canva"]
+    },
+    "soft_skills": ["Leadership", "Communication", "Public Speaking"],
+    "certifications": ["ITS Databases"]
+  },
+  "education": {
+    "university": "St. Paul University Philippines",
+    "degree": "Bachelor of Information Technology",
+    "status": "Currently Pursuing"
+  },
+  "experiences": {
+    "hard_skills_experience": [
+      {
+        "role": "Project Lead and Developer",
+        "project": "Paulinian Student Government E-Portfolio and Ranking System"
+      },
+      {
+        "role": "IT Department Leader and Developer",
+        "program": "Collaborative Online International Learning (COIL) Program",
+        "link": "https://spup.edu.ph/news/project-techfusion-kicks-off/"
+      },
+      {
+        "achievement": "3rd Place",
+        "event": "2023 SPUP–PATHWAY Hackathon",
+        "link": "https://spup.edu.ph/news/spup-holds-pathway-hackathon/"
+      }
+    ],
+    "soft_skills_experience": [
+      {
+        "role": "Senator",
+        "organization": "Paulinian Student Government",
+        "period": "2022–2023"
+      },
+      {
+        "role": "Assistant P.R.O.",
+        "organization": "Paulinian Student Government",
+        "period": "2023–2024"
+      },
+      {
+        "role": "Secretary",
+        "organization": "Paulinian Student Government",
+        "period": "2023–2024"
+      },
+      {
+        "role": "3rd Year Representative",
+        "organization": "Junior Philippine Computer Society",
+        "period": "2023–2024"
+      },
+      {
+        "role": "Member",
+        "organization": "Multimedia Committee, Rotaract Club of Tuguegarao",
+        "period": "2023–2024"
+      }
+    ]
+  },
+  "training_seminars": [
+    {
+      "name": "TCON 2023",
+      "description": "The Ultimate Tech Event in the North",
+      "link": "https://www.facebook.com/cagayanvalleyforum/posts/tcon-2023-the-ultimate-tech-event-in-the-north-is-heretechupdates-if-you-are-a-t/651926327078604/"
+    },
+    {
+      "name": "SPUP CyberSummit 2023"
+    },
+    {
+      "name": "SPUP CyberSummit 2024"
+    },
+    {
+      "name": "SPUP CyberSummit 2025"
+    },
+    {
+      "name": "SPUP CyberSecurity RoadShow 2025",
+      "link": "https://www.facebook.com/SPUPSITEofficial/posts/1261434669334322/"
+    }
+  ],
+  "projects_portfolio": [
+    {
+      "name": "Digital Twin",
+      "description": "An AI-powered digital twin chatbot that provides information about my background, skills, and experiences using RAG technology.",
+      "github_url": "https://github.com/elijah-alonzo/digital-twin.git"
+    },
+    {
+      "name": "Equal Learn",
+      "description": "An educational video hosting website designed for kids and teachers to access and share learning content.",
+      "github_url": "https://github.com/elijah-alonzo/EqualLearn.git"
+    },
+    {
+      "name": "Paulinian Student Government E-Portfolio and Ranking System",
+      "description": "A comprehensive system for managing student portfolios and rankings within the student government.",
+      "github_url": "https://github.com/elijah-alonzo/app.git"
+    },
+    {
+      "name": "Gem Catcher",
+      "description": "A 2D arcade-style game where players catch gems to gain points and achieve high scores.",
+      "github_url": "https://github.com/elijah-alonzo/GemCathcer.git"
+    }
+  ],
+  "career_goals": {
+    "interests": ["Cloud Computing", "Cyber Security", "Data Analytics", "Project Management", "Web Development"]
+  },
+
+  "content_chunks": [
+    {
+      "id": "chunk-1",
+      "title": "About Me",
+      "content": "Elijah Taguinod Alonzo is an IT enthusiast currently pursuing a Bachelor's degree in Information Technology at St. Paul University Philippines. Passionate about technology and interested in specializing in Cloud Computing, Cyber Security, Data Analytics, Project Management, and Web Development.",
+      "type": "bio",
+      "metadata": {
+        "category": "personal",
+        "tags": ["student", "IT", "cloud computing", "cyber security"]
+      }
+    },
+    {
+      "id": "chunk-2",
+      "title": "Technical Skills",
+      "content": "Programming Languages: PHP, Python, JavaScript, Java. Frameworks: Laravel, React, Next.js, Django. Databases: MySQL, PostgreSQL, SQLite, MariaDB, MongoDB. Web Development: Frontend & Backend Development, REST API Development, Responsive UI/UX. Graphic Editing: Photo Retouching, Color Correction, Layout & Composition. Video Editing: Cutting & Sequencing, Color Grading, Audio Cleanup, Motion Graphics. Tools: Adobe Photoshop, Adobe Premiere, Canva. Additional Skills: Database Design & Optimization, Server & Deployment (Apache, Nginx), API Integration, Linux Basics, Cybersecurity Practices, Project Management (Agile, SCRUM).",
+      "type": "skills",
+      "metadata": {
+        "category": "skills",
+        "tags": ["php", "python", "javascript", "laravel", "react", "databases", "web development"]
+      }
+    },
+    {
+      "id": "chunk-3",
+      "title": "Soft Skills",
+      "content": "Leadership, Communication, Public Speaking",
+      "type": "skills",
+      "metadata": {
+        "category": "skills",
+        "tags": ["leadership", "communication", "public speaking"]
+      }
+    },
+    {
+      "id": "chunk-4",
+      "title": "Education",
+      "content": "Bachelor of Information Technology at St. Paul University Philippines, currently pursuing.",
+      "type": "education",
+      "metadata": {
+        "category": "education",
+        "tags": ["university", "IT"]
+      }
+    },
+    {
+      "id": "chunk-5",
+      "title": "Hard Skills Experience",
+      "content": "Project Lead and Developer for Paulinian Student Government E-Portfolio and Ranking System. IT Department Leader and Developer during Collaborative Online International Learning (COIL) Program. 3rd Place in 2023 SPUP–PATHWAY Hackathon.",
+      "type": "experience",
+      "metadata": {
+        "category": "experience",
+        "tags": ["project lead", "developer", "hackathon"]
+      }
+    },
+    {
+      "id": "chunk-6",
+      "title": "Soft Skills Experience",
+      "content": "Senator at Paulinian Student Government (2022–2023). Assistant P.R.O. at Paulinian Student Government (2023–2024). Secretary at Paulinian Student Government (2023–2024). 3rd Year Representative at Junior Philippine Computer Society (2023–2024). Member of Multimedia Committee, Rotaract Club of Tuguegarao (2023–2024).",
+      "type": "experience",
+      "metadata": {
+        "category": "experience",
+        "tags": ["leadership", "student government", "organizations"]
+      }
+    },
+    {
+      "id": "chunk-7",
+      "title": "Training & Seminars",
+      "content": "TCON 2023 – The Ultimate Tech Event in the North. SPUP CyberSummit 2023. SPUP CyberSummit 2024. SPUP CyberSummit 2025. SPUP CyberSecurity RoadShow 2025.",
+      "type": "training",
+      "metadata": {
+        "category": "training",
+        "tags": ["conferences", "cybersecurity", "tech events"]
+      }
+    },
+    {
+      "id": "chunk-8",
+      "title": "Certifications",
+      "content": "ITS Databases",
+      "type": "certification",
+      "metadata": {
+        "category": "certification",
+        "tags": ["databases"]
+      }
+    },
+    {
+      "id": "chunk-9",
+      "title": "Projects Portfolio",
+      "content": "Digital Twin: An AI-powered digital twin chatbot using RAG technology to provide information about background, skills, and experiences. Equal Learn: An educational video hosting website designed for kids and teachers. Paulinian Student Government E-Portfolio and Ranking System: A comprehensive system for managing student portfolios and rankings. Gem Catcher: A 2D arcade-style game where players catch gems.",
+      "type": "projects",
+      "metadata": {
+        "category": "projects",
+        "tags": ["AI", "RAG", "chatbot", "education", "e-portfolio", "game development", "Laravel"]
+      }
+    },
+    {
+      "id": "chunk-10",
+      "title": "Career Goals",
+      "content": "Interested in specializing in Cloud Computing, Cyber Security, Data Analytics, Project Management, and Web Development.",
+      "type": "goals",
+      "metadata": {
+        "category": "career",
+        "tags": ["cloud computing", "cyber security", "data analytics", "project management", "web development"]
+      }
+    }
+  ]
+}
