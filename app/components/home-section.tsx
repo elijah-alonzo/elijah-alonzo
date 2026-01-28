@@ -1,4 +1,3 @@
-import SocialLinks from "./social-links";
 import { MessageCircle } from "lucide-react";
 
 interface HeroSectionProps {
@@ -55,9 +54,6 @@ export default function HeroSection({
                 Get In Touch
               </a>
             </div>
-
-            {/* Social Links */}
-            <SocialLinks />
           </div>
 
           {/* Right Side - Profile Image */}

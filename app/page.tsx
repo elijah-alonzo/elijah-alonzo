@@ -15,7 +15,6 @@ import {
   Video,
 } from "lucide-react";
 import Chat from "./components/chat";
-import SocialLinks from "./components/social-links";
 import NavigationBar from "./components/navigation-bar";
 import HomeSection from "./components/home-section";
 import SkillsSection from "./components/skills-section";
