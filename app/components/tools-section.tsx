@@ -1,14 +1,14 @@
 import { Wrench, Palette, Brush, Award, Video } from "lucide-react";
 
-export function SkillsSection() {
+export function ToolsSection() {
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="tools" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Tools</h2>
           <p className="text-base text-gray-600 mx-auto">
-            An overview of my technical skills, tools, and areas of expertise in
-            technology and development.
+            Here you'll find all the tools I use in my web development and
+            graphics design.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

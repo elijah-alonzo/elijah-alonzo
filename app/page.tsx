@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import Chat from "./components/chat";
 import NavigationBar from "./components/navigation-bar";
-import { SkillsSection } from "./components/skills-section";
+import { ToolsSection } from "./components/tools-section";
 import { HomeSection } from "./components/home-section";
 import ProjectsSection from "./components/projects-section";
 import ContactSection from "./components/contact-section";
@@ -73,8 +73,8 @@ export default function Page() {
       {/* Home Section */}
       <HomeSection setShowChat={setShowChat} />
 
-      {/* Skills Section */}
-      <SkillsSection />
+      {/* Tools Section */}
+      <ToolsSection />
 
       {/* Projects Section */}
       <ProjectsSection />

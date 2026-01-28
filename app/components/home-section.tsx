@@ -21,10 +21,9 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
             </h1>
 
             <p className="text-base text-gray-600 leading-relaxed max-w-lg">
-              An information technology student with a passion for learning and
-              developing skills in software development, networking, and
-              cybersecurity. Eager to contribute to real-world projects and gain
-              hands-on experience in the IT industry.
+              I’m a web developer and graphics designer, ready to bring your
+              ideas to life! Need someone to develop a <b>website</b> or create{" "}
+              <b>graphics design</b>? I’m open for commissions!
             </p>
 
             <div className="flex gap-4 flex-wrap">
@@ -37,7 +36,7 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
               </button>
               <a
                 href="#contact"
-                className="px-8 py-3 border-2 border-blue-500 text-blue-600 hover:bg-blue-50 hover:border-blue-600 font-semibold rounded-lg transition"
+                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2"
               >
                 Get In Touch
               </a>
@@ -59,7 +58,7 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
               </div>
               {/* Badge */}
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-2 rounded-full font-medium text-sm shadow-lg text-center min-w-max">
-                Web Developer
+                Web Developer & Graphics Designer
               </div>
             </div>
           </div>

@@ -17,10 +17,10 @@ export default function NavigationBar() {
             Home
           </a>
           <a
-            href="#skills"
+            href="#tools"
             className="text-gray-600 hover:text-blue-600 transition font-medium"
           >
-            Skills
+            Tools
           </a>
           <a
             href="#projects"
