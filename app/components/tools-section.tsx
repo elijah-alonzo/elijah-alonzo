@@ -20,14 +20,14 @@ export function ToolsSection() {
           <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
+                <Code className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
                 Programming
               </h3>
             </div>
 
-            <p className="text-gray-600 text-sm mb-4">
+            <p className="text-gray-500 text-sm mb-4">
               Programming languages I use in for web development and software
               projects.
             </p>
@@ -74,14 +74,14 @@ export function ToolsSection() {
           <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                <Layers className="w-6 h-6 text-white" />
+                <Layers className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
                 Frameworks
               </h3>
             </div>
 
-            <p className="text-gray-600 text-sm mb-4">
+            <p className="text-gray-500 text-sm mb-4">
               Modern frameworks and libraries for efficient development
               workflows.
             </p>
@@ -133,12 +133,12 @@ export function ToolsSection() {
           <div className="border border-gray rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                <Database className="w-6 h-6 text-white" />
+                <Database className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">Databases</h3>
             </div>
 
-            <p className="text-gray-600 text-sm mb-4">
+            <p className="text-gray-500 text-sm mb-4">
               Database design, optimization, and management across multiple
               platforms.
             </p>
