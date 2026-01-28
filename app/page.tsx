@@ -73,11 +73,11 @@ export default function Page() {
       {/* Home Section */}
       <HomeSection setShowChat={setShowChat} />
 
-      {/* Tools Section */}
-      <ToolsSection />
-
       {/* Projects Section */}
       <ProjectsSection />
+
+      {/* Tools Section */}
+      <ToolsSection />
 
       {/* Contact Section */}
       <ContactSection
