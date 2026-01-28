@@ -138,7 +138,7 @@ export default function ContactSection({
             </div>
           </div>
           {/* Right Column - Contact Form */}
-          <div className="bg-gradient-to-br from-white to-blue-50 border border-blue-200 rounded-xl p-8 backdrop-blur-md shadow-lg">
+          <div className="border border-gray rounded-xl p-8 backdrop-blur-md shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send a Message
             </h3>
@@ -170,7 +170,7 @@ export default function ContactSection({
                     placeholder="Your name"
                     required
                     disabled={formStatus === "submitting"}
-                    className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition disabled:opacity-50"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -183,7 +183,7 @@ export default function ContactSection({
                     placeholder="your.email@example.com"
                     required
                     disabled={formStatus === "submitting"}
-                    className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition disabled:opacity-50"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function ContactSection({
                   placeholder="What's this about?"
                   required
                   disabled={formStatus === "submitting"}
-                  className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition disabled:opacity-50"
                 />
               </div>
               <div>
@@ -210,13 +210,13 @@ export default function ContactSection({
                   rows={5}
                   required
                   disabled={formStatus === "submitting"}
-                  className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition resize-none disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition resize-none disabled:opacity-50"
                 />
               </div>
               <button
                 type="submit"
                 disabled={formStatus === "submitting"}
-                className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold rounded-lg transition transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:transform-none disabled:cursor-not-allowed"
+                className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg transition transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:transform-none disabled:cursor-not-allowed"
               >
                 {formStatus === "submitting" ? (
                   <>

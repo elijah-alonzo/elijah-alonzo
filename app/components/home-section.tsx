@@ -15,7 +15,7 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
           {/* Left Content */}
           <div className="space-y-8">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight whitespace-nowrap">
-              <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
+              <span className="bg-blue-500 bg-clip-text text-transparent">
                 Elijah Alonzo
               </span>
             </h1>
@@ -29,14 +29,14 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
             <div className="flex gap-4 flex-wrap">
               <button
                 onClick={() => setShowChat(true)}
-                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2"
+                className="px-8 py-3 bg-blue-500 hover:from-blue-600 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2"
               >
                 <MessageCircle size={20} />
                 Ask My Digital Twin
               </button>
               <a
                 href="#contact"
-                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2"
+                className="px-8 py-3 border border-blue-500 text-blue-500 font-semibold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2"
               >
                 Get In Touch
               </a>
@@ -57,7 +57,7 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-transparent rounded-full"></div>
               </div>
               {/* Badge */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-2 rounded-full font-medium text-sm shadow-lg text-center min-w-max">
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-6 py-2 rounded-full font-medium text-sm shadow-lg text-center min-w-max">
                 Web Developer & Graphics Designer
               </div>
             </div>
