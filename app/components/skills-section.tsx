@@ -13,9 +13,7 @@ export default function SkillsSection({
         <div
           className={`text-center mb-12 transition-all duration-1000 ${animatedSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Skills & Expertise
-          </h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills</h2>
           <p className="text-base text-gray-600 mx-auto">
             An overview of my technical skills, tools, and areas of expertise in
             technology and development.
