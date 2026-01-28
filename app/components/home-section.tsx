@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import React from "react";
 
 interface HomeSectionProps {
   setShowChat: (show: boolean) => void;
@@ -37,6 +38,14 @@ export function HomeSection({ setShowChat }: HomeSectionProps) {
               <a
                 href="#contact"
                 className="px-8 py-3 border border-blue-500 text-blue-500 font-semibold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center gap-2"
+                onClick={e => {
+                  const el = document.getElementById("contact");
+                  if (el) {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", "#contact");
+                  }
+                }}
               >
                 Get In Touch
               </a>
