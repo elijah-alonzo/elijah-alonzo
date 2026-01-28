@@ -2,8 +2,11 @@ import { Github } from "lucide-react";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="projects"
+      className="py-32 px-4 sm:px-6 lg:px-8 bg-white min-h-screen flex items-center"
+    >
+      <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Projects</h2>
           <p className="text-base text-gray-600 mx-auto">
