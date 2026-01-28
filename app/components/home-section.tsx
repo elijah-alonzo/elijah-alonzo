@@ -20,17 +20,11 @@ export default function HeroSection({
           <div
             className={`space-y-8 transition-all duration-1000 ${animatedSections.has("home") ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
           >
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight whitespace-nowrap">
-                <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
-                  Elijah Alonzo
-                </span>
-              </h1>
-              <p className="text-base text-gray-600 font-medium mb-8 leading-relaxed">
-                IT Student | Certified Database Specialist | Aspiring Cloud
-                Specialist
-              </p>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight whitespace-nowrap">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
+                Elijah Alonzo
+              </span>
+            </h1>
 
             <p className="text-base text-gray-600 leading-relaxed max-w-lg">
               An information technology student with a passion for learning and
@@ -73,7 +67,7 @@ export default function HeroSection({
               </div>
               {/* Badge */}
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-2 rounded-full font-medium text-sm shadow-lg text-center min-w-max">
-                Aspiring Cloud Specialist
+                Web Developer
               </div>
             </div>
           </div>

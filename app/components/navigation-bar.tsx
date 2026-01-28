@@ -29,12 +29,6 @@ export default function NavigationBar() {
             Certifications & Training
           </a>
           <a
-            href="#experiences"
-            className="text-gray-600 hover:text-blue-600 transition font-medium"
-          >
-            Experiences
-          </a>
-          <a
             href="#projects"
             className="text-gray-600 hover:text-blue-600 transition font-medium"
           >
