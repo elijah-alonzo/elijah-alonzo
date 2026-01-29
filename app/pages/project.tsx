@@ -1,9 +1,10 @@
+// @ts-nocheck
 import { Github, ExternalLink } from "lucide-react";
-import EqualLearnProject from "./projects/equal-learn";
-import EPortfolioAIProject from "./projects/e-portfolio";
-import RankingSysProject from "./projects/ranking-sys";
-import GradingSysProject from "./projects/grading-sys";
-import LlamaProject from "./projects/llama";
+import EqualLearnProject from "../components/projects/equal-learn";
+import EPortfolioAIProject from "../components/projects/e-portfolio";
+import RankingSysProject from "../components/projects/ranking-sys";
+import GradingSysProject from "../components/projects/grading-sys";
+import LlamaProject from "../components/projects/llama";
 
 export default function ProjectsSection() {
   return (

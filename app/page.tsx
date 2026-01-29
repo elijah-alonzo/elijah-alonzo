@@ -16,10 +16,10 @@ import {
 } from "lucide-react";
 import Chat from "./components/chat";
 import NavigationBar from "./components/navigation-bar";
-import { ToolsSection } from "./components/tools-section";
-import { HomeSection } from "./components/home-section";
-import ProjectsSection from "./components/projects-section";
-import ContactSection from "./components/contact-section";
+import { ToolsSection } from "./pages/tool";
+import { HomeSection } from "./pages/home";
+import ProjectsSection from "./pages/project";
+import ContactSection from "./pages/contact";
 
 export default function Page() {
   const [showChat, setShowChat] = useState(false);
