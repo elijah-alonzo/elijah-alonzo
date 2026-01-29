@@ -1,4 +1,9 @@
 import { Github, ExternalLink } from "lucide-react";
+import EqualLearnProject from "./projects/equal-learn";
+import EPortfolioAIProject from "./projects/e-portfolio";
+import RankingSysProject from "./projects/ranking-sys";
+import GradingSysProject from "./projects/grading-sys";
+import LlamaProject from "./projects/llama";
 
 export default function ProjectsSection() {
   return (
@@ -16,180 +21,19 @@ export default function ProjectsSection() {
         </div>
         <div className="grid grid-cols-3 gap-6">
           {/* e-Portfolio and Ranking System */}
-          <div className="border border-gray rounded-xl overflow-hidden shadow-lg">
-            <div className="h-36 overflow-hidden relative">
-              <img
-                src="/images/logo-ranking-sys.png"
-                alt="e-Portfolio and Ranking System"
-                className="w-full h-full object-contain"
-              />
-              <div className="absolute inset-0"></div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-l font-semibold text-gray-900 mb-2">
-                e-Portfolio and Ranking System
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                A platform for the Paulinian Student Government to manage,
-                showcase, and rank student portfolios efficiently.
-              </p>
-              <a
-                href="https://github.com/elijah-alonzo/ranking-sys.git"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 text-sm"
-              >
-                <Github size={16} />
-                View on GitHub
-              </a>
-            </div>
-          </div>
+          <RankingSysProject />
 
           {/* e-Portfolio with Integrated AI */}
-          <div className="border border-gray rounded-xl overflow-hidden shadow-lg">
-            <div className="h-36 overflow-hidden relative">
-              <img
-                src="/images/logo-eli.png"
-                alt="e-Portfolio with Integrated AI"
-                className="w-full h-full object-contain"
-              />
-              <div className="absolute inset-0"></div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-l font-semibold text-gray-900 mb-2">
-                e-Portfolio with Integrated AI
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                Personal portfolio website enhanced with AI features and RAG
-                technology to improve user experience and interactivity.
-              </p>
-              <div className="flex gap-4">
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/elijah-alonzo/elijah-alonzo.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 text-sm"
-                  >
-                    <Github size={16} />
-                    View on GitHub
-                  </a>
-                  <a
-                    href="https://elijah-alonzo.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 text-sm"
-                  >
-                    <ExternalLink size={16} />
-                    Live Site
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <EPortfolioAIProject />
 
           {/* Grading Sheet Monitoring System */}
-          <div className="border border-gray rounded-xl overflow-hidden shadow-lg">
-            <div className="h-36 overflow-hidden relative">
-              <img
-                src="/images/logo-grading-sys.png"
-                alt="Grading Sheet Monitoring System"
-                className="w-full h-full object-contain"
-              />
-              <div className="absolute inset-0"></div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-l font-semibold text-gray-900 mb-2">
-                Grading Sheet Monitoring System
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                A web app for the university registrar and staff to track and
-                monitor submission of grading sheets.
-              </p>
-              <a
-                href="https://github.com/elijah-alonzo/grading-sys.git"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 text-sm"
-              >
-                <Github size={16} />
-                View on GitHub
-              </a>
-            </div>
-          </div>
+          <GradingSysProject />
 
           {/* Equal Learn */}
-          <div className="border border-gray rounded-xl overflow-hidden shadow-lg">
-            <div className="h-36 overflow-hidden relative">
-              <img
-                src="/images/logo-equallearn.png"
-                alt="Equal Learn"
-                className="w-full h-full object-contain"
-              />
-              <div className="absolute inset-0"></div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-l font-semibold text-gray-900 mb-2">
-                Equal Learn
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                A video hosting platform developed as the final output for the
-                Collaborative Online International Learning (COIL) project.
-              </p>
-              <a
-                href="https://github.com/elijah-alonzo/equal-learn.git"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 text-sm"
-              >
-                <Github size={16} />
-                View on GitHub
-              </a>
-            </div>
-          </div>
+          <EqualLearnProject />
 
           {/* Llucky Llama */}
-          <div className="border border-gray rounded-xl overflow-hidden shadow-lg">
-            <div className="h-36 overflow-hidden relative">
-              <img
-                src="/images/logo-llama.png"
-                alt="Llucky Llama"
-                className="w-full h-full object-contain"
-              />
-              <div className="absolute inset-0"></div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-l font-semibold text-gray-900 mb-2">
-                Llucky Llama
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                Randomizer web app that provides spin the bottle, wheel of
-                names, slotmachine, and pick a card features.
-              </p>
-              <div className="flex gap-4">
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/elijah-alonzo/lucky-llama.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 text-sm"
-                  >
-                    <Github size={16} />
-                    View on GitHub
-                  </a>
-                  <a
-                    href="https://lucky-llama.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 text-sm"
-                  >
-                    <ExternalLink size={16} />
-                    Live Site
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <LlamaProject />
         </div>
       </div>
     </section>
