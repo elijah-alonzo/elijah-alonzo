@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Github, ExternalLink } from "lucide-react";
 import EqualLearnProject from "../components/projects/equal-learn";
 import EPortfolioAIProject from "../components/projects/e-portfolio";
