@@ -11,7 +11,7 @@ const HomeSection = () => (
         <div className="space-y-8">
           <h1 className="text-4xl md:text-5xl mb-4 leading-tight whitespace-nowrap">
             I'm{" "}
-            <span className="bg-blue-500 dark:bg-blue-400 bg-clip-text text-transparent font-semibold">
+            <span className="bg-blue-600 dark:bg-blue-400 bg-clip-text text-transparent font-semibold">
               Elijah Alonzo
             </span>
           </h1>
@@ -37,7 +37,7 @@ const HomeSection = () => (
             {/* Badge */}
             <div
               className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 
-            bg-blue-500 dark:bg-blue-400 px-6 py-2 rounded-full text-white dark:text-black
+            bg-blue-600 dark:bg-gray-900 dark:text-blue-400 px-6 py-2 rounded-full text-white dark:text-black
             font-medium text-sm shadow-lg text-center min-w-max"
             >
               Web Developer & Graphics Designer
