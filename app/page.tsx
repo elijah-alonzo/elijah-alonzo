@@ -1,19 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  MessageCircle,
-  X,
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-  Palette,
-  Brush,
-  Wrench,
-  Award,
-  Video,
-} from "lucide-react";
+import { MessageCircle, X } from "lucide-react";
 import Chat from "./components/chat";
 import NavigationBar from "./components/navigation-bar";
 import { ToolsSection } from "./pages/tool";
@@ -66,7 +54,7 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-green-100 text-gray-900 dark:bg-green-950 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300">
       {/* Navigation */}
       <NavigationBar />
 
@@ -99,10 +87,10 @@ export default function Page() {
 
       {/* Chat Modal */}
       {showChat && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-end p-4">
-          <div className="w-full max-w-md md:max-w-lg h-[600px] md:h-[650px] bg-gradient-to-b from-white via-blue-50 to-blue-100 rounded-2xl shadow-2xl border border-blue-200 flex flex-col overflow-hidden hover:border-blue-300 transition">
+        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm z-50 flex items-center justify-end p-4">
+          <div className="w-full max-w-md md:max-w-lg h-[600px] md:h-[650px] bg-gradient-to-b from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 rounded-2xl shadow-2xl border border-blue-200 dark:border-gray-700 flex flex-col overflow-hidden hover:border-blue-300 dark:hover:border-gray-500 transition">
             {/* Chat Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-5 flex justify-between items-center shadow-lg">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-gray-800 dark:to-gray-900 p-5 flex justify-between items-center shadow-lg">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20">
                   <img
@@ -119,14 +107,14 @@ export default function Page() {
               </div>
               <button
                 onClick={() => setShowChat(false)}
-                className="p-2 hover:bg-white/20 rounded-lg transition transform hover:scale-110"
+                className="p-2 hover:bg-white/20 dark:hover:bg-gray-800/40 rounded-lg transition transform hover:scale-110"
                 aria-label="Close chat"
               >
                 <X size={24} className="text-white" />
               </button>
             </div>
             {/* Chat Content */}
-            <div className="flex-1 overflow-hidden bg-gradient-to-b from-white to-blue-50">
+            <div className="flex-1 overflow-hidden bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
               <Chat />
             </div>
           </div>
