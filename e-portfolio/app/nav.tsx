@@ -2,28 +2,49 @@ import { ThemeToggle } from "./theme";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-8 py-4 border-b border-gray-200 dark:border-gray-800">
-      <div className="text-xl font-bold">My E-Portfolio</div>
-      <ul className="flex items-center gap-6">
-        <li>
-          <a href="#" className="hover:underline">
+    <nav className="fixed top-0 w-full backdrop-blur-md shadow-lg z-40">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <div className="flex items-center">
+          <img
+            src="/elijah-alonzo.png"
+            alt="Elijah Alonzo"
+            className="h-10 w-auto"
+          />
+        </div>
+        <div className="hidden md:flex gap-6 items-center">
+          {/* Example navigation links with classes only */}
+          <a
+            href="#home"
+            className="text-gray-600 hover:text-blue-600 transition font-medium"
+          >
             Home
           </a>
-        </li>
-        <li>
-          <a href="#" className="hover:underline">
+          <a
+            href="#projects"
+            className="text-gray-600 hover:text-blue-600 transition font-medium"
+          >
             Projects
           </a>
-        </li>
-        <li>
-          <a href="#" className="hover:underline">
+          <a
+            href="#tools"
+            className="text-gray-600 hover:text-blue-600 transition font-medium"
+          >
+            Tools
+          </a>
+          <a
+            href="#contact"
+            className="text-gray-600 hover:text-blue-600 transition font-medium"
+          >
             Contact
           </a>
-        </li>
-        <li>
-          <ThemeToggle />
-        </li>
-      </ul>
+          <span className="ml-4">
+            {/* Theme toggle button */}
+            {/* ...existing code... */}
+            {/* Import ThemeToggle from './theme' at the top if not already imported */}
+            <ThemeToggle />
+          </span>
+        </div>
+      </div>
     </nav>
   );
 }

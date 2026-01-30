@@ -1,4 +1,3 @@
-import { ThemeToggle } from "./theme";
 import HomeSection from "../pages/home";
 import Navbar from "./nav";
 

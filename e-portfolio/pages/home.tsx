@@ -1,7 +1,10 @@
 import React from "react";
 
 const HomeSection = () => (
-  <section id="home" className="py-4 px-4 sm:px-6 lg:px-8 flex items-center">
+  <section
+    id="home"
+    className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16"
+  >
     <div className="max-w-6xl mx-auto w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
