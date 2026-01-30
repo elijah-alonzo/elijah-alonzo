@@ -8,7 +8,7 @@ export function SkillSection() {
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+          <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
             Skills
           </h2>
           <p className="text-base text-gray-500 mx-auto">
@@ -22,9 +22,9 @@ export function SkillSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Programming */}
-          <div className="border border-gray dark:border-gray-900 rounded-xl p-6 shadow-lg">
+          <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-blue-600 text-white dark:bg-gray-900 dark:text-blue-400 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <Code className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold">Programming</h3>
@@ -60,7 +60,7 @@ export function SkillSection() {
               ].map((lang) => (
                 <span
                   key={lang.name}
-                  className="px-3 py-1 border border-gray dark:border-gray-900 rounded-full text-gray-500 text-xs font-medium flex items-center gap-2"
+                  className="px-3 py-1 border border-gray dark:border-gray-800 rounded-full text-gray-700 dark:text-gray-200 text-xs font-medium flex items-center gap-2"
                   title={lang.name}
                 >
                   <img
@@ -74,9 +74,9 @@ export function SkillSection() {
             </div>
           </div>
           {/* Frameworks */}
-          <div className="border border-gray dark:border-gray-900 rounded-xl p-6 shadow-lg">
+          <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-blue-600 text-white dark:bg-gray-900 dark:text-blue-400 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <Layers className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold">Frameworks</h3>
@@ -116,7 +116,7 @@ export function SkillSection() {
               ].map((framework) => (
                 <span
                   key={framework.name}
-                  className="px-3 py-1 border border-gray dark:border-gray-900 rounded-full text-gray-700 text-xs font-medium flex items-center gap-2"
+                  className="px-3 py-1 border border-gray dark:border-gray-800 rounded-full text-gray-700 dark:text-gray-200 text-xs font-medium flex items-center gap-2"
                   title={framework.name}
                 >
                   <img
@@ -131,9 +131,9 @@ export function SkillSection() {
           </div>
 
           {/* Databases */}
-          <div className="border border-gray dark:border-gray-900 rounded-xl p-6 shadow-lg">
+          <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-blue-600 text-white dark:bg-gray-900 dark:text-blue-400 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <Database className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold">Databases</h3>
@@ -169,7 +169,7 @@ export function SkillSection() {
               ].map((db) => (
                 <span
                   key={db.name}
-                  className="px-3 py-1 border border-gray dark:border-gray-900 rounded-full text-gray-700 text-xs font-medium flex items-center gap-2"
+                  className="px-3 py-1 border border-gray dark:border-gray-800 rounded-full text-gray-700 dark:text-gray-200 text-xs font-medium flex items-center gap-2"
                   title={db.name}
                 >
                   <img

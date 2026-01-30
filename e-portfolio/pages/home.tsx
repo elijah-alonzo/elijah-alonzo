@@ -9,17 +9,20 @@ const HomeSection = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
         <div className="space-y-8">
-          <h1 className="text-4xl md:text-5xl mb-4 leading-tight whitespace-nowrap">
+          <h1 className="text-4xl font-semibold md:text-5xl mb-4 leading-tight whitespace-nowrap">
             I'm{" "}
-            <span className="bg-blue-600 dark:bg-blue-400 bg-clip-text text-transparent font-semibold">
+            <span className="bg-blue-600 dark:bg-blue-400 bg-clip-text text-transparent font-bold">
               Elijah Alonzo
             </span>
           </h1>
 
           <p className="text-base text-gray-500 leading-relaxed max-w-lg">
             I’m a web developer and graphics designer, ready to bring your ideas
-            to life! Need someone to develop a <b>website</b> or create{" "}
-            <b>graphics design</b>? I’m open for commissions!
+            to life! Need someone to develop a{" "}
+            <b className="text-blue-600 dark:text-blue-400">website</b> or
+            create{" "}
+            <b className="text-blue-600 dark:text-blue-400">graphics design</b>?
+            I’m open for commissions!
           </p>
         </div>
 
