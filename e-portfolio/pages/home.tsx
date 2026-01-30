@@ -30,13 +30,11 @@ const HomeSection = () => (
         <div className="flex justify-center">
           <div className="relative w-80 h-80">
             {/* Image Container */}
-            <div className="relative w-full h-full rounded-full shadow-lg">
-              <img
-                src="/profile.png"
-                alt="Elijah Taguinod Alonzo"
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
+            <img
+              src="/me.jpg"
+              alt="Elijah Taguinod Alonzo"
+              className="w-full h-full object-cover rounded-full"
+            />
             {/* Badge */}
             <div
               className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 

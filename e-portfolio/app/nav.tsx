@@ -2,7 +2,7 @@ import { ThemeToggle } from "./theme";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full backdrop-blur-md shadow-lg z-40">
+    <nav className="fixed top-0 w-full backdrop-blur-md z-40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center text-base">
         <div className="flex items-center">
           <img
@@ -20,16 +20,16 @@ export default function Navbar() {
             Home
           </a>
           <a
+            href="#tech"
+            className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
+          >
+            Tech
+          </a>
+          <a
             href="#projects"
             className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
           >
             Projects
-          </a>
-          <a
-            href="#tools"
-            className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
-          >
-            Tools
           </a>
           <a
             href="#contact"

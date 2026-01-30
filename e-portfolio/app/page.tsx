@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import HomeSection from "../pages/home";
-import { SkillSection } from "../pages/skills";
+import { TechSection } from "../pages/tech";
+import ProjSection from "../pages/project";
 import ContactSection from "../pages/contact";
 import Navbar from "./nav";
 
@@ -46,7 +47,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
       <Navbar />
       <HomeSection />
-      <SkillSection />
+      <TechSection />
+      <ProjSection />
       <ContactSection
         formStatus={formStatus as any}
         formMessage={formMessage}

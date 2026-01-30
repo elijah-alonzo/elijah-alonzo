@@ -1,18 +1,18 @@
 import { Database, Code, Layers } from "lucide-react";
 
-export function SkillSection() {
+export function TechSection() {
   return (
     <section
-      id="tools"
+      id="tech"
       className="py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
-            Skills
+            Technology Stack
           </h2>
           <p className="text-base text-gray-500 mx-auto">
-            Here you'll find all the skills I use in my web development and
+            Here you'll find all the tools I used in my web development and
             graphics design.
             <br />
             Proficient in multiple programming languages for diverse development
@@ -23,7 +23,7 @@ export function SkillSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Programming */}
           <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2 mb-4">
               <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                 <Code className="w-6 h-6" />
               </div>
