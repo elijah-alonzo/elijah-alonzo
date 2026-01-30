@@ -1,12 +1,17 @@
 import { ThemeToggle } from "./theme";
+import HomeSection from "../pages/home";
+import Navbar from "./nav";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white">
-      <h1>Welcome to My E-Portfolio</h1>
-      <p>This is the home page of my e-portfolio built with Next.js.</p>
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
+      {/* Navbar */}
+      <Navbar />
 
-      <ThemeToggle />
+      {/* Main Content */}
+      <main className="flex flex-col items-center justify-center flex-1 py-16 w-full">
+        <HomeSection />
+      </main>
     </div>
   );
 }
