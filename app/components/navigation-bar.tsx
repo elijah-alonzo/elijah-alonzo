@@ -1,3 +1,5 @@
+import { ThemeToggle } from "./theme-toggle";
+
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
@@ -41,6 +43,9 @@ export default function NavigationBar() {
               {link.label}
             </a>
           ))}
+          <span className="ml-4">
+            <ThemeToggle />
+          </span>
         </div>
       </div>
     </nav>
