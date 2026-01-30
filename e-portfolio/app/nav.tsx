@@ -3,7 +3,7 @@ import { ThemeToggle } from "./theme";
 export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full backdrop-blur-md shadow-lg z-40">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center text-base">
         <div className="flex items-center">
           <img
             src="/elijah-alonzo.png"
@@ -15,25 +15,25 @@ export default function Navbar() {
           {/* Example navigation links with classes only */}
           <a
             href="#home"
-            className="text-gray-600 hover:text-blue-600 transition font-medium"
+            className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
           >
             Home
           </a>
           <a
             href="#projects"
-            className="text-gray-600 hover:text-blue-600 transition font-medium"
+            className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
           >
             Projects
           </a>
           <a
             href="#tools"
-            className="text-gray-600 hover:text-blue-600 transition font-medium"
+            className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
           >
             Tools
           </a>
           <a
             href="#contact"
-            className="text-gray-600 hover:text-blue-600 transition font-medium"
+            className="text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
           >
             Contact
           </a>

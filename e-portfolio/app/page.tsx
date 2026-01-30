@@ -3,14 +3,12 @@ import Navbar from "./nav";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
       {/* Navbar */}
       <Navbar />
 
       {/* Main Content */}
-      <main className="flex flex-col items-center justify-center flex-1 py-16 w-full">
-        <HomeSection />
-      </main>
+      <HomeSection />
     </div>
   );
 }
