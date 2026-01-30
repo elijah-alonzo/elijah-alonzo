@@ -8,6 +8,11 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
+export const metadata = {
+  title: "Elijah Alonzo",
+  description: "Elijah Alonzo's Personal Portfolio Website",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} antialiased font-poppins`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
           {children}
         </ThemeProvider>
       </body>

@@ -66,7 +66,7 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100">
+    <div className="min-h-screen bg-green-100 text-gray-900 dark:bg-green-950 dark:text-white transition-colors duration-300">
       {/* Navigation */}
       <NavigationBar />
 

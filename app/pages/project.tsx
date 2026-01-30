@@ -9,7 +9,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-32 px-4 sm:px-6 lg:px-8 bg-white min-h-screen flex items-center"
+      className="py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
