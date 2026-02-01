@@ -98,19 +98,19 @@ export default function Chat() {
               />
             </div>
             <div className="max-w-[75%] px-4 py-3 rounded-2xl text-sm shadow-lg bg-white border border-blue-200 text-gray-800 rounded-bl-md">
-              <span className="font-semibold text-blue-600 block mb-1">
+              <span className="font-semibold text-blue-600 dark:text-blue-400 block mb-1">
                 Elijah
               </span>
               <div className="flex items-center gap-1">
                 <span>Thinking</span>
                 <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"></div>
+                  <div className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-bounce"></div>
                   <div
-                    className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-bounce"
                     style={{ animationDelay: "0.1s" }}
                   ></div>
                   <div
-                    className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-bounce"
                     style={{ animationDelay: "0.2s" }}
                   ></div>
                 </div>
@@ -119,11 +119,11 @@ export default function Chat() {
           </div>
         )}
       </div>
-      <div className="p-4 border-t border-blue-200 bg-gradient-to-r from-blue-50 to-white">
+      <div className="p-4">
         <form onSubmit={handleSubmit} className="flex gap-3">
           <input
             type="text"
-            className="flex-1 rounded-lg border border-blue-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
+            className="flex-1 rounded-lg border border-gray-300 bg-white dark:border-gray-800 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all px-4 py-3 placeholder-gray-500 transition"
             placeholder="Ask me anything..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -133,7 +133,7 @@ export default function Chat() {
           />
           <button
             type="submit"
-            className="rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-6 py-3 font-semibold transition transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-lg"
+            className="rounded-lg bg-blue-600 dark:bg-blue-400 text-white dark:text-gray-900 px-6 py-3 font-semibold transition transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-lg"
             disabled={loading}
           >
             Send
