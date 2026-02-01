@@ -23,7 +23,10 @@ export default function Chat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),
       });
-      if (!res.ok) throw new Error("Failed to get response");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || `Failed to get response (${res.status})`);
+      }
       const data = await res.json();
       setChatHistory((prev) => [
         ...prev,

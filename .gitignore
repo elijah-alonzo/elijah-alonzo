@@ -39,9 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# digital twin data file
-/public/digital-twin.json
-
-# environment variables documentation (contains actual API keys)
-VERCEL_ENV_VARS.md
