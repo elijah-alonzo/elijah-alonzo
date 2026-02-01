@@ -21,7 +21,7 @@ export default function EqualLearnProject() {
           href="https://github.com/elijah-alonzo/equal-learn.git"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm"
+          className="inline-flex items-center gap-2 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm"
         >
           <Github size={16} />
           View on GitHub

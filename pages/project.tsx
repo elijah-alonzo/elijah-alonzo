@@ -31,7 +31,7 @@ export default function ProjSection() {
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
+          <h2 className="text-4xl font-bold text-blue-500 dark:text-blue-400 mb-4">
             Projects
           </h2>
           <p className="text-base text-gray-500 mx-auto">

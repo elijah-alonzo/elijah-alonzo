@@ -8,7 +8,7 @@ export function TechSection() {
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
+          <h2 className="text-4xl font-bold text-blue-500 dark:text-blue-400 mb-4">
             Technology Stack
           </h2>
           <p className="text-base text-gray-500 mx-auto">
@@ -24,7 +24,7 @@ export function TechSection() {
           {/* Programming */}
           <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="w-12 h-12 text-blue-500 dark:text-blue-400 flex items-center justify-center">
                 <Code className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold">Programming</h3>
@@ -76,7 +76,7 @@ export function TechSection() {
           {/* Frameworks */}
           <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="w-12 h-12 text-blue-500 dark:text-blue-400 flex items-center justify-center">
                 <Layers className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold">Frameworks</h3>
@@ -133,7 +133,7 @@ export function TechSection() {
           {/* Databases */}
           <div className="border border-gray dark:border-gray-800 dark:bg-gray-900 rounded-xl p-6 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="w-12 h-12 text-blue-500 dark:text-blue-400 flex items-center justify-center">
                 <Database className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-semibold">Databases</h3>

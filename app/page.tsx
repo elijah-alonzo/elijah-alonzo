@@ -62,7 +62,7 @@ export default function HomePage() {
       {!showChat && (
         <button
           onClick={() => setShowChat(true)}
-          className="fixed bottom-8 right-8 p-4 bg-blue-600 dark:bg-gray-900 text-white dark:text-blue-400 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-110 z-30"
+          className="fixed bottom-8 right-8 p-4 bg-blue-500 dark:bg-gray-900 text-white dark:text-blue-400 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-110 z-30"
           aria-label="Open chat"
         >
           <MessageCircle size={28} />
@@ -74,7 +74,7 @@ export default function HomePage() {
         <div className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-end p-4">
           <div className="w-full max-w-md md:max-w-lg h-[600px] md:h-[650px] rounded-2xl shadow-2xl flex flex-col overflow-hidden transition">
             {/* Chat Header */}
-            <div className="bg-blue-600 dark:bg-blue-400 p-5 flex justify-between items-center shadow-lg">
+            <div className="bg-blue-500 dark:bg-blue-400 p-5 flex justify-between items-center shadow-lg">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden">
                   <img

@@ -25,7 +25,9 @@ export default function Chat() {
       });
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
-        throw new Error(errorData.error || `Failed to get response (${res.status})`);
+        throw new Error(
+          errorData.error || `Failed to get response (${res.status})`,
+        );
       }
       const data = await res.json();
       setChatHistory((prev) => [
@@ -65,7 +67,7 @@ export default function Chat() {
             className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"} items-end gap-2`}
           >
             {msg.sender === "elijah" && (
-              <div className="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-400 flex items-center justify-center flex-shrink-0 mb-1">
+              <div className="w-8 h-8 rounded-full bg-blue-500 dark:bg-blue-400 flex items-center justify-center flex-shrink-0 mb-1">
                 <img
                   src="/me.jpg"
                   alt="Elijah"
@@ -83,7 +85,7 @@ export default function Chat() {
               `}
             >
               {msg.sender === "elijah" && (
-                <span className="font-semibold text-blue-600 block mb-1">
+                <span className="font-semibold text-blue-500 block mb-1">
                   Elijah
                 </span>
               )}
@@ -101,19 +103,19 @@ export default function Chat() {
               />
             </div>
             <div className="max-w-[75%] px-4 py-3 rounded-2xl text-sm shadow-lg bg-white border border-blue-200 text-gray-800 rounded-bl-md">
-              <span className="font-semibold text-blue-600 dark:text-blue-400 block mb-1">
+              <span className="font-semibold text-blue-500 dark:text-blue-400 block mb-1">
                 Elijah
               </span>
               <div className="flex items-center gap-1">
                 <span>Thinking</span>
                 <div className="flex gap-1">
-                  <div className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-bounce"></div>
+                  <div className="w-1 h-1 bg-blue-500 dark:bg-blue-400 rounded-full animate-bounce"></div>
                   <div
-                    className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-blue-500 dark:bg-blue-400 rounded-full animate-bounce"
                     style={{ animationDelay: "0.1s" }}
                   ></div>
                   <div
-                    className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-bounce"
+                    className="w-1 h-1 bg-blue-500 dark:bg-blue-400 rounded-full animate-bounce"
                     style={{ animationDelay: "0.2s" }}
                   ></div>
                 </div>
@@ -136,7 +138,7 @@ export default function Chat() {
           />
           <button
             type="submit"
-            className="rounded-lg bg-blue-600 dark:bg-blue-400 text-white dark:text-gray-900 px-6 py-3 font-semibold transition transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-lg"
+            className="rounded-lg bg-blue-500 dark:bg-blue-400 text-white dark:text-gray-900 px-6 py-3 font-semibold transition transform hover:scale-105 disabled:opacity-50 disabled:transform-none shadow-lg"
             disabled={loading}
           >
             Send
