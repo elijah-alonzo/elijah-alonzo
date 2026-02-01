@@ -42,11 +42,11 @@ export default function Chat() {
         {chatHistory.length === 0 && (
           <div className="text-center text-gray-500 mt-8">
             <div className="mb-3">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-100 to-blue-200 mx-auto flex items-center justify-center mb-3">
+              <div className="w-16 h-16 rounded-full bg-white dark:bg-gray-900 mx-auto flex items-center justify-center mb-3">
                 <img
-                  src="/profile.png"
+                  src="/sys-logo.png"
                   alt="Elijah"
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 object-cover"
                 />
               </div>
             </div>
@@ -62,9 +62,9 @@ export default function Chat() {
             className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"} items-end gap-2`}
           >
             {msg.sender === "elijah" && (
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-100 to-blue-200 flex items-center justify-center flex-shrink-0 mb-1">
+              <div className="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-400 flex items-center justify-center flex-shrink-0 mb-1">
                 <img
-                  src="/profile.png"
+                  src="/me.jpg"
                   alt="Elijah"
                   className="w-6 h-6 rounded-full object-cover"
                 />
