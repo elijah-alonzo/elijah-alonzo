@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Index } from "@upstash/vector";
 import Groq from "groq-sdk";
 
-async function askProfessionalBackground(question: string) {
+export async function askProfessionalBackground(question: string) {
   const index = new Index({
     url: process.env.UPSTASH_VECTOR_REST_URL!,
     token: process.env.UPSTASH_VECTOR_REST_TOKEN!,

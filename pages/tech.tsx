@@ -187,3 +187,5 @@ export function TechSection() {
     </section>
   );
 }
+
+export default TechSection;

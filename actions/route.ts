@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { askProfessionalBackground } from "../api/rag";
+import { askProfessionalBackground } from "../api/rag/route";
 import Groq from "groq-sdk";
 
 // This handler will process RAG queries for the MCP server
