@@ -19,7 +19,7 @@ export default function ContactSection({
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
-          <div>
+          <div className="text-center lg:text-left">
             <h2 className="text-4xl font-bold text-blue-500 dark:text-blue-400 mb-4">
               Let's Connect
             </h2>

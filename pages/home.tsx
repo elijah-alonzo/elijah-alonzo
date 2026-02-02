@@ -8,15 +8,15 @@ const HomeSection = () => (
     <div className="max-w-6xl mx-auto w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
-        <div className="space-y-8">
-          <h1 className="text-4xl font-semibold md:text-5xl mb-4 leading-tight whitespace-nowrap">
+        <div className="space-y-8 text-center md:text-left">
+          <h1 className="text-4xl font-semibold md:text-5xl mb-4 leading-tight">
             I'm{" "}
             <span className="bg-blue-500 dark:bg-blue-400 bg-clip-text text-transparent font-bold">
               Elijah Alonzo
             </span>
           </h1>
 
-          <p className="text-base text-gray-500 leading-relaxed max-w-lg">
+          <p className="text-base text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
             I’m a web developer and graphics designer, ready to bring your ideas
             to life! Need someone to develop a{" "}
             <b className="text-blue-500 dark:text-blue-400">website</b> or

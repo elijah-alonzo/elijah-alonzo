@@ -30,11 +30,11 @@ export default function ProjSection() {
       className="py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <div className="text-left sm:text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-blue-500 dark:text-blue-400 mb-4">
             Projects
           </h2>
-          <p className="text-base text-gray-500 sm:mx-auto">
+          <p className="text-base text-gray-500 mx-auto">
             A portfolio of functional systems I have designed, developed, and
             successfully deployed throughout my career.
           </p>
