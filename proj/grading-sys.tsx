@@ -6,18 +6,18 @@ export default function GradingSysProject() {
       <div className="h-36 overflow-hidden relative">
         <img
           src="/brand/gss.png"
-          alt="Grading Sheet Monitoring System"
+          alt="University Documents Submission Monitoring System"
           className="w-full h-full object-contain"
         />
         <div className="absolute inset-0"></div>
       </div>
       <div className="p-6">
         <h3 className="text-l font-semibold mb-2">
-          Grading Sheet Monitoring System
+          University Documents Submission Monitoring System
         </h3>
         <p className="text-gray-500 mb-4 text-sm">
-          A web app for the university registrar and staff to track and monitor
-          submission of grading sheets.
+          A web app for monitoring the submission of documents and other
+          sheetssheets .
         </p>
         <a
           href="https://github.com/elijah-alonzo/grading-sys.git"
