@@ -97,7 +97,7 @@ export default function Chat() {
           <div className="flex justify-start items-end gap-2">
             <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mb-1">
               <img
-                src="/profile.png"
+                src="/me.jpg"
                 alt="Elijah"
                 className="w-6 h-6 rounded-full object-cover"
               />
