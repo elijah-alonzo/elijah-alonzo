@@ -1,23 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Index } from "@upstash/vector";
 import Groq from "groq-sdk";
+import { askProfessionalBackground } from "../../../lib/rag";
 
-export async function askProfessionalBackground(question: string) {
-  const index = new Index({
-    url: process.env.UPSTASH_VECTOR_REST_URL!,
-    token: process.env.UPSTASH_VECTOR_REST_TOKEN!,
-  });
-
-  const result = await index.query({
-    data: question,
-    topK: 3,
-    includeMetadata: true,
-  });
-
-  return result;
-}
-
-// This handler will process RAG queries for the MCP server
 export async function POST(req: NextRequest) {
   const { question } = await req.json();
   try {

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { askProfessionalBackground } from "../api/rag/route";
 import Groq from "groq-sdk";
+import { askProfessionalBackground } from "../lib/rag";
 
 // This handler will process RAG queries for the MCP server
 export async function POST(req: NextRequest) {
