@@ -2,11 +2,12 @@
   <img src="/public/sys-logo.png" width="200" alt="System Logo">
 </p>
 
-<h1 align="center"> Elijah Alonzo </h1>
 
 <p align="center">
 Information Technology student at St. Paul University Philippines who is looking for career paths in either Cloud Infrastructure, Cyber Security, Software Development, or Artificial Intelligence. I have worked with and created working systems using:
 </p>
+
+<h1></h1>
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" width="40" height="40"/>
@@ -24,3 +25,5 @@ Information Technology student at St. Paul University Philippines who is looking
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="40" height="40"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg" alt="MariaDB" width="40" height="40"/>
 </p>
+
+
