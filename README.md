@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="/public/sys-logo.png" width="200" alt="System Logo">
+</p>
+
 <h1 align="center"> Elijah Alonzo </h1>
 
 <p align="center">
