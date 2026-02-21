@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/public/logo/logo-red.png" width="200" alt="System Logo">
+  <img src="/public/sys-logo.png" width="200" alt="System Logo">
 </p>
 
 <p align="center">
