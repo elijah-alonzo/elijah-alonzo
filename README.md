@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="/public/sys-logo.png" width="200" alt="System Logo">
-</p>
-
-<p align="center">
 Information Technology student at St. Paul University Philippines who is looking for career paths in either Cloud Infrastructure, Cyber Security, Software Development, or Artificial Intelligence. I have worked with and created working systems using:
 </p>
 
