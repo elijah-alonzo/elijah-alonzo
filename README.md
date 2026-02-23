@@ -1,4 +1,4 @@
-<h1 alight="center">Elijah Alonzo</h1>
+<h1 align="center">Elijah Alonzo</h1>
 
 <p align="center">
 Information Technology student at St. Paul University Philippines who is looking for career paths in either Cloud Infrastructure, Cyber Security, Software Development, or Artificial Intelligence. I have worked with and created working systems using:
