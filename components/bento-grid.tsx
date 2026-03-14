@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
-import { Activity, Command, BarChart3, Zap, Shield } from "lucide-react"
+import { Code2, Zap, Database, Cloud, Palette, Brain } from "lucide-react"
 
 const containerVariants = {
   hidden: {},
@@ -26,7 +26,7 @@ const itemVariants = {
 }
 
 function SystemStatus() {
-  const [dots, setDots] = useState([true, true, true, false, true])
+  const [dots, setDots] = useState([true, true, true, true])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -119,7 +119,7 @@ export function BentoGrid() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="work" className="py-24 px-4 bg-background dark:bg-zinc-950">
+    <section id="skills" className="py-24 px-4 bg-background dark:bg-zinc-950">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export function BentoGrid() {
             className="text-3xl sm:text-4xl font-bold text-foreground dark:text-white mb-4"
             style={{ fontFamily: "var(--font-instrument-sans)" }}
           >
-            Featured Work & Skills
+            Skills and Technologies
           </h2>
           <p className="text-muted-foreground dark:text-zinc-400 max-w-2xl mx-auto">
             Showcasing selected projects that demonstrate my expertise in design, development, and digital innovation.
@@ -145,91 +145,135 @@ export function BentoGrid() {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          {/* Large card - Featured Project */}
+          {/* Large card - Full Stack Development */}
           <motion.div
             variants={itemVariants}
             className="md:col-span-2 group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
+            {/* Green accent element on hover */}
+            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
             <div className="flex items-start justify-between mb-8">
               <div>
                 <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                  <Activity className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                  <Code2 className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground dark:text-white mb-2">E-Commerce Platform</h3>
+                <h3 className="text-xl font-semibold text-foreground dark:text-white mb-2">Full Stack Development</h3>
                 <p className="text-muted-foreground dark:text-zinc-400 text-sm">
-                  Modern React-based platform with real-time inventory, advanced filtering, and seamless checkout experience.
+                  End-to-end development building scalable web applications with modern tech stacks, from backend architecture to responsive frontends.
                 </p>
               </div>
               <SystemStatus />
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              {["React", "Next.js", "Animation", "UX Design"].map((skill) => (
-                <div key={skill} className="text-center">
-                  <div className="text-sm font-semibold text-foreground dark:text-white mb-1">✓</div>
-                  <div className="text-xs text-muted-foreground dark:text-zinc-500">{skill}</div>
-                </div>
+            <div className="flex flex-wrap gap-2">
+              {["JavaScript", "TypeScript", "PHP", "Python", "Laravel", "Next.js", "React", "Node.js", "Git", "GitHub"].map((tool) => (
+                <span key={tool} className="px-3 py-1.5 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
+                  {tool}
+                </span>
               ))}
             </div>
           </motion.div>
 
-          {/* UI/UX Design */}
+          {/* AI & Generative Systems */}
           <motion.div
             variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
+            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
-            <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-              <Command className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            {/* Green accent element on hover */}
+            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                  <Brain className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">AI & Generative Systems</h3>
+                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Integrating AI to enhance system intelligence, automate content generation, and provide dynamic user interactions.</p>
+              </div>
+              <SystemStatus />
             </div>
-            <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">UI/UX Design</h3>
-            <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-6">Creating intuitive interfaces with Figma, prototyping, and user research.</p>
-            <KeyboardCommand />
-          </motion.div>
-
-          {/* Frontend Development */}
-          <motion.div
-            variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
-          >
-            <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-              <BarChart3 className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-            </div>
-            <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Frontend Expertise</h3>
-            <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Building responsive, performant web applications with modern tech stacks.</p>
-            <AnimatedChart />
-          </motion.div>
-
-          {/* Animations & Interactions */}
-          <motion.div
-            variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
-          >
-            <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-              <Zap className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-            </div>
-            <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Motion Design</h3>
-            <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">
-              Creating smooth animations and interactions with Framer Motion and CSS.
-            </p>
-            <div className="flex items-center gap-2 text-emerald-500 text-sm">
-              <span className="font-mono">60fps</span>
-              <span className="text-muted-foreground dark:text-zinc-500">animations</span>
+            <div className="flex flex-wrap gap-2">
+              {["RAG", "Generative AI", "User Input Generation", "Report Automation", "OpenAI API", "LangChain", "TensorFlow", "Python"].map((tool) => (
+                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
+                  {tool}
+                </span>
+              ))}
             </div>
           </motion.div>
 
-          {/* Full Stack Capabilities */}
+          {/* Database Management */}
           <motion.div
             variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
+            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
-            <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-              <Shield className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            {/* Green accent element on hover */}
+            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                  <Database className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Database Management</h3>
+                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Designing, optimizing, and securing databases to support high-performance applications.</p>
+              </div>
+              <SystemStatus />
             </div>
-            <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Full Stack</h3>
-            <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">End-to-end development from backend APIs to database architecture.</p>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-1 text-xs bg-card dark:bg-zinc-800 rounded text-muted-foreground dark:text-zinc-400">Node.js</span>
-              <span className="px-2 py-1 text-xs bg-card dark:bg-zinc-800 rounded text-muted-foreground dark:text-zinc-400">PostgreSQL</span>
-              <span className="px-2 py-1 text-xs bg-card dark:bg-zinc-800 rounded text-muted-foreground dark:text-zinc-400">APIs</span>
+            <div className="flex flex-wrap gap-2">
+              {["MySQL", "PostgreSQL", "SQLite", "MariaDB", "MongoDB", "Data Modeling", "Query Optimization", "Backup & Recovery"].map((tool) => (
+                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Cloud & Infrastructure Operations */}
+          <motion.div
+            variants={itemVariants}
+            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+          >
+            {/* Green accent element on hover */}
+            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                  <Cloud className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Cloud & Infrastructure</h3>
+                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Deploying and maintaining scalable, highly available systems on cloud platforms.</p>
+              </div>
+              <SystemStatus />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["AWS", "Azure", "GCP", "Linux", "Docker", "Jenkins", "Bash", "Vercel", "NGINX"].map((tool) => (
+                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Design & UI/UX */}
+          <motion.div
+            variants={itemVariants}
+            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+          >
+            {/* Green accent element on hover */}
+            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                  <Palette className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Design & UI/UX</h3>
+                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Creating responsive, user-friendly interfaces and cohesive design systems.</p>
+              </div>
+              <SystemStatus />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["Figma", "CSS", "Tailwind", "Bootstrap", "FlutterFlow"].map((tool) => (
+                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
+                  {tool}
+                </span>
+              ))}
             </div>
           </motion.div>
         </motion.div>

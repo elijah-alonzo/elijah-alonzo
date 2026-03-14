@@ -2,34 +2,25 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Briefcase, Calendar, MapPin, ExternalLink } from "lucide-react"
+import { Briefcase, Calendar, MapPin } from "lucide-react"
 
 const experiences = [
   {
-    company: "Design Studio",
-    role: "Lead Product Designer",
-    period: "2023 - Present",
+    company: "Employability Advantage",
+    role: "Full Stack & Agentic AI Developer Intern",
+    period: "September 2025 - December 2025",
     location: "Remote",
-    description: "Leading design systems and creating exceptional user experiences for enterprise clients. Mentoring junior designers and establishing design best practices.",
-    skills: ["Figma", "User Research", "Design Systems", "Prototyping"],
+    description: "Developed full-stack applications integrating AI systems to automate workflows and enhance user interactions. Built scalable backend services with modern frameworks and created responsive frontend interfaces powered by generative AI.",
+    skills: ["Full Stack Development", "AI Integration", "Agentic Systems", "TypeScript", "React", "Node.js"],
     link: "#"
   },
   {
-    company: "Tech Startup",
-    role: "Full Stack Developer",
-    period: "2021 - 2023",
-    location: "New York, NY",
-    description: "Developed and shipped multiple product features. Built scalable backend systems and created responsive frontend applications using modern tech stacks.",
-    skills: ["React", "Node.js", "PostgreSQL", "TypeScript"],
-    link: "#"
-  },
-  {
-    company: "Creative Agency",
-    role: "Frontend Developer",
-    period: "2020 - 2021",
-    location: "San Francisco, CA",
-    description: "Created interactive web experiences and animations. Collaborated with designers to bring creative visions to life with high-performance code.",
-    skills: ["React", "Animation", "CSS", "JavaScript"],
+    company: "MaraLABS",
+    role: "Technical Operations Intern",
+    period: "February 2026 - April 2026",
+    location: "Quezon City, PH",
+    description: "Managed cloud infrastructure, DevOps workflows, and system operations. Implemented deployment strategies, optimized database performance, and ensured high availability of production systems.",
+    skills: ["Cloud Operations", "DevOps", "Infrastructure", "Docker", "Linux", "AWS"],
     link: "#"
   },
 ]
@@ -60,12 +51,12 @@ export function Experience() {
 
   return (
     <section id="experience" className="py-24 px-4 bg-background dark:bg-zinc-950">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="text-center mb-16"
         >
           <h2
             className="text-3xl sm:text-4xl font-bold text-foreground dark:text-white mb-4"
@@ -73,7 +64,7 @@ export function Experience() {
           >
             Professional Experience
           </h2>
-          <p className="text-muted-foreground dark:text-zinc-400 max-w-2xl">
+          <p className="text-muted-foreground dark:text-zinc-400 max-w-2xl mx-auto">
             A journey through roles that have shaped my expertise in design, development, and digital innovation.
           </p>
         </motion.div>
@@ -83,39 +74,31 @@ export function Experience() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="space-y-6"
+          className="space-y-4"
         >
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900/50 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-emerald-500/30 transition-all duration-300"
+              className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
             >
-              {/* Left accent line */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-transparent rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
+              {/* Green accent element on hover */}
+              <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800">
-                      <Briefcase className="w-4 h-4 text-foreground dark:text-emerald-500" />
+                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 group-hover:bg-emerald-600/20">
+                      <Briefcase className="w-4 h-4 text-muted-foreground dark:text-zinc-400 group-hover:text-emerald-500 transition-colors duration-300" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-foreground dark:text-white">{exp.role}</h3>
-                      <p className="text-sm text-foreground dark:text-emerald-500 font-medium">{exp.company}</p>
+                      <p className="text-sm text-muted-foreground dark:text-zinc-400 font-medium">{exp.company}</p>
                     </div>
                   </div>
                 </div>
-                <a
-                  href={exp.link}
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white transition-colors text-sm"
-                >
-                  Learn more
-                  <ExternalLink className="w-3 h-3" />
-                </a>
               </div>
 
-              <p className="text-muted-foreground dark:text-zinc-400 mb-4 text-sm md:text-base leading-relaxed">
+              <p className="text-muted-foreground dark:text-zinc-400 mb-4 text-sm leading-relaxed">
                 {exp.description}
               </p>
 
@@ -123,7 +106,7 @@ export function Experience() {
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium"
+                    className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-400 font-medium"
                   >
                     {skill}
                   </span>

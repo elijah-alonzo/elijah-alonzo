@@ -1,0 +1,16 @@
+@keyframes carouselScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-scroll {
+  animation: carouselScroll 30s linear infinite;
+}
+
+.carousel-paused {
+  animation-play-state: paused;
+}

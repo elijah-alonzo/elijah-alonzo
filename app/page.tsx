@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { BentoGrid } from "@/components/bento-grid"
 import { Experience } from "@/components/experience"
+import { Projects } from "@/components/projects"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <BentoGrid />
         <Experience />
+        <Projects />
         <FinalCTA />
         <Footer />
       </main>

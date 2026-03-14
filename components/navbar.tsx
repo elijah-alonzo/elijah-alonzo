@@ -6,8 +6,9 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { label: "Work", href: "#work" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -32,7 +33,7 @@ export function Navbar() {
           <div className="w-8 h-8 rounded-lg bg-foreground dark:bg-white flex items-center justify-center">
             <span className="text-background dark:text-zinc-950 font-bold text-sm">P</span>
           </div>
-          <span className="font-semibold text-foreground dark:text-white hidden sm:block">Portfolio</span>
+          <span className="font-semibold text-foreground dark:text-white hidden sm:block">Elijah Alonzo</span>
         </a>
 
         {/* Desktop Nav Items */}
