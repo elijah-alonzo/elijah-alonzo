@@ -3,26 +3,8 @@
 import { motion } from "framer-motion"
 import { Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const avatars = [
-  "/professional-headshot-1.png",
-  "/professional-headshot-2.png",
-  "/professional-headshot-3.png",
-  "/professional-headshot-4.png",
-  "/professional-headshot-5.png",
-]
-
-const textRevealVariants = {
-  hidden: { y: "100%" },
-  visible: (i: number) => ({
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-      delay: i * 0.1,
-    },
-  }),
-}
+import { AVATARS, SOCIAL_LINKS } from "@/lib/constants"
+import { TEXT_REVEAL_VARIANTS } from "@/lib/animations"
 
 export function Hero() {
   return (
@@ -137,7 +119,7 @@ pointer-events-none" />
               {/* Profile image container - Perfect circle */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border dark:border-zinc-800 shadow-2xl shadow-black/30">
                 <img
-                  src={avatars[0] || "/placeholder.svg"}
+                  src={AVATARS[0] || "/placeholder.svg"}
                   alt="Elijah Alonzo"
                   className="w-full h-full object-cover"
                 />

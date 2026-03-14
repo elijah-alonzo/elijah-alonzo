@@ -3,27 +3,8 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 import { Code2, Zap, Database, Cloud, Palette, Brain } from "lucide-react"
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-}
+import { CONTAINER_VARIANTS, ITEM_VARIANTS, HEADER_ANIMATION } from "@/lib/animations"
+import { IN_VIEW, SPACING, ANIMATION } from "@/lib/config"
 
 function SystemStatus() {
   const [dots, setDots] = useState([true, true, true, true])
@@ -116,15 +97,14 @@ function AnimatedChart() {
 
 export function BentoGrid() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: IN_VIEW.ONCE, margin: IN_VIEW.MARGIN })
 
   return (
-    <section id="skills" className="py-24 px-4 bg-background dark:bg-zinc-950">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
+      <div className={`${SPACING.MAX_WIDTH} mx-auto`}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          {...HEADER_ANIMATION}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2
@@ -140,14 +120,14 @@ export function BentoGrid() {
 
         <motion.div
           ref={ref}
-          variants={containerVariants}
+          variants={CONTAINER_VARIANTS}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {/* Large card - Full Stack Development */}
           <motion.div
-            variants={itemVariants}
+            variants={ITEM_VARIANTS}
             className="md:col-span-2 group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
             {/* Green accent element on hover */}
@@ -175,7 +155,7 @@ export function BentoGrid() {
 
           {/* AI & Generative Systems */}
           <motion.div
-            variants={itemVariants}
+            variants={ITEM_VARIANTS}
             className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
             {/* Green accent element on hover */}
@@ -201,7 +181,7 @@ export function BentoGrid() {
 
           {/* Database Management */}
           <motion.div
-            variants={itemVariants}
+            variants={ITEM_VARIANTS}
             className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
             {/* Green accent element on hover */}
@@ -227,7 +207,7 @@ export function BentoGrid() {
 
           {/* Cloud & Infrastructure Operations */}
           <motion.div
-            variants={itemVariants}
+            variants={ITEM_VARIANTS}
             className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
             {/* Green accent element on hover */}
@@ -253,7 +233,7 @@ export function BentoGrid() {
 
           {/* Design & UI/UX */}
           <motion.div
-            variants={itemVariants}
+            variants={ITEM_VARIANTS}
             className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
             {/* Green accent element on hover */}

@@ -3,59 +3,20 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
-
-const experiences = [
-  {
-    company: "Employability Advantage",
-    role: "Full Stack & Agentic AI Developer Intern",
-    period: "September 2025 - December 2025",
-    location: "Remote",
-    description: "Developed full-stack applications integrating AI systems to automate workflows and enhance user interactions. Built scalable backend services with modern frameworks and created responsive frontend interfaces powered by generative AI.",
-    skills: ["Full Stack Development", "AI Integration", "Agentic Systems", "TypeScript", "React", "Node.js"],
-    link: "#"
-  },
-  {
-    company: "MaraLABS",
-    role: "Technical Operations Intern",
-    period: "February 2026 - April 2026",
-    location: "Quezon City, PH",
-    description: "Managed cloud infrastructure, DevOps workflows, and system operations. Implemented deployment strategies, optimized database performance, and ensured high availability of production systems.",
-    skills: ["Cloud Operations", "DevOps", "Infrastructure", "Docker", "Linux", "AWS"],
-    link: "#"
-  },
-]
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-}
+import { EXPERIENCES } from "@/lib/constants"
+import { CONTAINER_VARIANTS, ITEM_VARIANTS_X, HEADER_ANIMATION } from "@/lib/animations"
+import { IN_VIEW, SPACING, ANIMATION } from "@/lib/config"
 
 export function Experience() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: IN_VIEW.ONCE, margin: IN_VIEW.MARGIN })
 
   return (
-    <section id="experience" className="py-24 px-4 bg-background dark:bg-zinc-950">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
+      <div className={`${SPACING.MAX_WIDTH} mx-auto`}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          {...HEADER_ANIMATION}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2
@@ -71,15 +32,15 @@ export function Experience() {
 
         <motion.div
           ref={ref}
-          variants={containerVariants}
+          variants={CONTAINER_VARIANTS}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="space-y-4"
         >
-          {experiences.map((exp, index) => (
+          {EXPERIENCES.map((exp, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
+              variants={ITEM_VARIANTS_X}
               className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
             >
               {/* Green accent element on hover */}
