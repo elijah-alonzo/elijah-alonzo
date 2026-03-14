@@ -1,7 +1,6 @@
 "use client"
 
-import { Github, ExternalLink } from "lucide-react"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import "./projects.css"
@@ -13,19 +12,12 @@ const projects = [
     subtitle: "Paulinian Student Government",
     description: "A platform for the Paulinian Student Government to manage, showcase, and rank student portfolios efficiently.",
     image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2310b981' width='100' height='100'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EE-P%3C/text%3E%3C/svg%3E",
-    links: [
-      { label: "View on GitHub", href: "#", icon: Github },
-    ],
   },
   {
     id: 2,
     title: "e-Portfolio with Integrated AI",
     description: "Personal portfolio website enhanced with AI features and RAG technology to improve user experience and interactivity.",
     image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234f46e5;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%230ea5e9;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='100' height='100'/%3E%3Ctext x='50' y='60' font-size='50' fill='white' text-anchor='middle' font-weight='bold'%3EEA%3C/text%3E%3C/svg%3E",
-    links: [
-      { label: "View on GitHub", href: "#", icon: Github },
-      { label: "Live Site", href: "#", icon: ExternalLink },
-    ],
   },
   {
     id: 3,
@@ -33,9 +25,6 @@ const projects = [
     subtitle: "SPUP",
     description: "A web app for monitoring the submission of documents and other sheets for university requirements.",
     image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2310b981' width='100' height='100'/%3E%3Ctext x='50' y='60' font-size='30' fill='white' text-anchor='middle' font-weight='bold'%3ESPUP%3C/text%3E%3C/svg%3E",
-    links: [
-      { label: "View on GitHub", href: "#", icon: Github },
-    ],
   },
 ]
 
@@ -61,8 +50,46 @@ const itemVariants = {
 
 export function Projects() {
   const ref = useRef(null)
+  const carouselRef = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const [isHovered, setIsHovered] = useState(false)
+  
+  // Auto-scroll carousel every 4 seconds per item
+  useEffect(() => {
+    if (!isInView || !carouselRef.current) return
+    
+    let scrollPosition = 0
+    const itemWidth = 440 // approximate width with gap
+    const totalScroll = itemWidth * projects.length
+    const scrollDuration = 1500 // Smooth scroll over 1.5 seconds
+    
+    const interval = setInterval(() => {
+      if (!isHovered && carouselRef.current) {
+        const targetScroll = (scrollPosition + itemWidth) % totalScroll
+        const startScroll = carouselRef.current.scrollLeft
+        const startTime = performance.now()
+        
+        const animate = (currentTime: number) => {
+          const elapsed = currentTime - startTime
+          const progress = Math.min(elapsed / scrollDuration, 1)
+          
+          if (carouselRef.current) {
+            carouselRef.current.scrollLeft = startScroll + (targetScroll - startScroll) * progress
+          }
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate)
+          } else {
+            scrollPosition = targetScroll
+          }
+        }
+        
+        requestAnimationFrame(animate)
+      }
+    }, 4000)
+    
+    return () => clearInterval(interval)
+  }, [isHovered, isInView])
 
   return (
     <section id="projects" ref={ref} className="py-24 px-4 bg-background dark:bg-zinc-950">
@@ -87,11 +114,12 @@ export function Projects() {
 
         {/* Scrollable Container */}
         <motion.div
+          ref={carouselRef}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className={`carousel-scroll flex gap-6 overflow-x-auto scrollbar-hide ${isHovered ? "carousel-paused" : ""}`}
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="carousel-scroll flex gap-6 overflow-x-auto scrollbar-hide"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollBehavior: "smooth" }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -127,25 +155,6 @@ export function Projects() {
                   <p className="text-muted-foreground dark:text-zinc-400 text-sm leading-relaxed mb-6 flex-1">
                     {project.description}
                   </p>
-
-                  {/* Links */}
-                  <div className="flex gap-3 flex-wrap">
-                    {project.links.map((link) => {
-                      const Icon = link.icon
-                      return (
-                        <a
-                          key={link.label}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-400 transition-colors duration-300"
-                        >
-                          <Icon className="w-4 h-4" />
-                          {link.label}
-                        </a>
-                      )
-                    })}
-                  </div>
                 </div>
               </div>
             </motion.div>

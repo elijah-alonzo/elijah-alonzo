@@ -8,7 +8,7 @@
 }
 
 .carousel-scroll {
-  animation: carouselScroll 30s linear infinite;
+  will-change: transform;
 }
 
 .carousel-paused {
