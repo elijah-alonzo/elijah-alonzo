@@ -3,8 +3,9 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 import { Code2, Zap, Database, Cloud, Palette, Brain } from "lucide-react"
-import { CONTAINER_VARIANTS, ITEM_VARIANTS, HEADER_ANIMATION } from "@/lib/animations"
+import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
 import { IN_VIEW, SPACING, ANIMATION } from "@/lib/config"
+import { SectionHeader } from "@/components/section-header"
 
 function SystemStatus() {
   const [dots, setDots] = useState([true, true, true, true])
@@ -95,28 +96,18 @@ function AnimatedChart() {
   )
 }
 
-export function BentoGrid() {
+export default function TechnicalPage() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: IN_VIEW.ONCE, margin: IN_VIEW.MARGIN })
 
   return (
     <section id="skills" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
       <div className={`${SPACING.MAX_WIDTH} mx-auto`}>
-        <motion.div
-          {...HEADER_ANIMATION}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
-        >
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-foreground dark:text-white mb-4"
-            style={{ fontFamily: "var(--font-instrument-sans)" }}
-          >
-            Skills and Technologies
-          </h2>
-          <p className="text-muted-foreground dark:text-zinc-400 max-w-2xl mx-auto">
-            Showcasing selected projects that demonstrate my expertise in design, development, and digital innovation.
-          </p>
-        </motion.div>
+        <SectionHeader
+          title="Skills and Technologies"
+          description="Showcasing selected projects that demonstrate my expertise in design, development, and digital innovation."
+          isInView={isInView}
+        />
 
         <motion.div
           ref={ref}

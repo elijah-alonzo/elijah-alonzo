@@ -2,13 +2,9 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-
-const footerLinks = {
-  Work: ["View Projects", "Case Studies", "Collaborations", "Archives"],
-  Resources: ["Blog", "Articles", "Tools", "Resources"],
-  About: ["Bio", "Experience", "Skills", "Contact"],
-  Social: ["Twitter", "GitHub", "LinkedIn", "Instagram"],
-}
+import { FOOTER_LINKS } from "@/lib/navigation"
+import { FOOTER_SOCIAL_LINKS } from "@/lib/constants"
+import { ICON_MAP } from "@/lib/utils"
 
 export function Footer() {
   const ref = useRef(null)
@@ -40,7 +36,7 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
+          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
             <div key={title}>
               <h4 className="text-sm font-semibold text-foreground dark:text-white mb-4">{title}</h4>
               <ul className="space-y-3">
@@ -65,15 +61,21 @@ export function Footer() {
         >
           <p className="text-sm text-muted-foreground dark:text-zinc-500">&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground dark:text-zinc-500 hover:text-foreground dark:hover:text-white transition-colors">
-              Twitter
-            </a>
-            <a href="#" className="text-sm text-muted-foreground dark:text-zinc-500 hover:text-foreground dark:hover:text-white transition-colors">
-              GitHub
-            </a>
-            <a href="#" className="text-sm text-muted-foreground dark:text-zinc-500 hover:text-foreground dark:hover:text-white transition-colors">
-              LinkedIn
-            </a>
+            {FOOTER_SOCIAL_LINKS.map((link) => {
+              const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP]
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  title={link.title}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground dark:text-zinc-500 hover:text-foreground dark:hover:text-white transition-colors"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              )
+            })}
           </div>
         </motion.div>
       </div>
