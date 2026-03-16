@@ -4,9 +4,11 @@ import { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
-import { CAROUSEL, IN_VIEW, ANIMATION, DIMENSIONS, IMAGE_DIMENSIONS, SPACING } from "@/lib/config"
+import { DIMENSIONS, IMAGE_DIMENSIONS, SPACING } from "@/lib/config"
+import { sectionCardBaseClass } from "@/styles/card-styles"
+import { cn } from "@/lib/utils"
 import { SectionHeader } from "@/components/section-header"
-import { useAutoScrollCarousel } from "@/hooks/useAutoScrollCarousel"
+import { Card, CardContent } from "@/components/ui/card"
 
 interface Project {
   id: number
@@ -18,19 +20,11 @@ interface Project {
 
 export default function ProjectsPage() {
   const ref = useRef(null)
-  const carouselRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const [isHovered, setIsHovered] = useState(false)
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-
-  const { isHovered, setIsHovered } = useAutoScrollCarousel({
-    ref: carouselRef,
-    enabled: isInView && projects.length > 0,
-    itemCount: projects.length,
-    autoScrollInterval: CAROUSEL.AUTO_SCROLL_INTERVAL,
-    scrollDuration: CAROUSEL.SCROLL_DURATION,
-  })
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -93,50 +87,49 @@ export default function ProjectsPage() {
         )}
 
         {!loading && projects.length > 0 && (
-          <motion.div
-            ref={carouselRef}
-            variants={CONTAINER_VARIANTS}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className={`flex ${SPACING.GAP} overflow-x-auto scrollbar-hide`}
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollBehavior: "smooth" }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                variants={ITEM_VARIANTS}
-                className={`${DIMENSIONS.CAROUSEL_SM} sm:${DIMENSIONS.CAROUSEL_MD} md:${DIMENSIONS.CAROUSEL_LG} flex-shrink-0`}
-              >
-                <div className="relative h-full rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:scale-[1.02] transition-all duration-300 overflow-hidden flex flex-col">
-                  {/* Project Image */}
-                  <div className={`${IMAGE_DIMENSIONS.HEIGHT} bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 flex items-center justify-center overflow-hidden border-b border-border dark:border-zinc-800`}>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+          <div className="relative overflow-hidden" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+            <motion.div
+              variants={CONTAINER_VARIANTS}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className={`flex ${SPACING.GAP} animate-marquee`}
+              style={{ animationPlayState: isHovered ? "paused" : "running" }}
+            >
+              {[...projects, ...projects].map((project, index) => (
+                <motion.div
+                  key={`${project.id}-${index}`}
+                  variants={ITEM_VARIANTS}
+                  className={`${DIMENSIONS.CAROUSEL_SM} sm:${DIMENSIONS.CAROUSEL_MD} md:${DIMENSIONS.CAROUSEL_LG} flex-shrink-0`}
+                >
+                  <Card className={cn(sectionCardBaseClass, "h-full hover:scale-[1.02] flex flex-col")}>
+                    {/* Project Image */}
+                    <div className={`${IMAGE_DIMENSIONS.HEIGHT} bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 flex items-center justify-center overflow-hidden border-b border-border dark:border-zinc-800`}>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col p-6">
-                    {project.subtitle && (
-                      <p className="text-xs font-medium text-emerald-500 mb-1 uppercase tracking-wide">
-                        {project.subtitle}
+                    {/* Content */}
+                    <CardContent className="flex-1 flex flex-col p-6">
+                      {project.subtitle && (
+                        <p className="text-xs font-medium text-emerald-500 mb-1 uppercase tracking-wide">
+                          {project.subtitle}
+                        </p>
+                      )}
+                      <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground dark:text-zinc-400 text-sm leading-relaxed mb-6 flex-1">
+                        {project.description}
                       </p>
-                    )}
-                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground dark:text-zinc-400 text-sm leading-relaxed mb-6 flex-1">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         )}
       </div>
     </section>

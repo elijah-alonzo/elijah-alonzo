@@ -5,7 +5,10 @@ import { useRef, useState, useEffect } from "react"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS_X } from "@/lib/animations"
 import { IN_VIEW, SPACING } from "@/lib/config"
+import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
+import { sectionTagMutedClass } from "@/styles/tag-styles"
 import { SectionHeader } from "@/components/section-header"
+import { Card, CardContent } from "@/components/ui/card"
 
 interface ExperienceData {
   id: number
@@ -96,50 +99,54 @@ export default function ExperiencePage() {
               <motion.div
                 key={exp.id}
                 variants={ITEM_VARIANTS_X}
-                className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+                className="group"
               >
-                {/* Green accent element on hover */}
-                <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 group-hover:bg-emerald-600/20">
-                        <Briefcase className="w-4 h-4 text-muted-foreground dark:text-zinc-400 group-hover:text-emerald-500 transition-colors duration-300" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-foreground dark:text-white">{exp.role}</h3>
-                        <p className="text-sm text-muted-foreground dark:text-zinc-400 font-medium">{exp.company}</p>
+                <Card className={sectionCardInteractiveClass}>
+                  {/* Green accent element on hover */}
+                  <div className={sectionCardAccentClass} />
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 group-hover:bg-emerald-600/20">
+                            <Briefcase className="w-4 h-4 text-muted-foreground dark:text-zinc-400 group-hover:text-emerald-500 transition-colors duration-300" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-foreground dark:text-white">{exp.role}</h3>
+                            <p className="text-sm text-muted-foreground dark:text-zinc-400 font-medium">{exp.company}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                <p className="text-muted-foreground dark:text-zinc-400 mb-4 text-sm leading-relaxed">
-                  {exp.description}
-                </p>
+                    <p className="text-muted-foreground dark:text-zinc-400 mb-4 text-sm leading-relaxed">
+                      {exp.description}
+                    </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {exp.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-400 font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className={sectionTagMutedClass}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-4 border-t border-border dark:border-zinc-800 text-xs text-muted-foreground dark:text-zinc-500">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{exp.period}</span>
-                  </div>
-                  <span className="hidden sm:block text-border dark:text-zinc-700">•</span>
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5" />
-                    <span>{exp.location}</span>
-                  </div>
-                </div>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-4 border-t border-border dark:border-zinc-800 text-xs text-muted-foreground dark:text-zinc-500">
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>{exp.period}</span>
+                      </div>
+                      <span className="hidden sm:block text-border dark:text-zinc-700">•</span>
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>{exp.location}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </motion.div>

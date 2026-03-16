@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { NAV_ITEMS } from "@/lib/navigation"
+import { NAVBAR_HEADER_ANIMATION, NAVBAR_HOVER_TRANSITION, NAVBAR_MOBILE_MENU_ANIMATION } from "@/lib/animations"
 
 export function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -13,9 +14,7 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      {...NAVBAR_HEADER_ANIMATION}
       className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl"
     >
       <nav
@@ -45,7 +44,7 @@ export function Navbar() {
                   layoutId="navbar-hover"
                   className="absolute inset-0 bg-muted dark:bg-zinc-800 rounded-full"
                   initial={false}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  transition={NAVBAR_HOVER_TRANSITION}
                 />
               )}
               <span className="relative z-10">{item.label}</span>
@@ -85,9 +84,7 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
+          {...NAVBAR_MOBILE_MENU_ANIMATION}
           className="absolute top-full left-0 right-0 mt-2 p-4 rounded-2xl bg-background/95 dark:bg-zinc-900/95 backdrop-blur-md border border-border"
         >
           <div className="flex flex-col gap-2">

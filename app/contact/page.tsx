@@ -4,8 +4,12 @@ import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { sectionCardBaseClass } from "@/styles/card-styles"
+import { primaryShimmerButtonClass } from "@/styles/button-styles"
+import { contactTextareaClass, getContactFieldClass } from "@/styles/form-styles"
 import { CONTACT_LINKS } from "@/lib/constants"
-import { CONTACT_VARIANTS } from "@/lib/animations"
+import { CONTACT_VARIANTS, fadeUpInViewProps } from "@/lib/animations"
 import { ICON_MAP } from "@/lib/utils"
 import { contactFormSchema, type ContactFormInput } from "@/lib/schemas"
 import { ZodError } from "zod"
@@ -80,12 +84,7 @@ export default function ContactPage() {
     <section id="contact" className="py-24 px-4 bg-background dark:bg-zinc-950">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div ref={ref} {...fadeUpInViewProps(isInView)}>
             <h2 className="display-font text-4xl sm:text-5xl font-bold text-foreground dark:text-white mb-4 tracking-tight">
               Let's Connect
             </h2>
@@ -124,16 +123,16 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="p-8 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800"
+            {...fadeUpInViewProps(isInView, 0.1)}
+            className="group"
           >
-            <h3 className="display-font text-2xl sm:text-3xl font-bold text-foreground dark:text-white mb-6">
-              Send a Message
-            </h3>
+            <Card className={sectionCardBaseClass}>
+              <CardContent className="p-8">
+                <h3 className="display-font text-2xl sm:text-3xl font-bold text-foreground dark:text-white mb-6">
+                  Send a Message
+                </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-muted-foreground dark:text-zinc-400 mb-2">
@@ -147,7 +146,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-background dark:bg-zinc-950 border text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-zinc-600 focus:outline-none transition-colors disabled:opacity-50 ${errors.name ? "border-red-500 dark:border-red-500 focus:border-red-500" : "border-border dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-500"}`}
+                    className={getContactFieldClass(Boolean(errors.name))}
                     required
                   />
                   {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
@@ -164,7 +163,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className={`w-full px-4 py-2.5 rounded-lg bg-background dark:bg-zinc-950 border text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-zinc-600 focus:outline-none transition-colors disabled:opacity-50 ${errors.email ? "border-red-500 dark:border-red-500 focus:border-red-500" : "border-border dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-500"}`}
+                    className={getContactFieldClass(Boolean(errors.email))}
                     required
                   />
                   {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
@@ -183,7 +182,7 @@ export default function ContactPage() {
                   value={formData.subject}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className={`w-full px-4 py-2.5 rounded-lg bg-background dark:bg-zinc-950 border text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-zinc-600 focus:outline-none transition-colors disabled:opacity-50 ${errors.subject ? "border-red-500 dark:border-red-500 focus:border-red-500" : "border-border dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-500"}`}
+                  className={getContactFieldClass(Boolean(errors.subject))}
                   required
                 />
                 {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
@@ -201,7 +200,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   disabled={isSubmitting}
                   rows={6}
-                  className={`w-full px-4 py-2.5 rounded-lg bg-background dark:bg-zinc-950 border text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-zinc-600 focus:outline-none transition-colors resize-none disabled:opacity-50 ${errors.message ? "border-red-500 dark:border-red-500 focus:border-red-500" : "border-border dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-500"}`}
+                  className={`${getContactFieldClass(Boolean(errors.message))} ${contactTextareaClass}`}
                   required
                 />
                 {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
@@ -223,16 +222,18 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting || submitted}
-                className="w-full shimmer-btn bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-700/50 text-white rounded-lg h-12 font-medium transition-colors"
-              >
-                <Mail className="mr-2 w-4 h-4" />
-                {isSubmitting ? "Sending..." : submitted ? "Message Sent!" : "Send Message"}
-              </Button>
-            </form>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting || submitted}
+                    className={primaryShimmerButtonClass}
+                  >
+                    <Mail className="mr-2 w-4 h-4" />
+                    {isSubmitting ? "Sending..." : submitted ? "Message Sent!" : "Send Message"}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </div>

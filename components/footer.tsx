@@ -5,6 +5,7 @@ import { useRef } from "react"
 import { FOOTER_LINKS } from "@/lib/navigation"
 import { FOOTER_SOCIAL_LINKS } from "@/lib/constants"
 import { ICON_MAP } from "@/lib/utils"
+import { fadeInInViewProps, fadeUpInViewProps } from "@/lib/animations"
 
 export function Footer() {
   const ref = useRef(null)
@@ -13,12 +14,7 @@ export function Footer() {
   return (
     <footer ref={ref} className="border-t border-border dark:border-zinc-800 bg-background dark:bg-zinc-950">
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-8"
-        >
+        <motion.div {...fadeUpInViewProps(isInView)} className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <a href="#" className="flex items-center gap-2 mb-4">
@@ -54,9 +50,7 @@ export function Footer() {
 
         {/* Bottom */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          {...fadeInInViewProps(isInView, 0.3)}
           className="mt-16 pt-8 border-t border-border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <p className="text-sm text-muted-foreground dark:text-zinc-500">&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>

@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Manrope, Space_Mono, Instrument_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { ThemeProvider } from "@/components/theme-provider"
 import "../styles/globals.css"
 
 const manrope = Manrope({
@@ -35,13 +34,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body className={`${manrope.variable} ${spaceMono.variable} ${instrumentSans.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="noise-overlay" aria-hidden="true" />
-          {children}
-          <Analytics />
-        </ThemeProvider>
+        <div className="noise-overlay" aria-hidden="true" />
+        {children}
+        <Analytics />
       </body>
     </html>
   )

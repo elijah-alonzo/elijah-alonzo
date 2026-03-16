@@ -2,10 +2,13 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
-import { Code2, Zap, Database, Cloud, Palette, Brain } from "lucide-react"
-import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
-import { IN_VIEW, SPACING, ANIMATION } from "@/lib/config"
+import { Code2, Database, Cloud, Palette, Brain } from "lucide-react"
+import { CONTAINER_VARIANTS, ITEM_VARIANTS, KEYBOARD_IDLE_ANIMATE, KEYBOARD_PRESSED_ANIMATE, SYSTEM_STATUS_ACTIVE_ANIMATE, systemStatusTransition } from "@/lib/animations"
+import { IN_VIEW, SPACING } from "@/lib/config"
+import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
+import { sectionTagLargeClass, sectionTagCompactClass } from "@/styles/tag-styles"
 import { SectionHeader } from "@/components/section-header"
+import { Card, CardContent } from "@/components/ui/card"
 
 function SystemStatus() {
   const [dots, setDots] = useState([true, true, true, true])
@@ -23,8 +26,8 @@ function SystemStatus() {
         <motion.div
           key={i}
           className={`w-2 h-2 rounded-full ${active ? "bg-emerald-500" : "bg-zinc-700"}`}
-          animate={active ? { scale: [1, 1.2, 1] } : {}}
-          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, delay: i * 0.2 }}
+          animate={active ? SYSTEM_STATUS_ACTIVE_ANIMATE : {}}
+          transition={systemStatusTransition(i * 0.2)}
         />
       ))}
     </div>
@@ -45,13 +48,13 @@ function KeyboardCommand() {
   return (
     <div className="flex items-center gap-1">
       <motion.kbd
-        animate={pressed ? { scale: 0.95, y: 2 } : { scale: 1, y: 0 }}
+        animate={pressed ? KEYBOARD_PRESSED_ANIMATE : KEYBOARD_IDLE_ANIMATE}
         className="px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-zinc-300 font-mono"
       >
         ⌘
       </motion.kbd>
       <motion.kbd
-        animate={pressed ? { scale: 0.95, y: 2 } : { scale: 1, y: 0 }}
+        animate={pressed ? KEYBOARD_PRESSED_ANIMATE : KEYBOARD_IDLE_ANIMATE}
         transition={{ delay: 0.05 }}
         className="px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-zinc-300 font-mono"
       >
@@ -119,133 +122,153 @@ export default function TechnicalPage() {
           {/* Large card - Full Stack Development */}
           <motion.div
             variants={ITEM_VARIANTS}
-            className="md:col-span-2 group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+            className="md:col-span-2 group"
           >
-            {/* Green accent element on hover */}
-            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
-            <div className="flex items-start justify-between mb-8">
-              <div>
-                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                  <Code2 className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            <Card className={sectionCardInteractiveClass}>
+              {/* Green accent element on hover */}
+              <div className={sectionCardAccentClass} />
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between mb-8">
+                  <div>
+                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                      <Code2 className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground dark:text-white mb-2">Full Stack Development</h3>
+                    <p className="text-muted-foreground dark:text-zinc-400 text-sm">
+                      End-to-end development building scalable web applications with modern tech stacks, from backend architecture to responsive frontends.
+                    </p>
+                  </div>
+                  <SystemStatus />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground dark:text-white mb-2">Full Stack Development</h3>
-                <p className="text-muted-foreground dark:text-zinc-400 text-sm">
-                  End-to-end development building scalable web applications with modern tech stacks, from backend architecture to responsive frontends.
-                </p>
-              </div>
-              <SystemStatus />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["JavaScript", "TypeScript", "PHP", "Python", "Laravel", "Next.js", "React", "Node.js", "Git", "GitHub"].map((tool) => (
-                <span key={tool} className="px-3 py-1.5 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
-                  {tool}
-                </span>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  {["JavaScript", "TypeScript", "PHP", "Python", "Laravel", "Next.js", "React", "Node.js", "Git", "GitHub"].map((tool) => (
+                    <span key={tool} className={sectionTagLargeClass}>
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           {/* AI & Generative Systems */}
           <motion.div
             variants={ITEM_VARIANTS}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+            className="group"
           >
-            {/* Green accent element on hover */}
-            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                  <Brain className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            <Card className={sectionCardInteractiveClass}>
+              {/* Green accent element on hover */}
+              <div className={sectionCardAccentClass} />
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                      <Brain className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">AI & Generative Systems</h3>
+                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Integrating AI to enhance system intelligence, automate content generation, and provide dynamic user interactions.</p>
+                  </div>
+                  <SystemStatus />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">AI & Generative Systems</h3>
-                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Integrating AI to enhance system intelligence, automate content generation, and provide dynamic user interactions.</p>
-              </div>
-              <SystemStatus />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["RAG", "Generative AI", "User Input Generation", "Report Automation", "OpenAI API", "LangChain", "TensorFlow", "Python"].map((tool) => (
-                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
-                  {tool}
-                </span>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  {["RAG", "Generative AI", "User Input Generation", "Report Automation", "OpenAI API", "LangChain", "TensorFlow", "Python"].map((tool) => (
+                    <span key={tool} className={sectionTagCompactClass}>
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           {/* Database Management */}
           <motion.div
             variants={ITEM_VARIANTS}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+            className="group"
           >
-            {/* Green accent element on hover */}
-            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                  <Database className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            <Card className={sectionCardInteractiveClass}>
+              {/* Green accent element on hover */}
+              <div className={sectionCardAccentClass} />
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                      <Database className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Database Management</h3>
+                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Designing, optimizing, and securing databases to support high-performance applications.</p>
+                  </div>
+                  <SystemStatus />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Database Management</h3>
-                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Designing, optimizing, and securing databases to support high-performance applications.</p>
-              </div>
-              <SystemStatus />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["MySQL", "PostgreSQL", "SQLite", "MariaDB", "MongoDB", "Data Modeling", "Query Optimization", "Backup & Recovery"].map((tool) => (
-                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
-                  {tool}
-                </span>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  {["MySQL", "PostgreSQL", "SQLite", "MariaDB", "MongoDB", "Data Modeling", "Query Optimization", "Backup & Recovery"].map((tool) => (
+                    <span key={tool} className={sectionTagCompactClass}>
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           {/* Cloud & Infrastructure Operations */}
           <motion.div
             variants={ITEM_VARIANTS}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+            className="group"
           >
-            {/* Green accent element on hover */}
-            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                  <Cloud className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            <Card className={sectionCardInteractiveClass}>
+              {/* Green accent element on hover */}
+              <div className={sectionCardAccentClass} />
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                      <Cloud className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Cloud & Infrastructure</h3>
+                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Deploying and maintaining scalable, highly available systems on cloud platforms.</p>
+                  </div>
+                  <SystemStatus />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Cloud & Infrastructure</h3>
-                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Deploying and maintaining scalable, highly available systems on cloud platforms.</p>
-              </div>
-              <SystemStatus />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["AWS", "Azure", "GCP", "Linux", "Docker", "Jenkins", "Bash", "Vercel", "NGINX"].map((tool) => (
-                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
-                  {tool}
-                </span>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  {["AWS", "Azure", "GCP", "Linux", "Docker", "Jenkins", "Bash", "Vercel", "NGINX"].map((tool) => (
+                    <span key={tool} className={sectionTagCompactClass}>
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
 
           {/* Design & UI/UX */}
           <motion.div
             variants={ITEM_VARIANTS}
-            className="group relative p-6 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-emerald-500/30 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+            className="group"
           >
-            {/* Green accent element on hover */}
-            <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-500 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                  <Palette className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+            <Card className={sectionCardInteractiveClass}>
+              {/* Green accent element on hover */}
+              <div className={sectionCardAccentClass} />
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                      <Palette className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Design & UI/UX</h3>
+                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Creating responsive, user-friendly interfaces and cohesive design systems.</p>
+                  </div>
+                  <SystemStatus />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Design & UI/UX</h3>
-                <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Creating responsive, user-friendly interfaces and cohesive design systems.</p>
-              </div>
-              <SystemStatus />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["Figma", "CSS", "Tailwind", "Bootstrap", "FlutterFlow"].map((tool) => (
-                <span key={tool} className="px-2.5 py-1 text-xs rounded-full bg-card dark:bg-zinc-800 text-muted-foreground dark:text-zinc-300 font-medium border border-border dark:border-zinc-700">
-                  {tool}
-                </span>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  {["Figma", "CSS", "Tailwind", "Bootstrap", "FlutterFlow"].map((tool) => (
+                    <span key={tool} className={sectionTagCompactClass}>
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
         </motion.div>
       </div>
