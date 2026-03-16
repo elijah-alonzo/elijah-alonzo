@@ -35,17 +35,6 @@ export const HEADER_ANIMATION = {
   transition: { duration: 0.6 },
 }
 
-export const TEXT_REVEAL_VARIANTS = {
-  hidden: { y: "100%" },
-  visible: (i: number) => ({
-    y: 0,
-    transition: {
-      duration: 0.8,
-      delay: i * 0.1,
-    },
-  }),
-}
-
 // Variants for form/contact sections (CTA components)
 export const CONTACT_VARIANTS = {
   container: {
@@ -148,6 +137,3 @@ export const systemStatusTransition = (delay: number) => ({
   repeat: Number.POSITIVE_INFINITY,
   delay,
 })
-
-export const KEYBOARD_IDLE_ANIMATE = { scale: 1, y: 0 } as const
-export const KEYBOARD_PRESSED_ANIMATE = { scale: 0.95, y: 2 } as const

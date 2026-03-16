@@ -4,9 +4,10 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS_X } from "@/lib/animations"
-import { IN_VIEW, SPACING } from "@/lib/config"
+import { IN_VIEW } from "@/lib/config"
 import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
 import { sectionTagMutedClass } from "@/styles/tag-styles"
+import { experienceStyles } from "@/app/experience/style"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
 import experienceData from "@/app/experience/data.json"
@@ -51,8 +52,8 @@ export default function ExperiencePage() {
   const experiences = normalizeExperiences(experienceData)
 
   return (
-    <section ref={ref} id="experience" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
-      <div className={`${SPACING.MAX_WIDTH} mx-auto`}>
+    <section ref={ref} id="experience" className={experienceStyles.section}>
+      <div className={experienceStyles.container}>
         <SectionHeader
           title="Professional Experience"
           description="A journey through roles that have shaped my expertise in design, development, and digital innovation."
@@ -60,8 +61,8 @@ export default function ExperiencePage() {
         />
 
         {experiences.length === 0 && (
-          <div className="p-8 rounded-lg bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 text-center">
-            <p className="text-muted-foreground dark:text-zinc-400">No experiences available yet.</p>
+          <div className={experienceStyles.emptyState}>
+            <p className={experienceStyles.emptyText}>No experiences available yet.</p>
           </div>
         )}
 
@@ -70,37 +71,37 @@ export default function ExperiencePage() {
             variants={CONTAINER_VARIANTS}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="space-y-4"
+            className={experienceStyles.list}
           >
             {experiences.map((exp) => (
               <motion.div
                 key={exp.id}
                 variants={ITEM_VARIANTS_X}
-                className="group"
+                className={experienceStyles.item}
               >
                 <Card className={sectionCardInteractiveClass}>
                   {/* Green accent element on hover */}
                   <div className={sectionCardAccentClass} />
-                  <CardContent className="p-6">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 group-hover:bg-emerald-600/20">
-                            <Briefcase className="w-4 h-4 text-muted-foreground dark:text-zinc-400 group-hover:text-emerald-500 transition-colors duration-300" />
+                  <CardContent className={experienceStyles.content}>
+                    <div className={experienceStyles.header}>
+                      <div className={experienceStyles.headerLeft}>
+                        <div className={experienceStyles.roleRow}>
+                          <div className={experienceStyles.iconWrap}>
+                            <Briefcase className={experienceStyles.icon} />
                           </div>
                           <div>
-                            <h3 className="text-lg font-semibold text-foreground dark:text-white">{exp.role}</h3>
-                            <p className="text-sm text-muted-foreground dark:text-zinc-400 font-medium">{exp.company}</p>
+                            <h3 className={experienceStyles.role}>{exp.role}</h3>
+                            <p className={experienceStyles.company}>{exp.company}</p>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground dark:text-zinc-400 mb-4 text-sm leading-relaxed">
+                    <p className={experienceStyles.description}>
                       {exp.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className={experienceStyles.skills}>
                       {exp.skills.map((skill) => (
                         <span
                           key={skill}
@@ -111,14 +112,14 @@ export default function ExperiencePage() {
                       ))}
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-4 border-t border-border dark:border-zinc-800 text-xs text-muted-foreground dark:text-zinc-500">
-                      <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5" />
+                    <div className={experienceStyles.meta}>
+                      <div className={experienceStyles.metaItem}>
+                        <Calendar className={experienceStyles.metaIcon} />
                         <span>{exp.period}</span>
                       </div>
-                      <span className="hidden sm:block text-border dark:text-zinc-700">•</span>
-                      <div className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5" />
+                      <span className={experienceStyles.divider}>•</span>
+                      <div className={experienceStyles.metaItem}>
+                        <MapPin className={experienceStyles.metaIcon} />
                         <span>{exp.location}</span>
                       </div>
                     </div>

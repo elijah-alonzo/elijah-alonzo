@@ -23,9 +23,8 @@ const instrumentSans = Instrument_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Portfolio | Developer",
+  title: "Elijah Alonzo",
   description: "Showcasing creative work and technical expertise through beautiful digital experiences.",
-  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -35,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${manrope.variable} ${spaceMono.variable} ${instrumentSans.variable} font-sans antialiased`}>
+      <body className={`${manrope.variable} ${spaceMono.variable} ${instrumentSans.variable} font-sans antialiased min-h-screen bg-background dark:bg-zinc-950`}>
         <div className="noise-overlay" aria-hidden="true" />
         {children}
         <Analytics />

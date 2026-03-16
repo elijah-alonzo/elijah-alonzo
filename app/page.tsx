@@ -12,7 +12,7 @@ import ContactPage from "@/app/contact/page"
 export default function Page() {
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-background dark:bg-zinc-950">
+      <main>
         <Navbar />
         <HomePage />
         <TechnicalPage />

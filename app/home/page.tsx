@@ -6,6 +6,7 @@ import { HOME_ANIMATION } from "@/lib/animations"
 import { ICON_MAP } from "@/lib/utils"
 import homeData from "@/app/home/data.json"
 import socialLinksData from "@/app/contact/data.json"
+import { homeStyles } from "@/app/home/style"
 
 interface SocialLink {
 	icon: string
@@ -55,23 +56,23 @@ export default function HomePage() {
 	const socialLinks = normalizeSocialLinks(socialLinksData)
 
 	return (
-		<section className="relative py-24 px-4 bg-background dark:bg-zinc-950 overflow-hidden">
-			<div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950/90 to-zinc-950 pointer-events-none" />
-			<div className="relative z-10 max-w-6xl mx-auto">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-					<motion.div {...HOME_ANIMATION.heading} className="text-left">
-						<div className="mb-6">
-							<p className="text-muted-foreground dark:text-zinc-400 text-lg mb-2">{data.headingPrefix}</p>
-							<h1 className="display-font text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground dark:text-white">
+		<section className={homeStyles.section}>
+			<div className={homeStyles.backdrop} />
+			<div className={homeStyles.container}>
+				<div className={homeStyles.grid}>
+					<motion.div {...HOME_ANIMATION.heading} className={homeStyles.content}>
+						<div className={homeStyles.introBlock}>
+							<p className={homeStyles.headingPrefix}>{data.headingPrefix}</p>
+							<h1 className={homeStyles.name}>
 								{data.name}
 							</h1>
 						</div>
 
-						<motion.p {...HOME_ANIMATION.description} className="text-muted-foreground dark:text-zinc-400 max-w-xl mb-8 leading-relaxed">
+						<motion.p {...HOME_ANIMATION.description} className={homeStyles.description}>
 							{data.description}
 						</motion.p>
 
-						<motion.div {...HOME_ANIMATION.socials} className="flex gap-3">
+						<motion.div {...HOME_ANIMATION.socials} className={homeStyles.socials}>
 							{socialLinks.map((link) => {
 								const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP] ?? ICON_MAP.Mail
 								const isEmail = link.icon === "Mail"
@@ -81,7 +82,7 @@ export default function HomePage() {
 										key={link.icon}
 										size="icon"
 										variant="outline"
-										className="w-11 h-11 rounded-full border-border dark:border-zinc-800 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300"
+										className={homeStyles.socialButton}
 										asChild
 									>
 										<a
@@ -90,7 +91,7 @@ export default function HomePage() {
 											target={isEmail ? undefined : "_blank"}
 											rel={isEmail ? undefined : "noopener noreferrer"}
 										>
-											<Icon className="w-5 h-5 text-foreground dark:text-zinc-300" />
+											<Icon className={homeStyles.socialIcon} />
 										</a>
 									</Button>
 								)
@@ -98,23 +99,23 @@ export default function HomePage() {
 						</motion.div>
 					</motion.div>
 
-					<motion.div {...HOME_ANIMATION.image} className="relative flex justify-center items-center">
-						<div className="relative w-72 h-80 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-							<div className="absolute inset-0 rounded-full bg-gradient-to-br from-zinc-900 to-zinc-950 dark:from-zinc-900 dark:to-black opacity-60" />
-							<div className="absolute -inset-8 rounded-full bg-zinc-800/20 dark:bg-zinc-800/30 blur-2xl" />
+					<motion.div {...HOME_ANIMATION.image} className={homeStyles.imageWrap}>
+						<div className={homeStyles.imageBounds}>
+							<div className={homeStyles.imageBaseGlow} />
+							<div className={homeStyles.imageOuterGlow} />
 
-							<div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border dark:border-zinc-800 shadow-2xl shadow-black/30">
+							<div className={homeStyles.imageFrame}>
 								<img
 									src={data.avatar || "/placeholder.svg"}
 									alt={data.name}
-									className="w-full h-full object-cover"
+									className={homeStyles.image}
 								/>
 							</div>
 
-							<motion.div {...HOME_ANIMATION.badge} className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
-								<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card dark:bg-zinc-900 border border-border dark:border-zinc-800">
-									<span className="w-2 h-2 rounded-full bg-emerald-500" />
-									<span className="text-xs font-medium text-muted-foreground dark:text-zinc-400">{data.badge}</span>
+							<motion.div {...HOME_ANIMATION.badge} className={homeStyles.badgeWrap}>
+								<div className={homeStyles.badge}>
+									<span className={homeStyles.badgeDot} />
+									<span className={homeStyles.badgeText}>{data.badge}</span>
 								</div>
 							</motion.div>
 						</div>

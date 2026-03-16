@@ -4,9 +4,14 @@ import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
-import { DIMENSIONS, IMAGE_DIMENSIONS, SPACING } from "@/lib/config"
 import { sectionCardBaseClass } from "@/styles/card-styles"
 import { cn } from "@/lib/utils"
+import {
+  projectsStyles,
+  getProjectsTrackClass,
+  getProjectsCardItemClass,
+  getProjectsImageWrapClass,
+} from "@/app/projects/style"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
 import projectData from "@/app/projects/data.json"
@@ -46,8 +51,8 @@ export default function ProjectsPage() {
   const projects = normalizeProjects(projectData)
 
   return (
-    <section id="projects" ref={ref} className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
-      <div className={`${SPACING.MAX_WIDTH} mx-auto`}>
+    <section id="projects" ref={ref} className={projectsStyles.section}>
+      <div className={projectsStyles.container}>
         <SectionHeader
           title="Projects"
           description="A portfolio of functional systems I have designed, developed, and successfully deployed throughout my career."
@@ -55,47 +60,47 @@ export default function ProjectsPage() {
         />
 
         {projects.length === 0 && (
-          <div className="p-8 rounded-lg bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 text-center">
-            <p className="text-muted-foreground dark:text-zinc-400">No projects available yet.</p>
+          <div className={projectsStyles.emptyState}>
+            <p className={projectsStyles.emptyText}>No projects available yet.</p>
           </div>
         )}
 
         {projects.length > 0 && (
-          <div className="relative overflow-hidden" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+          <div className={projectsStyles.marqueeWrap} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             <motion.div
               variants={CONTAINER_VARIANTS}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className={`flex ${SPACING.GAP} animate-marquee`}
+              className={getProjectsTrackClass()}
               style={{ animationPlayState: isHovered ? "paused" : "running" }}
             >
               {[...projects, ...projects].map((project, index) => (
                 <motion.div
                   key={`${project.id}-${index}`}
                   variants={ITEM_VARIANTS}
-                  className={`${DIMENSIONS.CAROUSEL_SM} sm:${DIMENSIONS.CAROUSEL_MD} md:${DIMENSIONS.CAROUSEL_LG} flex-shrink-0`}
+                  className={getProjectsCardItemClass()}
                 >
-                  <Card className={cn(sectionCardBaseClass, "h-full hover:scale-[1.02] flex flex-col")}>
+                  <Card className={cn(sectionCardBaseClass, projectsStyles.card)}>
                     {/* Project Image */}
-                    <div className={`${IMAGE_DIMENSIONS.HEIGHT} bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 flex items-center justify-center overflow-hidden border-b border-border dark:border-zinc-800`}>
+                    <div className={getProjectsImageWrapClass()}>
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className={projectsStyles.image}
                       />
                     </div>
 
                     {/* Content */}
-                    <CardContent className="flex-1 flex flex-col p-6">
+                    <CardContent className={projectsStyles.content}>
                       {project.subtitle && (
-                        <p className="text-xs font-medium text-emerald-500 mb-1 uppercase tracking-wide">
+                        <p className={projectsStyles.subtitle}>
                           {project.subtitle}
                         </p>
                       )}
-                      <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">
+                      <h3 className={projectsStyles.title}>
                         {project.title}
                       </h3>
-                      <p className="text-muted-foreground dark:text-zinc-400 text-sm leading-relaxed mb-6 flex-1">
+                      <p className={projectsStyles.description}>
                         {project.description}
                       </p>
                     </CardContent>

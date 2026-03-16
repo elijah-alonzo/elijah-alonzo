@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { sectionCardBaseClass } from "@/styles/card-styles"
 import { primaryShimmerButtonClass } from "@/styles/button-styles"
 import { contactTextareaClass, getContactFieldClass } from "@/styles/form-styles"
+import { contactStyles } from "@/app/contact/style"
 import { CONTACT_VARIANTS, fadeUpInViewProps } from "@/lib/animations"
 import { ICON_MAP } from "@/lib/utils"
 import { contactFormSchema, type ContactFormInput } from "@/lib/schemas"
@@ -107,14 +108,14 @@ export default function ContactPage() {
   }
 
   return (
-    <section id="contact" className="py-24 px-4 bg-background dark:bg-zinc-950">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+    <section id="contact" className={contactStyles.section}>
+      <div className={contactStyles.container}>
+        <div className={contactStyles.grid}>
           <motion.div ref={ref} {...fadeUpInViewProps(isInView)}>
-            <h2 className="display-font text-4xl sm:text-5xl font-bold text-foreground dark:text-white mb-4 tracking-tight">
+            <h2 className={contactStyles.heading}>
               Let's Connect
             </h2>
-            <p className="text-muted-foreground dark:text-zinc-400 mb-8 leading-relaxed">
+            <p className={contactStyles.intro}>
               Whether you're looking for a web developer, graphics designer, or creative collaborator, feel free to reach out!
             </p>
 
@@ -122,7 +123,7 @@ export default function ContactPage() {
               variants={CONTACT_VARIANTS.container}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="space-y-4"
+              className={contactStyles.linkList}
             >
               {contactLinks.map((link) => {
                 const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP] ?? ICON_MAP.Mail
@@ -133,14 +134,14 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={CONTACT_VARIANTS.item}
-                    className="flex items-start gap-4 p-4 rounded-2xl bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 hover:border-border dark:hover:border-zinc-700 transition-all duration-300"
+                    className={contactStyles.linkItem}
                   >
-                    <div className="p-2.5 rounded-lg bg-card dark:bg-zinc-800 mt-0.5">
-                      <Icon className="w-5 h-5 text-emerald-600 dark:text-emerald-500" />
+                    <div className={contactStyles.linkIconWrap}>
+                      <Icon className={contactStyles.linkIcon} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground dark:text-white">{link.label}</h3>
-                      <p className="text-sm text-muted-foreground dark:text-zinc-400 truncate">{link.value}</p>
+                    <div className={contactStyles.linkContent}>
+                      <h3 className={contactStyles.linkLabel}>{link.label}</h3>
+                      <p className={contactStyles.linkValue}>{link.value}</p>
                     </div>
                   </motion.a>
                 )
@@ -150,18 +151,18 @@ export default function ContactPage() {
 
           <motion.div
             {...fadeUpInViewProps(isInView, 0.1)}
-            className="group"
+            className={contactStyles.formWrap}
           >
             <Card className={sectionCardBaseClass}>
-              <CardContent className="p-8">
-                <h3 className="display-font text-2xl sm:text-3xl font-bold text-foreground dark:text-white mb-6">
+              <CardContent className={contactStyles.formCardContent}>
+                <h3 className={contactStyles.formTitle}>
                   Send a Message
                 </h3>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className={contactStyles.form}>
+              <div className={contactStyles.nameEmailGrid}>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-muted-foreground dark:text-zinc-400 mb-2">
+                  <label htmlFor="name" className={contactStyles.fieldLabel}>
                     Name
                   </label>
                   <input
@@ -175,10 +176,10 @@ export default function ContactPage() {
                     className={getContactFieldClass(Boolean(errors.name))}
                     required
                   />
-                  {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
+                  {errors.name && <p className={contactStyles.fieldError}>{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-muted-foreground dark:text-zinc-400 mb-2">
+                  <label htmlFor="email" className={contactStyles.fieldLabel}>
                     Email
                   </label>
                   <input
@@ -192,12 +193,12 @@ export default function ContactPage() {
                     className={getContactFieldClass(Boolean(errors.email))}
                     required
                   />
-                  {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+                  {errors.email && <p className={contactStyles.fieldError}>{errors.email}</p>}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground dark:text-zinc-400 mb-2">
+                <label htmlFor="subject" className={contactStyles.fieldLabel}>
                   Subject
                 </label>
                 <input
@@ -211,11 +212,11 @@ export default function ContactPage() {
                   className={getContactFieldClass(Boolean(errors.subject))}
                   required
                 />
-                {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
+                {errors.subject && <p className={contactStyles.fieldError}>{errors.subject}</p>}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-muted-foreground dark:text-zinc-400 mb-2">
+                <label htmlFor="message" className={contactStyles.fieldLabel}>
                   Message
                 </label>
                 <textarea
@@ -229,20 +230,20 @@ export default function ContactPage() {
                   className={`${getContactFieldClass(Boolean(errors.message))} ${contactTextareaClass}`}
                   required
                 />
-                {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+                {errors.message && <p className={contactStyles.fieldError}>{errors.message}</p>}
               </div>
 
               {submitError && (
-                <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30">
-                  <p className="text-sm font-medium text-red-600 dark:text-red-400">
+                <div className={contactStyles.submitErrorWrap}>
+                  <p className={contactStyles.submitErrorText}>
                     ✕ {submitError}
                   </p>
                 </div>
               )}
 
               {submitted && (
-                <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
-                  <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                <div className={contactStyles.submitSuccessWrap}>
+                  <p className={contactStyles.submitSuccessText}>
                     ✓ Message sent successfully! I'll get back to you soon.
                   </p>
                 </div>
@@ -254,7 +255,7 @@ export default function ContactPage() {
                     disabled={isSubmitting || submitted}
                     className={primaryShimmerButtonClass}
                   >
-                    <Mail className="mr-2 w-4 h-4" />
+                    <Mail className={contactStyles.submitIcon} />
                     {isSubmitting ? "Sending..." : submitted ? "Message Sent!" : "Send Message"}
                   </Button>
                 </form>

@@ -3,7 +3,6 @@
 // InView configurations
 export const IN_VIEW = {
   ONCE: true,
-  AMOUNT: 0.3,
   MARGIN: "-100px",
 } as const
 

@@ -4,9 +4,16 @@ import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 import { Code2, Database, Cloud, Palette, Brain, type LucideIcon } from "lucide-react"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS, SYSTEM_STATUS_ACTIVE_ANIMATE, systemStatusTransition } from "@/lib/animations"
-import { IN_VIEW, SPACING } from "@/lib/config"
+import { IN_VIEW } from "@/lib/config"
 import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
 import { sectionTagLargeClass, sectionTagCompactClass } from "@/styles/tag-styles"
+import {
+  technicalStyles,
+  getTechnicalItemClass,
+  getTechnicalHeaderClass,
+  getTechnicalTitleClass,
+  getTechnicalDescriptionClass,
+} from "@/app/technical/style"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
 import technicalSkillsData from "@/app/technical/data.json"
@@ -65,11 +72,11 @@ function SystemStatus() {
   }, [])
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={technicalStyles.systemStatus}>
       {dots.map((active, i) => (
         <motion.div
           key={i}
-          className={`w-2 h-2 rounded-full ${active ? "bg-emerald-500" : "bg-zinc-700"}`}
+          className={`${technicalStyles.systemDot} ${active ? technicalStyles.systemDotActive : technicalStyles.systemDotIdle}`}
           animate={active ? SYSTEM_STATUS_ACTIVE_ANIMATE : {}}
           transition={systemStatusTransition(i * 0.2)}
         />
@@ -84,8 +91,8 @@ export default function TechnicalPage() {
   const skills = normalizeSkills(technicalSkillsData)
 
   return (
-    <section id="skills" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
-      <div className={`${SPACING.MAX_WIDTH} mx-auto`}>
+    <section id="skills" className={technicalStyles.section}>
+      <div className={technicalStyles.container}>
         <SectionHeader
           title="Skills and Technologies"
           description="Showcasing selected projects that demonstrate my expertise in design, development, and digital innovation."
@@ -93,8 +100,8 @@ export default function TechnicalPage() {
         />
 
         {skills.length === 0 && (
-          <div className="p-8 rounded-lg bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 text-center">
-            <p className="text-muted-foreground dark:text-zinc-400">No technical skills available yet.</p>
+          <div className={technicalStyles.emptyState}>
+            <p className={technicalStyles.emptyText}>No technical skills available yet.</p>
           </div>
         )}
 
@@ -104,7 +111,7 @@ export default function TechnicalPage() {
             variants={CONTAINER_VARIANTS}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            className={technicalStyles.grid}
           >
             {skills.map((skill) => {
               const Icon = TECH_ICON_MAP[skill.icon] ?? Code2
@@ -114,22 +121,22 @@ export default function TechnicalPage() {
                 <motion.div
                   key={skill.id}
                   variants={ITEM_VARIANTS}
-                  className={`group ${skill.layout === "wide" ? "md:col-span-2" : ""}`}
+                  className={getTechnicalItemClass(skill.layout)}
                 >
                   <Card className={sectionCardInteractiveClass}>
                     <div className={sectionCardAccentClass} />
-                    <CardContent className="p-6">
-                      <div className={`flex items-start justify-between ${skill.layout === "wide" ? "mb-8" : "mb-4"}`}>
+                    <CardContent className={technicalStyles.content}>
+                      <div className={getTechnicalHeaderClass(skill.layout)}>
                         <div>
-                          <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                            <Icon className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                          <div className={technicalStyles.iconWrap}>
+                            <Icon className={technicalStyles.icon} strokeWidth={1.5} />
                           </div>
-                          <h3 className={`${skill.layout === "wide" ? "text-xl" : "text-lg"} font-semibold text-foreground dark:text-white mb-2`}>{skill.title}</h3>
-                          <p className={`text-muted-foreground dark:text-zinc-400 text-sm ${skill.layout === "wide" ? "" : "mb-4"}`}>{skill.description}</p>
+                          <h3 className={getTechnicalTitleClass(skill.layout)}>{skill.title}</h3>
+                          <p className={getTechnicalDescriptionClass(skill.layout)}>{skill.description}</p>
                         </div>
                         <SystemStatus />
                       </div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className={technicalStyles.tags}>
                         {skill.tools.map((tool) => (
                           <span key={`${skill.id}-${tool}`} className={tagClass}>
                             {tool}
