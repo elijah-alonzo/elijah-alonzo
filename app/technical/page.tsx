@@ -2,13 +2,57 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
-import { Code2, Database, Cloud, Palette, Brain } from "lucide-react"
-import { CONTAINER_VARIANTS, ITEM_VARIANTS, KEYBOARD_IDLE_ANIMATE, KEYBOARD_PRESSED_ANIMATE, SYSTEM_STATUS_ACTIVE_ANIMATE, systemStatusTransition } from "@/lib/animations"
+import { Code2, Database, Cloud, Palette, Brain, type LucideIcon } from "lucide-react"
+import { CONTAINER_VARIANTS, ITEM_VARIANTS, SYSTEM_STATUS_ACTIVE_ANIMATE, systemStatusTransition } from "@/lib/animations"
 import { IN_VIEW, SPACING } from "@/lib/config"
 import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
 import { sectionTagLargeClass, sectionTagCompactClass } from "@/styles/tag-styles"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
+import technicalSkillsData from "@/app/technical/data.json"
+
+interface TechnicalSkillCard {
+  id: number
+  title: string
+  description: string
+  icon: "Code2" | "Brain" | "Database" | "Cloud" | "Palette"
+  tools: string[]
+  layout: "wide" | "standard"
+  tagSize: "large" | "compact"
+}
+
+type JsonSkill = Partial<TechnicalSkillCard>
+
+const TECH_ICON_MAP: Record<TechnicalSkillCard["icon"], LucideIcon> = {
+  Code2,
+  Brain,
+  Database,
+  Cloud,
+  Palette,
+}
+
+const DEFAULT_ICON: TechnicalSkillCard["icon"] = "Code2"
+
+function normalizeSkills(data: unknown): TechnicalSkillCard[] {
+  if (!Array.isArray(data)) {
+    return []
+  }
+
+  return data.map((item, index) => {
+    const skill = (item ?? {}) as JsonSkill
+    const icon = skill.icon && skill.icon in TECH_ICON_MAP ? skill.icon : DEFAULT_ICON
+
+    return {
+      id: typeof skill.id === "number" ? skill.id : index + 1,
+      title: typeof skill.title === "string" ? skill.title : "Untitled Skill",
+      description: typeof skill.description === "string" ? skill.description : "",
+      icon,
+      tools: Array.isArray(skill.tools) ? skill.tools.filter((tool): tool is string => typeof tool === "string") : [],
+      layout: skill.layout === "wide" ? "wide" : "standard",
+      tagSize: skill.tagSize === "large" ? "large" : "compact",
+    }
+  })
+}
 
 function SystemStatus() {
   const [dots, setDots] = useState([true, true, true, true])
@@ -34,74 +78,10 @@ function SystemStatus() {
   )
 }
 
-function KeyboardCommand() {
-  const [pressed, setPressed] = useState(false)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPressed(true)
-      setTimeout(() => setPressed(false), 200)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div className="flex items-center gap-1">
-      <motion.kbd
-        animate={pressed ? KEYBOARD_PRESSED_ANIMATE : KEYBOARD_IDLE_ANIMATE}
-        className="px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-zinc-300 font-mono"
-      >
-        ⌘
-      </motion.kbd>
-      <motion.kbd
-        animate={pressed ? KEYBOARD_PRESSED_ANIMATE : KEYBOARD_IDLE_ANIMATE}
-        transition={{ delay: 0.05 }}
-        className="px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-zinc-300 font-mono"
-      >
-        K
-      </motion.kbd>
-    </div>
-  )
-}
-
-function AnimatedChart() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  const points = [
-    { x: 0, y: 60 },
-    { x: 20, y: 45 },
-    { x: 40, y: 55 },
-    { x: 60, y: 30 },
-    { x: 80, y: 40 },
-    { x: 100, y: 15 },
-  ]
-
-  const pathD = points.reduce((acc, point, i) => {
-    return i === 0 ? `M ${point.x} ${point.y}` : `${acc} L ${point.x} ${point.y}`
-  }, "")
-
-  return (
-    <svg ref={ref} viewBox="0 0 100 70" className="w-full h-24">
-      <defs>
-        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgb(255,255,255)" stopOpacity="0.2" />
-          <stop offset="100%" stopColor="rgb(255,255,255)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {isInView && (
-        <>
-          <path d={`${pathD} L 100 70 L 0 70 Z`} fill="url(#chartGradient)" className="opacity-50" />
-          <path d={pathD} fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" className="draw-line" />
-        </>
-      )}
-    </svg>
-  )
-}
-
 export default function TechnicalPage() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: IN_VIEW.ONCE, margin: IN_VIEW.MARGIN })
+  const skills = normalizeSkills(technicalSkillsData)
 
   return (
     <section id="skills" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
@@ -112,165 +92,57 @@ export default function TechnicalPage() {
           isInView={isInView}
         />
 
-        <motion.div
-          ref={ref}
-          variants={CONTAINER_VARIANTS}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          {/* Large card - Full Stack Development */}
-          <motion.div
-            variants={ITEM_VARIANTS}
-            className="md:col-span-2 group"
-          >
-            <Card className={sectionCardInteractiveClass}>
-              {/* Green accent element on hover */}
-              <div className={sectionCardAccentClass} />
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-8">
-                  <div>
-                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                      <Code2 className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground dark:text-white mb-2">Full Stack Development</h3>
-                    <p className="text-muted-foreground dark:text-zinc-400 text-sm">
-                      End-to-end development building scalable web applications with modern tech stacks, from backend architecture to responsive frontends.
-                    </p>
-                  </div>
-                  <SystemStatus />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {["JavaScript", "TypeScript", "PHP", "Python", "Laravel", "Next.js", "React", "Node.js", "Git", "GitHub"].map((tool) => (
-                    <span key={tool} className={sectionTagLargeClass}>
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+        {skills.length === 0 && (
+          <div className="p-8 rounded-lg bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 text-center">
+            <p className="text-muted-foreground dark:text-zinc-400">No technical skills available yet.</p>
+          </div>
+        )}
 
-          {/* AI & Generative Systems */}
+        {skills.length > 0 && (
           <motion.div
-            variants={ITEM_VARIANTS}
-            className="group"
+            ref={ref}
+            variants={CONTAINER_VARIANTS}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           >
-            <Card className={sectionCardInteractiveClass}>
-              {/* Green accent element on hover */}
-              <div className={sectionCardAccentClass} />
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                      <Brain className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">AI & Generative Systems</h3>
-                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Integrating AI to enhance system intelligence, automate content generation, and provide dynamic user interactions.</p>
-                  </div>
-                  <SystemStatus />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {["RAG", "Generative AI", "User Input Generation", "Report Automation", "OpenAI API", "LangChain", "TensorFlow", "Python"].map((tool) => (
-                    <span key={tool} className={sectionTagCompactClass}>
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+            {skills.map((skill) => {
+              const Icon = TECH_ICON_MAP[skill.icon] ?? Code2
+              const tagClass = skill.tagSize === "large" ? sectionTagLargeClass : sectionTagCompactClass
 
-          {/* Database Management */}
-          <motion.div
-            variants={ITEM_VARIANTS}
-            className="group"
-          >
-            <Card className={sectionCardInteractiveClass}>
-              {/* Green accent element on hover */}
-              <div className={sectionCardAccentClass} />
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                      <Database className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Database Management</h3>
-                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Designing, optimizing, and securing databases to support high-performance applications.</p>
-                  </div>
-                  <SystemStatus />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {["MySQL", "PostgreSQL", "SQLite", "MariaDB", "MongoDB", "Data Modeling", "Query Optimization", "Backup & Recovery"].map((tool) => (
-                    <span key={tool} className={sectionTagCompactClass}>
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              return (
+                <motion.div
+                  key={skill.id}
+                  variants={ITEM_VARIANTS}
+                  className={`group ${skill.layout === "wide" ? "md:col-span-2" : ""}`}
+                >
+                  <Card className={sectionCardInteractiveClass}>
+                    <div className={sectionCardAccentClass} />
+                    <CardContent className="p-6">
+                      <div className={`flex items-start justify-between ${skill.layout === "wide" ? "mb-8" : "mb-4"}`}>
+                        <div>
+                          <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
+                            <Icon className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
+                          </div>
+                          <h3 className={`${skill.layout === "wide" ? "text-xl" : "text-lg"} font-semibold text-foreground dark:text-white mb-2`}>{skill.title}</h3>
+                          <p className={`text-muted-foreground dark:text-zinc-400 text-sm ${skill.layout === "wide" ? "" : "mb-4"}`}>{skill.description}</p>
+                        </div>
+                        <SystemStatus />
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {skill.tools.map((tool) => (
+                          <span key={`${skill.id}-${tool}`} className={tagClass}>
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              )
+            })}
           </motion.div>
-
-          {/* Cloud & Infrastructure Operations */}
-          <motion.div
-            variants={ITEM_VARIANTS}
-            className="group"
-          >
-            <Card className={sectionCardInteractiveClass}>
-              {/* Green accent element on hover */}
-              <div className={sectionCardAccentClass} />
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                      <Cloud className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Cloud & Infrastructure</h3>
-                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Deploying and maintaining scalable, highly available systems on cloud platforms.</p>
-                  </div>
-                  <SystemStatus />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {["AWS", "Azure", "GCP", "Linux", "Docker", "Jenkins", "Bash", "Vercel", "NGINX"].map((tool) => (
-                    <span key={tool} className={sectionTagCompactClass}>
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Design & UI/UX */}
-          <motion.div
-            variants={ITEM_VARIANTS}
-            className="group"
-          >
-            <Card className={sectionCardInteractiveClass}>
-              {/* Green accent element on hover */}
-              <div className={sectionCardAccentClass} />
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div className="p-2 rounded-lg bg-card dark:bg-zinc-800 w-fit mb-4">
-                      <Palette className="w-5 h-5 text-muted-foreground dark:text-zinc-400" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground dark:text-white mb-2">Design & UI/UX</h3>
-                    <p className="text-muted-foreground dark:text-zinc-400 text-sm mb-4">Creating responsive, user-friendly interfaces and cohesive design systems.</p>
-                  </div>
-                  <SystemStatus />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {["Figma", "CSS", "Tailwind", "Bootstrap", "FlutterFlow"].map((tool) => (
-                    <span key={tool} className={sectionTagCompactClass}>
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </motion.div>
+        )}
       </div>
     </section>
   )

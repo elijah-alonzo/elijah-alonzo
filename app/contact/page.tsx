@@ -8,15 +8,41 @@ import { Card, CardContent } from "@/components/ui/card"
 import { sectionCardBaseClass } from "@/styles/card-styles"
 import { primaryShimmerButtonClass } from "@/styles/button-styles"
 import { contactTextareaClass, getContactFieldClass } from "@/styles/form-styles"
-import { CONTACT_LINKS } from "@/lib/constants"
 import { CONTACT_VARIANTS, fadeUpInViewProps } from "@/lib/animations"
 import { ICON_MAP } from "@/lib/utils"
 import { contactFormSchema, type ContactFormInput } from "@/lib/schemas"
+import socialLinksData from "@/app/contact/data.json"
 import { ZodError } from "zod"
+
+interface ContactLink {
+  icon: string
+  label: string
+  value: string
+  href: string
+}
+
+function normalizeContactLinks(data: unknown): ContactLink[] {
+  if (!Array.isArray(data)) {
+    return []
+  }
+
+  return data
+    .map((item) => {
+      const link = (item ?? {}) as Partial<ContactLink>
+      return {
+        icon: typeof link.icon === "string" ? link.icon : "Mail",
+        label: typeof link.label === "string" ? link.label : "Contact",
+        value: typeof link.value === "string" ? link.value : "",
+        href: typeof link.href === "string" ? link.href : "#",
+      }
+    })
+    .filter((link) => link.value.length > 0)
+}
 
 export default function ContactPage() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const contactLinks = normalizeContactLinks(socialLinksData)
   const [formData, setFormData] = useState<ContactFormInput>({
     name: "",
     email: "",
@@ -98,8 +124,8 @@ export default function ContactPage() {
               animate={isInView ? "visible" : "hidden"}
               className="space-y-4"
             >
-              {CONTACT_LINKS.map((link) => {
-                const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP]
+              {contactLinks.map((link) => {
+                const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP] ?? ICON_MAP.Mail
                 return (
                   <motion.a
                     key={link.label}

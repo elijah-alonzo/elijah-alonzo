@@ -1,0 +1,25 @@
+{
+  "brandName": "Portfolio",
+  "brandInitial": "P",
+  "description": "Creative developer crafting beautiful digital experiences.",
+  "badge": "Available for Projects",
+  "copyrightName": "Elijah Alonzo",
+  "sections": [
+    {
+      "title": "Work",
+      "links": ["View Projects", "Case Studies", "Collaborations", "Archives"]
+    },
+    {
+      "title": "Resources",
+      "links": ["Blog", "Articles", "Tools", "Resources"]
+    },
+    {
+      "title": "About",
+      "links": ["Bio", "Experience", "Skills", "Contact"]
+    },
+    {
+      "title": "Social",
+      "links": ["Twitter", "GitHub", "LinkedIn", "Instagram"]
+    }
+  ]
+}

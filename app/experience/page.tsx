@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useRef, useState, useEffect } from "react"
+import { useRef } from "react"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS_X } from "@/lib/animations"
 import { IN_VIEW, SPACING } from "@/lib/config"
@@ -9,6 +9,7 @@ import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/ca
 import { sectionTagMutedClass } from "@/styles/tag-styles"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
+import experienceData from "@/app/experience/data.json"
 
 interface ExperienceData {
   id: number
@@ -21,41 +22,33 @@ interface ExperienceData {
   link: string
 }
 
+type JsonExperience = Partial<ExperienceData>
+
+function normalizeExperiences(data: unknown): ExperienceData[] {
+  if (!Array.isArray(data)) {
+    return []
+  }
+
+  return data.map((item, index) => {
+    const exp = (item ?? {}) as JsonExperience
+
+    return {
+      id: typeof exp.id === "number" ? exp.id : index + 1,
+      company: typeof exp.company === "string" ? exp.company : "Unknown Company",
+      role: typeof exp.role === "string" ? exp.role : "Unknown Role",
+      period: typeof exp.period === "string" ? exp.period : "",
+      location: typeof exp.location === "string" ? exp.location : "",
+      description: typeof exp.description === "string" ? exp.description : "",
+      skills: Array.isArray(exp.skills) ? exp.skills.filter((skill): skill is string => typeof skill === "string") : [],
+      link: typeof exp.link === "string" ? exp.link : "#",
+    }
+  })
+}
+
 export default function ExperiencePage() {
   const ref = useRef<HTMLElement | null>(null)
   const isInView = useInView(ref, { once: IN_VIEW.ONCE, margin: IN_VIEW.MARGIN })
-  const [experiences, setExperiences] = useState<ExperienceData[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const fetchExperiences = async () => {
-      try {
-        setError(null)
-        const response = await fetch("/experiences.json")
-
-        if (!response.ok) {
-          throw new Error(`Failed to load experiences: ${response.statusText}`)
-        }
-
-        const data = await response.json()
-
-        if (!Array.isArray(data)) {
-          throw new Error("Invalid experiences data format")
-        }
-
-        setExperiences(data)
-      } catch (err) {
-        const message = err instanceof Error ? err.message : "Failed to load experiences"
-        setError(message)
-        console.error("Experiences loading error:", err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchExperiences()
-  }, [])
+  const experiences = normalizeExperiences(experienceData)
 
   return (
     <section ref={ref} id="experience" className={`${SPACING.PADDING_SECTION} ${SPACING.PADDING_X} bg-background dark:bg-zinc-950`}>
@@ -66,29 +59,13 @@ export default function ExperiencePage() {
           isInView={isInView}
         />
 
-        {error && (
-          <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 mb-6">
-            <p className="text-sm font-medium text-red-600 dark:text-red-400">
-              ✕ {error}
-            </p>
-          </div>
-        )}
-
-        {loading && (
-          <div className="flex justify-center items-center py-12">
-            <div className="text-center">
-              <p className="text-muted-foreground dark:text-zinc-400">Loading experiences...</p>
-            </div>
-          </div>
-        )}
-
-        {!loading && experiences.length === 0 && !error && (
+        {experiences.length === 0 && (
           <div className="p-8 rounded-lg bg-muted dark:bg-zinc-900 border border-border dark:border-zinc-800 text-center">
             <p className="text-muted-foreground dark:text-zinc-400">No experiences available yet.</p>
           </div>
         )}
 
-        {!loading && experiences.length > 0 && (
+        {experiences.length > 0 && (
           <motion.div
             variants={CONTAINER_VARIANTS}
             initial="hidden"
