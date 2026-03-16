@@ -18,8 +18,7 @@ export function SectionHeader({ title, description, isInView }: SectionHeaderPro
       className="text-center mb-16"
     >
       <h2
-        className="text-3xl sm:text-4xl font-bold text-foreground dark:text-white mb-4"
-        style={{ fontFamily: "var(--font-instrument-sans)" }}
+        className="display-font text-3xl sm:text-4xl font-bold text-foreground dark:text-white mb-4"
       >
         {title}
       </h2>
