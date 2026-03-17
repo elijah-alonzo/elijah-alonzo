@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 
 export const sectionHeaderStyles = {
-  wrapper: "mb-16",
+  wrapper: "mb-4",
   title: "display-font text-3xl sm:text-4xl font-bold tracking-tight text-foreground dark:text-white",
   titleSpacing: "mb-4",
   description: "text-muted-foreground dark:text-zinc-400 max-w-2xl leading-relaxed",
