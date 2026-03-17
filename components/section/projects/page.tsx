@@ -3,18 +3,18 @@
 import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
-import { sectionCardBaseClass } from "@/styles/card-styles"
-import { cn } from "@/lib/utils"
 import {
+  sectionCardBaseClass,
   projectsStyles,
   getProjectsTrackClass,
   getProjectsCardItemClass,
   getProjectsImageWrapClass,
-} from "@/app/projects/style"
+} from "@/styles/system"
+import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
+import { cn } from "@/lib/utils"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
-import projectData from "@/app/projects/data.json"
+import projectData from "@/components/section/projects/data.json"
 
 interface Project {
   id: number

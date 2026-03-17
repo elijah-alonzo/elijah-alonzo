@@ -1,22 +1,25 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useRef, useEffect, useState } from "react"
+import { useRef } from "react"
 import { Code2, Database, Cloud, Palette, Brain, type LucideIcon } from "lucide-react"
-import { CONTAINER_VARIANTS, ITEM_VARIANTS, SYSTEM_STATUS_ACTIVE_ANIMATE, systemStatusTransition } from "@/lib/animations"
-import { IN_VIEW } from "@/lib/config"
-import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
-import { sectionTagLargeClass, sectionTagCompactClass } from "@/styles/tag-styles"
 import {
+  sectionCardInteractiveClass,
+  sectionCardAccentClass,
+  sectionTagLargeClass,
+  sectionTagCompactClass,
   technicalStyles,
   getTechnicalItemClass,
   getTechnicalHeaderClass,
   getTechnicalTitleClass,
   getTechnicalDescriptionClass,
-} from "@/app/technical/style"
+} from "@/styles/system"
+import { CONTAINER_VARIANTS, ITEM_VARIANTS } from "@/lib/animations"
+import { IN_VIEW } from "@/lib/config"
 import { SectionHeader } from "@/components/section-header"
+import { StatusDots } from "@/components/ui/status-dots"
 import { Card, CardContent } from "@/components/ui/card"
-import technicalSkillsData from "@/app/technical/data.json"
+import technicalSkillsData from "@/components/section/technical/data.json"
 
 interface TechnicalSkillCard {
   id: number
@@ -59,30 +62,6 @@ function normalizeSkills(data: unknown): TechnicalSkillCard[] {
       tagSize: skill.tagSize === "large" ? "large" : "compact",
     }
   })
-}
-
-function SystemStatus() {
-  const [dots, setDots] = useState([true, true, true, true])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots((prev) => prev.map(() => Math.random() > 0.2))
-    }, 2000)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div className={technicalStyles.systemStatus}>
-      {dots.map((active, i) => (
-        <motion.div
-          key={i}
-          className={`${technicalStyles.systemDot} ${active ? technicalStyles.systemDotActive : technicalStyles.systemDotIdle}`}
-          animate={active ? SYSTEM_STATUS_ACTIVE_ANIMATE : {}}
-          transition={systemStatusTransition(i * 0.2)}
-        />
-      ))}
-    </div>
-  )
 }
 
 export default function TechnicalPage() {
@@ -134,7 +113,12 @@ export default function TechnicalPage() {
                           <h3 className={getTechnicalTitleClass(skill.layout)}>{skill.title}</h3>
                           <p className={getTechnicalDescriptionClass(skill.layout)}>{skill.description}</p>
                         </div>
-                        <SystemStatus />
+                        <StatusDots
+                          containerClassName={technicalStyles.systemStatus}
+                          dotClassName={technicalStyles.systemDot}
+                          activeDotClassName={technicalStyles.systemDotActive}
+                          idleDotClassName={technicalStyles.systemDotIdle}
+                        />
                       </div>
                       <div className={technicalStyles.tags}>
                         {skill.tools.map((tool) => (

@@ -3,14 +3,18 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
+import {
+  sectionCardInteractiveClass,
+  sectionCardAccentClass,
+  sectionTagMutedClass,
+  experienceStyles,
+} from "@/styles/system"
 import { CONTAINER_VARIANTS, ITEM_VARIANTS_X } from "@/lib/animations"
 import { IN_VIEW } from "@/lib/config"
-import { sectionCardInteractiveClass, sectionCardAccentClass } from "@/styles/card-styles"
-import { sectionTagMutedClass } from "@/styles/tag-styles"
-import { experienceStyles } from "@/app/experience/style"
 import { SectionHeader } from "@/components/section-header"
+import { StatusDots } from "@/components/ui/status-dots"
 import { Card, CardContent } from "@/components/ui/card"
-import experienceData from "@/app/experience/data.json"
+import experienceData from "@/components/section/experience/data.json"
 
 interface ExperienceData {
   id: number
@@ -95,6 +99,12 @@ export default function ExperiencePage() {
                           </div>
                         </div>
                       </div>
+                      <StatusDots
+                        containerClassName={experienceStyles.systemStatus}
+                        dotClassName={experienceStyles.systemDot}
+                        activeDotClassName={experienceStyles.systemDotActive}
+                        idleDotClassName={experienceStyles.systemDotIdle}
+                      />
                     </div>
 
                     <p className={experienceStyles.description}>

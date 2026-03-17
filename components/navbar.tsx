@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { navbarStyles } from "@/styles/system"
 import { NAV_ITEMS } from "@/lib/navigation"
 import { NAVBAR_HEADER_ANIMATION, NAVBAR_HOVER_TRANSITION, NAVBAR_MOBILE_MENU_ANIMATION } from "@/lib/animations"
 
@@ -15,65 +16,65 @@ export function Navbar() {
   return (
     <motion.header
       {...NAVBAR_HEADER_ANIMATION}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl"
+      className={navbarStyles.header}
     >
       <nav
         ref={navRef}
-        className="relative flex items-center justify-between px-4 py-3 rounded-full bg-background/40 dark:bg-zinc-900/40 backdrop-blur-md border border-border"
+        className={navbarStyles.nav}
       >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-foreground dark:bg-white flex items-center justify-center">
-            <span className="text-background dark:text-zinc-950 font-bold text-sm">P</span>
+        <a href="#" className={navbarStyles.logoLink}>
+          <div className={navbarStyles.logoBadge}>
+            <span className={navbarStyles.logoBadgeText}>P</span>
           </div>
-          <span className="font-semibold text-foreground dark:text-white hidden sm:block">Elijah Alonzo</span>
+          <span className={navbarStyles.logoText}>Elijah Alonzo</span>
         </a>
 
         {/* Desktop Nav Items */}
-        <div className="hidden md:flex items-center gap-1 relative">
+        <div className={navbarStyles.desktopNavWrap}>
           {NAV_ITEMS.map((item, index) => (
             <a
               key={item.label}
               href={item.href}
-              className="relative px-4 py-2 text-sm text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white transition-colors"
+              className={navbarStyles.desktopNavLink}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {hoveredIndex === index && (
                 <motion.div
                   layoutId="navbar-hover"
-                  className="absolute inset-0 bg-muted dark:bg-zinc-800 rounded-full"
+                  className={navbarStyles.desktopHoverPill}
                   initial={false}
                   transition={NAVBAR_HOVER_TRANSITION}
                 />
               )}
-              <span className="relative z-10">{item.label}</span>
+              <span className={navbarStyles.desktopNavLinkText}>{item.label}</span>
             </a>
           ))}
         </div>
 
         {/* CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className={navbarStyles.desktopActions}>
           <Button
             variant="ghost"
             size="sm"
-            className="text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white hover:bg-muted dark:hover:bg-zinc-800"
+            className={navbarStyles.ghostButton}
             asChild
           >
             <a href="#" download>Resume</a>
           </Button>
           <Button
             size="sm"
-            className="shimmer-btn bg-foreground dark:bg-white text-background dark:text-zinc-950 hover:bg-muted dark:hover:bg-zinc-200 rounded-full px-4"
+            className={navbarStyles.ctaButton}
             asChild
           >
-            <a href="#contact">Let's Talk</a>
+            <a href="#contact">Let&apos;s Talk</a>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white"
+          className={navbarStyles.mobileToggle}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -85,32 +86,32 @@ export function Navbar() {
       {mobileMenuOpen && (
         <motion.div
           {...NAVBAR_MOBILE_MENU_ANIMATION}
-          className="absolute top-full left-0 right-0 mt-2 p-4 rounded-2xl bg-background/95 dark:bg-zinc-900/95 backdrop-blur-md border border-border"
+          className={navbarStyles.mobileMenu}
         >
-          <div className="flex flex-col gap-2">
+          <div className={navbarStyles.mobileMenuList}>
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="px-4 py-3 text-sm text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white hover:bg-muted dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                className={navbarStyles.mobileNavLink}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <hr className="border-border dark:border-zinc-800 my-2" />
+            <hr className={navbarStyles.mobileDivider} />
             <Button
               variant="ghost"
-              className="justify-start text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white"
+              className={navbarStyles.mobileGhostButton}
               asChild
             >
               <a href="#" download>Resume</a>
             </Button>
             <Button
-              className="shimmer-btn bg-foreground dark:bg-white text-background dark:text-zinc-950 hover:bg-muted dark:hover:bg-zinc-200 rounded-full w-full"
+              className={navbarStyles.mobileCtaButton}
               asChild
             >
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Let's Talk</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Let&apos;s Talk</a>
             </Button>
           </div>
         </motion.div>

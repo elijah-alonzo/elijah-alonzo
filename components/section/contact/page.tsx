@@ -3,16 +3,20 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { Mail } from "lucide-react"
+import {
+  sectionCardBaseClass,
+  primaryShimmerButtonClass,
+  contactTextareaClass,
+  getContactFieldClass,
+  contactStyles,
+} from "@/styles/system"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { sectionCardBaseClass } from "@/styles/card-styles"
-import { primaryShimmerButtonClass } from "@/styles/button-styles"
-import { contactTextareaClass, getContactFieldClass } from "@/styles/form-styles"
-import { contactStyles } from "@/app/contact/style"
+import { SectionHeader } from "@/components/section-header"
 import { CONTACT_VARIANTS, fadeUpInViewProps } from "@/lib/animations"
 import { ICON_MAP } from "@/lib/utils"
 import { contactFormSchema, type ContactFormInput } from "@/lib/schemas"
-import socialLinksData from "@/app/contact/data.json"
+import socialLinksData from "@/components/section/contact/data.json"
 import { ZodError } from "zod"
 
 interface ContactLink {
@@ -112,12 +116,12 @@ export default function ContactPage() {
       <div className={contactStyles.container}>
         <div className={contactStyles.grid}>
           <motion.div ref={ref} {...fadeUpInViewProps(isInView)}>
-            <h2 className={contactStyles.heading}>
-              Let's Connect
-            </h2>
-            <p className={contactStyles.intro}>
-              Whether you're looking for a web developer, graphics designer, or creative collaborator, feel free to reach out!
-            </p>
+            <SectionHeader
+              title="Let's Connect"
+              description="Whether you're looking for a web developer, graphics designer, or creative collaborator, feel free to reach out!"
+              isInView={isInView}
+              align="left"
+            />
 
             <motion.div
               variants={CONTACT_VARIANTS.container}
@@ -244,7 +248,7 @@ export default function ContactPage() {
               {submitted && (
                 <div className={contactStyles.submitSuccessWrap}>
                   <p className={contactStyles.submitSuccessText}>
-                    ✓ Message sent successfully! I'll get back to you soon.
+                    ✓ Message sent successfully! I&apos;ll get back to you soon.
                   </p>
                 </div>
               )}

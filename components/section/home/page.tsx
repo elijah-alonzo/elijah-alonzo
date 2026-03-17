@@ -4,9 +4,9 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { HOME_ANIMATION } from "@/lib/animations"
 import { ICON_MAP } from "@/lib/utils"
-import homeData from "@/app/home/data.json"
-import socialLinksData from "@/app/contact/data.json"
-import { homeStyles } from "@/app/home/style"
+import homeData from "@/components/section/home/data.json"
+import socialLinksData from "@/components/section/contact/data.json"
+import { homeStyles } from "@/styles/system"
 
 interface SocialLink {
 	icon: string

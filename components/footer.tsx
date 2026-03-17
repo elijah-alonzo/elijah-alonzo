@@ -4,8 +4,9 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { ICON_MAP } from "@/lib/utils"
 import { fadeInInViewProps, fadeUpInViewProps } from "@/lib/animations"
+import { footerStyles } from "@/styles/system"
 import footerData from "@/components/footer/data.json"
-import socialLinksData from "@/app/contact/data.json"
+import socialLinksData from "./section/contact/data.json"
 
 interface FooterLinkGroup {
   title: string
@@ -76,33 +77,33 @@ export function Footer() {
   const socialLinks = normalizeFooterSocialLinks(socialLinksData)
 
   return (
-    <footer ref={ref} className="border-t border-border dark:border-zinc-800 bg-background dark:bg-zinc-950">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <motion.div {...fadeUpInViewProps(isInView)} className="grid grid-cols-2 md:grid-cols-5 gap-8">
+    <footer ref={ref} className={footerStyles.root}>
+      <div className={footerStyles.container}>
+        <motion.div {...fadeUpInViewProps(isInView)} className={footerStyles.topGrid}>
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-foreground dark:bg-white flex items-center justify-center">
-                <span className="text-background dark:text-zinc-950 font-bold text-sm">{data.brandInitial}</span>
+          <div className={footerStyles.brandCol}>
+            <a href="#" className={footerStyles.brandLink}>
+              <div className={footerStyles.brandBadge}>
+                <span className={footerStyles.brandBadgeText}>{data.brandInitial}</span>
               </div>
-              <span className="font-semibold text-foreground dark:text-white">{data.brandName}</span>
+              <span className={footerStyles.brandName}>{data.brandName}</span>
             </a>
-            <p className="text-sm text-muted-foreground dark:text-zinc-500 mb-4">{data.description}</p>
+            <p className={footerStyles.brandDescription}>{data.description}</p>
             {/* Availability Status */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card dark:bg-zinc-900 border border-border dark:border-zinc-800">
+            <div className={footerStyles.availabilityWrap}>
               <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-glow" />
-              <span className="text-xs text-muted-foreground dark:text-zinc-400">{data.badge}</span>
+              <span className={footerStyles.availabilityText}>{data.badge}</span>
             </div>
           </div>
 
           {/* Links */}
           {data.sections.map((section) => (
             <div key={section.title}>
-              <h4 className="text-sm font-semibold text-foreground dark:text-white mb-4">{section.title}</h4>
-              <ul className="space-y-3">
+              <h4 className={footerStyles.sectionTitle}>{section.title}</h4>
+              <ul className={footerStyles.sectionList}>
                 {section.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-sm text-muted-foreground dark:text-zinc-500 hover:text-foreground dark:hover:text-white transition-colors">
+                    <a href="#" className={footerStyles.sectionLink}>
                       {link}
                     </a>
                   </li>
@@ -115,10 +116,10 @@ export function Footer() {
         {/* Bottom */}
         <motion.div
           {...fadeInInViewProps(isInView, 0.3)}
-          className="mt-16 pt-8 border-t border-border dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className={footerStyles.bottomRow}
         >
-          <p className="text-sm text-muted-foreground dark:text-zinc-500">&copy; {new Date().getFullYear()} {data.copyrightName}. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <p className={footerStyles.copyright}>&copy; {new Date().getFullYear()} {data.copyrightName}. All rights reserved.</p>
+          <div className={footerStyles.socialRow}>
             {socialLinks.map((link) => {
               const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP] ?? ICON_MAP.Mail
               return (
@@ -128,9 +129,9 @@ export function Footer() {
                   title={link.title}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground dark:text-zinc-500 hover:text-foreground dark:hover:text-white transition-colors"
+                  className={footerStyles.socialLink}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className={footerStyles.socialIcon} />
                 </a>
               )
             })}

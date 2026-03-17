@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${manrope.variable} ${spaceMono.variable} ${instrumentSans.variable} font-sans antialiased min-h-screen bg-background dark:bg-zinc-950`}>
+      <body className={`${manrope.variable} ${spaceMono.variable} ${instrumentSans.variable} font-sans antialiased min-h-screen bg-background`}>
         <div className="noise-overlay" aria-hidden="true" />
         {children}
         <Analytics />
