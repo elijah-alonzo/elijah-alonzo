@@ -5,8 +5,8 @@ import { useRef } from "react"
 import { ICON_MAP } from "@/lib/utils"
 import { fadeInInViewProps, fadeUpInViewProps } from "@/lib/animations"
 import { footerStyles } from "@/styles/system"
-import footerData from "@/components/footer/data.json"
-import socialLinksData from "./section/contact/data.json"
+import footerData from "../footer/data.json"
+import socialLinksData from "../contact/data.json"
 
 interface FooterLinkGroup {
   title: string

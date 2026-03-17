@@ -2,7 +2,7 @@
 
 import { SmoothScroll } from "@/lib/smooth-scroll"
 import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/section/footer/page"
 import HomePage from "@/components/section/home/page"
 import TechnicalPage from "@/components/section/technical/page"
 import ExperiencePage from "@/components/section/experience/page"
