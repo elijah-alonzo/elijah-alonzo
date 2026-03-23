@@ -1,5 +1,8 @@
-<h1 align="center"> Laravel </h1>
-When developing a Laravel project, I follow this architecture. However, the structure still depends on the tools I want to use—whether it is pure Laravel, Filament, or both. This structure can be adapted depending on which of the mentioned tools you aim to use.
+<h1 align="center">
+<img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
+</h1>
+
+When developing a Laravel project, I usually organize everything under the `app/` directory. The exact structure depends on the tools I plan to use—whether it’s just pure Laravel, Filament, or a combination of both. I adapt the structure to fit the tools and features I need, keeping things clean and modular.
 
 ```
 app/
@@ -154,3 +157,9 @@ For systems focused on data and analytics and information management, I usually 
   - Global providers like `AppServiceProvider`, `AuthServiceProvider`, `EventServiceProvider`.
   - Filament-specific panel providers like `AdminPanelProvider` and `UserPanelProvider` handle panel setup, menus, and security.
 
+### Database Directory
+During development, if you forget to add a field in a migration—or if AI assistance misses it—don’t create a new migration just to add that field, and definitely don’t run `migrate:fresh`.  
+
+Instead, **edit the original migration** to include the missing field and then use `php artisan tinker` (or update the database directly) to apply it. This approach keeps things clean during development.  
+
+⚠️ Note: This is **only for the development phase**. Never do this in production—always create proper migrations for changes there.

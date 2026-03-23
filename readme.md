@@ -2,7 +2,7 @@
 
 
 <p align="center">
-Full Stack Developer with experience in AI integration, cloud infrastructure, and UI/UX design, creating modern and scalable web solutions. My tech stack includes the following tools and technologies:
+Full Stack Developer building responsive web applications with experience in front-end and back-end technologies using the following:
 </p>
 
 <p align="center">
