@@ -1,5 +1,7 @@
 <h1 align="center">
-<img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
+  <a href="../readme.md">
+    <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel Logo" width="200">
+  </a>
 </h1>
 
 When developing a Laravel project, I usually organize everything under the `app/` directory. The exact structure depends on the tools I plan to use—whether it's just pure Laravel, Filament, or a combination of both. I adapt the structure to fit the tools and features I need, keeping things clean and modular.

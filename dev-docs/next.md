@@ -1,5 +1,7 @@
 <h1 align="center">
-<img src="https://cdn.worldvectorlogo.com/logos/nextjs-13.svg" alt="Laravel Logo" width="200">
+  <a href="../readme.md">
+    <img src="https://cdn.worldvectorlogo.com/logos/nextjs-13.svg" alt="Next.js Logo" width="200">
+  </a>
 </h1>
 
 When developing a Next.js project, I organize everything under the `src/` directory. The structure is built around the App Router — pages, layouts, Server Actions, and API routes all live close to where they are used. I use Tailwind CSS for styling and shadcn/ui for components. The goal is to keep each part of the app easy to find and easy to change without touching anything else.
