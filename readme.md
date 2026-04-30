@@ -1,1 +1,1 @@
-![Alt text](assets/card.png)
+![Alt text](assets/cover.png)
