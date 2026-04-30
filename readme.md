@@ -1,1 +1,1 @@
-![Alt text](assets/icon.png)
+![Alt text](assets/card.png)
