@@ -1,6 +1,6 @@
-<h1 align="center"> CI/CD </h1>
+<h1 align="center"> GitHub Actions </h1>
 
-CI/CD automates tasks for you, such as testing, building, and deploying applications. I mostly use GitHub Actions to automatically deploy projects whenever code is pushed to a repository. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+GitHub Actions is a CI/CD tool. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 .github/
