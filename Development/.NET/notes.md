@@ -58,5 +58,3 @@ To start working with .NET, install the [.NET SDK](https://dotnet.microsoft.com/
 | `dotnet new classlib -n MyLibrary`       | Create a class library.            |
 | `dotnet new xunit -n MyTests`            | Create an xUnit test project.      |
 
-```
-```

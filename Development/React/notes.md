@@ -47,5 +47,3 @@ To start building React applications, install [Node.js](https://nodejs.org/), wh
 | `npm install zod`                                      | Install Zod validation.                 |
 | `npm install react-hook-form @hookform/resolvers zod`  | Install a common form validation stack. |
 
-```
-```

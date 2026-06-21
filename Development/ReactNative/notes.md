@@ -62,5 +62,3 @@ Once everything is installed, make sure the `node`, `npm`, and `npx` commands wo
 | `npx eas build --platform android`                                     | Create an Android production build using EAS. |
 | `npx eas build --platform ios`                                         | Create an iOS production build using EAS.     |
 
-```
-```

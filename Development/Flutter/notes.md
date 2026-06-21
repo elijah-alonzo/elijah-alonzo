@@ -69,6 +69,3 @@ After installation, run `flutter doctor` to check if everything is configured co
 | `flutter pub add hive`                       | Install Hive database.                   |
 | `flutter pub add shared_preferences`         | Install local storage support.           |
 | `flutter pub add flutter_dotenv`             | Install environment variable support.    |
-
-```
-```

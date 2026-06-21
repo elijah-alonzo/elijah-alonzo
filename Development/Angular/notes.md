@@ -54,6 +54,3 @@ To start building Angular applications, install [Node.js](https://nodejs.org/) f
 | `npm install @ngrx/store`             | Install NgRx for state management.                  |
 | `ng build --configuration production` | Create an optimized production build.               |
 | `ng deploy`                           | Deploy the application if deployment is configured. |
-
-```
-```

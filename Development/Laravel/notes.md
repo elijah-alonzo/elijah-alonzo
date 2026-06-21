@@ -71,6 +71,3 @@ Once everything is installed, make sure the `node`, `npm`, `composer`, `php`, an
 | `composer require bezhansalleh/filament-shield`         | Install Filament Shield for roles and permissions.           |
 | `php artisan shield:install`                            | Publish and configure Filament Shield.                       |
 | `php artisan shield:generate`                           | Generate permissions from Filament resources.                |
-
-```
-```

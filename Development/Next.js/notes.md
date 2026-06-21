@@ -50,5 +50,3 @@ To start building Next.js applications, install [Node.js](https://nodejs.org/), 
 | `npx auth secret`                   | Generate a secret for NextAuth/Auth.js.                |
 | `npm run type-check`                | Run TypeScript type checking.                          |
 
-```
-```
