@@ -6,7 +6,7 @@ To get started, install [Git](https://git-scm.com/downloads). Once installed, op
 
 | Command                                            | Description                                          |
 | -------------------------------------------------- | ---------------------------------------------------- |
-| `git --version`                                    | Check the installed Git version.                     |
+| `git -v`                                    | Check the installed Git version.                     |
 | `git config --global user.name "Your Name"`        | Set your Git username.                               |
 | `git config --global user.email "you@example.com"` | Set your Git email address.                          |
 | `git init`                                         | Create a new Git repository.                         |
