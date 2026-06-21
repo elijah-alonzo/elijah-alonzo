@@ -38,6 +38,3 @@ Windows comes pre-installed on most machines, so there's usually nothing to inst
 | `set VARIABLE=value`       | Create an environment variable for the session. |
 | `echo %PATH%`              | Display the Path variable.                      |
 | `where.exe command`        | Locate an executable.                           |
-
-```
-```

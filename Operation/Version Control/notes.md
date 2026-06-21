@@ -45,5 +45,3 @@ To get started, install [Git](https://git-scm.com/downloads). Once installed, op
 | `git diff --staged`                                | Show staged changes.                                 |
 | `git clean -fd`                                    | Remove untracked files and folders.                  |
 
-```
-```

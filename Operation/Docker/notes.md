@@ -53,5 +53,3 @@ To get started, install [Docker Desktop](https://www.docker.com/products/docker-
 | `docker compose build`                      | Build services defined in Compose.        |
 | `docker compose ps`                         | Show running Compose services.            |
 
-```
-```

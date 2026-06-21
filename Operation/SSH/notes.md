@@ -33,6 +33,3 @@ SSH is already included in Linux, macOS, and modern versions of Windows, so ther
 | `chmod 700 ~/.ssh` | Secure the SSH directory. |
 | `ssh-add -l` | Show loaded keys. |
 | `ssh user@server-ip "command"` | Run a command on a remote server. |
-
-```
-```

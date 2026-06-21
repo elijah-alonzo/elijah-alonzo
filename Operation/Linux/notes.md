@@ -50,6 +50,3 @@ To get started, install a distro such as [Ubuntu](https://ubuntu.com/download) o
 | `scp file.txt user@server:/path` | Copy a file to a remote server.       |
 | `history`                        | Show command history.                 |
 | `clear`                          | Clear the terminal screen.            |
-
-```
-```
