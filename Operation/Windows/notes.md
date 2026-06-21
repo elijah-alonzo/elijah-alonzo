@@ -1,6 +1,6 @@
 <h1 align="center"> Windows </h1>
 
-Windows is the operating system I use for most of my development work because im too scared to switch my OS to Linux If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Windows is the operating system I use for most of my development work because im too lazy to switch my OS to Linux. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 Windows comes pre-installed on most machines, so there's usually nothing to install. The commands below can be used in Command Prompt, PowerShell, or Windows Terminal.
 

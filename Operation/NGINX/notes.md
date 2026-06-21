@@ -1,6 +1,6 @@
 <h1 align="center"> Nginx </h1>
 
-Nginx is a web server and reverse proxy that sits in front of your applications. I mostly use it to connect domains to applications, handle HTTPS, and route traffic to services running on a server. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Nginx is a web server and reverse proxy that sits in front of your applications. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 /etc/nginx/
@@ -45,7 +45,4 @@ server {
         proxy_pass http://localhost:3000;
     }
 }
-```
-
-```
 ```

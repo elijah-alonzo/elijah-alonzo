@@ -1,6 +1,6 @@
 <h1 align="center"> .NET </h1>
 
-.NET is Microsoft's framework for building applications. I've mostly used it for creating APIs and web applications with ASP.NET Core, but it can also be used for desktop applications, cloud projects, and other types of software. If you're coming from Laravel, think of ASP.NET Core as the part of .NET that handles the web side of things. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+.NET is Microsoft's framework for building applications that uses C#. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -27,7 +27,7 @@ project/
     └── launchSettings.json # Development launch settings
 ```
 
-To start working with .NET, install the [.NET SDK](https://dotnet.microsoft.com/download). This gives you everything needed to create, build, and run .NET projects. Once it's installed, open a terminal and make sure the `dotnet` command works. If it doesn't, check if the installation path was added to your system's Path environment variable.
+Install the [.NET SDK](https://dotnet.microsoft.com/download). Once it's installed, open a terminal and make sure the `dotnet` command works. If it doesn't, check if the installation path was added to your system's Path environment variable.
 
 | Command                                  | Description                        |
 | ---------------------------------------- | ---------------------------------- |

@@ -1,6 +1,6 @@
 <h1 align="center"> Next.js </h1>
 
-Next.js is a React framework for building web applications. It comes with features like routing, API routes, server-side rendering, and static site generation, making it a popular choice for full-stack React projects. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Next.js is a React framework for building web applications. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -26,7 +26,7 @@ project/
 └── next.config.ts          # Next.js configuration
 ```
 
-To start building Next.js applications, install [Node.js](https://nodejs.org/), which includes npm for package management. Next.js runs on Node.js, so no additional runtimes are required. Once installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project.
+Install [Node.js](https://nodejs.org/). Once installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project.
 
 | Command                             | Description                                            |
 | ----------------------------------- | ------------------------------------------------------ |

@@ -1,6 +1,6 @@
 <h1 align="center"> SSH </h1>
 
-SSH lets you connect to remote machines directly from your terminal. I mostly use it for accessing servers, deployments, and transferring files. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+SSH lets you connect to remote machines directly from your terminal. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 ~/.ssh/

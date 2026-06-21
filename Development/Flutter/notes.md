@@ -1,6 +1,6 @@
 <h1 align="center"> Flutter </h1>
 
-Flutter is Google's framework for building mobile applications with Dart. One of its biggest advantages is that the same codebase can be used for Android, iOS, web, and desktop applications. Flutter uses widgets to build user interfaces, making it easy to create reusable components throughout an application. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Flutter is Google's framework for building mobile applications with Dart. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -32,9 +32,9 @@ project/
 └── .env                    # Environment variables (if used)
 ```
 
-To start building Flutter applications, install the [Flutter SDK](https://flutter.dev/docs/get-started/install). Flutter already includes Dart, so there's no need to install it separately. If you're targeting Android devices, install [Android Studio](https://developer.android.com/studio) which includes the Android SDK and emulator. If you're targeting iOS, you'll need [Xcode](https://developer.apple.com/xcode/) on macOS.
+Install the [Flutter SDK](https://flutter.dev/docs/get-started/install). If you're targeting Android devices, install [Android Studio](https://developer.android.com/studio). If you're targeting iOS, you'll need [Xcode](https://developer.apple.com/xcode/) on macOS.
 
-After installation, run `flutter doctor` to check if everything is configured correctly. If Flutter isn't recognized in the terminal, make sure the Flutter `bin` folder has been added to your system's Path environment variable.
+Run `flutter doctor` to check if everything is configured correctly. If it doesn't, check if the installation path was added to your system's Path environment variable.
 
 | Command                                      | Description                              |
 | -------------------------------------------- | ---------------------------------------- |

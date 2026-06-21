@@ -1,6 +1,6 @@
 <h1 align="center"> React </h1>
 
-React is a JavaScript library for building user interfaces. It uses reusable components to build applications and is one of the most popular choices for frontend development. Frameworks such as Next.js are built on top of React. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+React is a JavaScript library for building user interfaces. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -22,7 +22,7 @@ project/
 └── vite.config.ts          # Vite configuration
 ```
 
-To start building React applications, install [Node.js](https://nodejs.org/), which includes npm for package management. Most React projects today use [Vite](https://vitejs.dev/) for creating projects and running the development server. Once installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project.
+Install [Node.js](https://nodejs.org/). Most React projects today use [Vite](https://vitejs.dev/) for creating projects and running the development server. Once installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project.
 
 | Command                                                | Description                             |
 | ------------------------------------------------------ | --------------------------------------- |

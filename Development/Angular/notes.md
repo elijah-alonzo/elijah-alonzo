@@ -1,6 +1,6 @@
 <h1 align="center"> Angular </h1>
 
-Angular is Google's frontend framework for building web applications. It comes with many features built in, such as routing, forms, API handling, and state management, making it a popular choice for larger applications. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Angular is Google's frontend framework that uses TypeScript. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -26,7 +26,7 @@ project/
 └── angular.json             # Angular workspace configuration
 ```
 
-To start building Angular applications, install [Node.js](https://nodejs.org/) first since it includes npm. After that, install the [Angular CLI](https://angular.dev/tools/cli), which provides commands for creating projects, generating components, running development servers, and building applications. Once everything is installed, make sure the `node`, `npm`, and `ng` commands work in your terminal.
+Install [Node.js](https://nodejs.org/) first since it includes npm. After that, install the [Angular CLI](https://angular.dev/tools/cli). Once everything is installed, make sure the `node`, `npm`, and `ng` commands work in your terminal.
 
 | Command                               | Description                                         |
 | ------------------------------------- | --------------------------------------------------- |

@@ -1,1 +1,1 @@
-[![Elijah Alonzo](background.jpg)](https://elijah-alonzo.vercel.app)
+[![Elijah Alonzo](PORTFOLIO.jpg)](https://elijah-alonzo.vercel.app)

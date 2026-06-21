@@ -1,6 +1,6 @@
 <h1 align="center"> Laravel </h1>
 
-Laravel is a PHP framework for building web applications and APIs. It follows the MVC pattern and comes with many features already built in, making it one of the most popular frameworks in the PHP ecosystem. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Laravel is a PHP framework for building web applications and APIs. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -32,9 +32,9 @@ project/
 └── .env                      # Environment variables
 ```
 
-To start building Laravel applications, install [Node.js](https://nodejs.org/) for frontend tooling, [Composer](https://getcomposer.org/) for package management, and either [PHP](https://www.php.net/downloads) or [Laravel Herd](https://herd.laravel.com/). If you're using Laravel Herd, you don't need to install PHP separately since Herd already manages it for you.
+Install [Node.js](https://nodejs.org/) for frontend tooling, [Composer](https://getcomposer.org/) for package management, and either [PHP](https://www.php.net/downloads) or [Laravel Herd](https://herd.laravel.com/). If you're using Laravel Herd, you don't need to install PHP separately since Herd already manages it for you.
 
-Once everything is installed, make sure the `node`, `npm`, `composer`, `php`, and `laravel` commands work in your terminal before creating a new project.
+Once everything is installed, make sure the `node`, `npm`, `composer`, `php`, and `laravel` commands work in your terminal before creating a new project. 
 
 | Command                                                 | Description                                                  |
 | ------------------------------------------------------- | ------------------------------------------------------------ |

@@ -1,6 +1,6 @@
 <h1 align="center"> Terraform </h1>
 
-Terraform lets you define infrastructure using code instead of manually clicking around cloud dashboards. I mostly use it for creating and managing servers, networks, databases, and other cloud resources. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Terraform lets you define infrastructure using code instead of manually clicking around cloud dashboards. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/

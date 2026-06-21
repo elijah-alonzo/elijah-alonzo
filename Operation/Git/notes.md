@@ -1,6 +1,6 @@
-<h1 align="center"> Version Control </h1>
+<h1 align="center"> Git </h1>
 
-Version control helps track changes in a project over time. Git is the most widely used version control system and is something you'll use in almost every development workflow. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
+Git is a version control system that helps track changes in a project. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 To get started, install [Git](https://git-scm.com/downloads). Once installed, open a terminal and make sure the `git` command works before creating or cloning repositories. Don't forget to put it in the System Variables Path. 
 

@@ -1,7 +1,7 @@
 <h1 align="center"> Elijah's Notebook </h1>
 
-I built this notebook because I got tired of looking up the same setup steps every time I switched laptops, wiped a drive, or jumped back into a framework after not using it for a while.
+I built this notebook because I got tired of looking up the same setup steps every time I switched laptops, wiped a drive, or jumped back into a framework, tool, or server setup after not touching it for a while. 
 
-I have here some developer notes for [Laravel](Development/Laravel/notes.md), [React](Development/React/notes.md), [Next.js](Development/Next.js/notes.md), [Angular](Development/Angular/notes.md), [.NET](Development/.NET/notes.md), [React Native](Development/ReactNative/notes.md), and [Flutter](Development/Flutter/notes.md).
+Inside you'll find notes covering development with [Laravel](Development/Laravel/notes.md), [React](Development/React/notes.md), [Next.js](Development/Next.js/notes.md), [Angular](Development/Angular/notes.md), [.NET](Development/.NET/notes.md), [React Native](Development/ReactNative/notes.md), and [Flutter](Development/Flutter/notes.md), along with operating system references for [Windows](Operations/Windows/notes.md) and [Linux](Operations/Linux/notes.md). I've also included notes for [Git](Operation/Git/notes.md), server management with [SSH](Operations/SSH/notes.md), [PM2](Operations/PM2/notes.md), and [NGINX](Operations/NGINX/notes.md), containerization and orchestration with [Docker](Operations/Docker/notes.md) and [Kubernetes](Operations/Kubernetes/notes.md), CI/CD with [GitHub Actions](Operations/GitHub%20Actions/notes.md) and [Jenkins](Operations/Jenkins/notes.md), and infrastructure as code with [Terraform](Operations/Terraform/notes.md). 
 
-The goal here isn't to document every little thing. It's literally just to save future-me from the headache of googling the same commands and setup guides over and over again.
+The goal isn't to document everything. It's just a collection of quick references, common commands, setup notes, and reminders that save me from searching for the same things over and over again.
