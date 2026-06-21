@@ -1,6 +1,6 @@
 <h1 align="center"> Next.js </h1>
 
-Next.js is a React framework for building web applications. It comes with features like routing, API routes, server-side rendering, and static site generation, making it a popular choice for full-stack React projects. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
+Next.js is a React framework for building web applications. It comes with features like routing, API routes, server-side rendering, and static site generation, making it a popular choice for full-stack React projects. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/

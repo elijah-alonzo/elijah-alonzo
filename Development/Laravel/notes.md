@@ -1,6 +1,6 @@
 <h1 align="center"> Laravel </h1>
 
-Laravel is a PHP framework for building web applications and APIs. It follows the MVC pattern and comes with many features already built in, making it one of the most popular frameworks in the PHP ecosystem. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
+Laravel is a PHP framework for building web applications and APIs. It follows the MVC pattern and comes with many features already built in, making it one of the most popular frameworks in the PHP ecosystem. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/

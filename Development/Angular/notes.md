@@ -1,6 +1,6 @@
 <h1 align="center"> Angular </h1>
 
-Angular is Google's frontend framework for building web applications. It comes with many features built in, such as routing, forms, API handling, and state management, making it a popular choice for larger applications. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
+Angular is Google's frontend framework for building web applications. It comes with many features built in, such as routing, forms, API handling, and state management, making it a popular choice for larger applications. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/

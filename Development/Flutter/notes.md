@@ -1,6 +1,6 @@
 <h1 align="center"> Flutter </h1>
 
-Flutter is Google's framework for building mobile applications with Dart. One of its biggest advantages is that the same codebase can be used for Android, iOS, web, and desktop applications. Flutter uses widgets to build user interfaces, making it easy to create reusable components throughout an application. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
+Flutter is Google's framework for building mobile applications with Dart. One of its biggest advantages is that the same codebase can be used for Android, iOS, web, and desktop applications. Flutter uses widgets to build user interfaces, making it easy to create reusable components throughout an application. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/

@@ -1,6 +1,6 @@
 <h1 align="center"> React </h1>
 
-React is a JavaScript library for building user interfaces. It uses reusable components to build applications and is one of the most popular choices for frontend development. Frameworks such as Next.js are built on top of React. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
+React is a JavaScript library for building user interfaces. It uses reusable components to build applications and is one of the most popular choices for frontend development. Frameworks such as Next.js are built on top of React. If this isn't what you're looking for, click here to go back to the [previous page](../../NOTEBOOK.md).
 
 ```text
 project/
