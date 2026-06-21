@@ -1,6 +1,6 @@
 <h1 align="center"> React Native </h1>
 
-React Native is a framework for building mobile applications with React. It allows you to use a single codebase for both Android and iOS, making it a popular choice for cross-platform mobile development.
+React Native is a framework for building mobile applications with React. It allows you to use a single codebase for both Android and iOS, making it a popular choice for cross-platform mobile development. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -28,7 +28,7 @@ project/
 
 To start building React Native applications, install [Node.js](https://nodejs.org/) and [Android Studio](https://developer.android.com/studio). If you're building for iOS, you'll also need [Xcode](https://developer.apple.com/xcode/) on macOS. For most projects, it's recommended to use [Expo](https://expo.dev/) since it makes setup and development much easier.
 
-Once everything is installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
+Once everything is installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project.
 
 | Command                                                                | Description                                   |
 | ---------------------------------------------------------------------- | --------------------------------------------- |
