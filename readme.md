@@ -1,1 +1,1 @@
-![Alt text](assets/cover.png)
+[![Elijah Alonzo](assets/background.jpg)](https:elijah-alonzo.vercel.app)
