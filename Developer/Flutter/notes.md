@@ -1,6 +1,6 @@
 <h1 align="center"> Flutter </h1>
 
-Flutter is Google's cross-platform UI framework for building mobile, web, and desktop applications from a single Dart codebase. It uses a widget-based architecture and compiles to native code for high performance.
+Flutter is Google's framework for building mobile applications with Dart. One of its biggest advantages is that the same codebase can be used for Android, iOS, web, and desktop applications. Flutter uses widgets to build user interfaces, making it easy to create reusable components throughout an application. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -32,40 +32,43 @@ project/
 └── .env                    # Environment variables (if used)
 ```
 
-To develop Flutter applications, install the [Flutter SDK](https://flutter.dev/docs/get-started/install) which includes the Dart SDK. For Android development, install [Android Studio](https://developer.android.com/studio), which provides the Android SDK, emulator, and development tools. If targeting iOS, install [Xcode](https://developer.apple.com/xcode/) on macOS.
+To start building Flutter applications, install the [Flutter SDK](https://flutter.dev/docs/get-started/install). Flutter already includes Dart, so there's no need to install it separately. If you're targeting Android devices, install [Android Studio](https://developer.android.com/studio) which includes the Android SDK and emulator. If you're targeting iOS, you'll need [Xcode](https://developer.apple.com/xcode/) on macOS.
 
-After installation, ensure Flutter is available through **Environment Variables > Path**. Most installers do not automatically configure Flutter, so you will typically need to add the Flutter `bin` directory to your system `Path` manually.
+After installation, run `flutter doctor` to check if everything is configured correctly. If Flutter isn't recognized in the terminal, make sure the Flutter `bin` folder has been added to your system's Path environment variable.
 
-| Command                                      | Description                                                  |
-| -------------------------------------------- | ------------------------------------------------------------ |
-| `flutter doctor`                             | Verify Flutter installation and detect missing dependencies. |
-| `flutter doctor -v`                          | Display detailed environment diagnostics.                    |
-| `flutter create my_app`                      | Create a new Flutter project.                                |
-| `flutter run`                                | Build and run the application.                               |
-| `flutter run -d chrome`                      | Run the application in a web browser.                        |
-| `flutter devices`                            | List available devices and emulators.                        |
-| `flutter emulators`                          | List available emulators.                                    |
-| `flutter pub get`                            | Install project dependencies.                                |
-| `flutter pub upgrade`                        | Upgrade dependencies to newer versions.                      |
-| `flutter pub add package_name`               | Add a dependency to the project.                             |
-| `flutter pub remove package_name`            | Remove a dependency from the project.                        |
-| `flutter clean`                              | Remove build artifacts and cached files.                     |
-| `flutter build apk`                          | Create an Android APK build.                                 |
-| `flutter build appbundle`                    | Create an Android App Bundle for Play Store deployment.      |
-| `flutter build ios`                          | Create an iOS build.                                         |
-| `flutter build web`                          | Create a production web build.                               |
-| `flutter test`                               | Run unit and widget tests.                                   |
-| `flutter analyze`                            | Analyze code for issues and best practices.                  |
-| `flutter format .`                           | Format all Dart files in the project.                        |
-| `dart create my_app`                         | Create a new Dart project.                                   |
-| `dart run`                                   | Run a Dart application.                                      |
-| `flutter gen-l10n`                           | Generate localization files.                                 |
-| `flutter pub add provider`                   | Install Provider state management.                           |
-| `flutter pub add flutter_riverpod`           | Install Riverpod state management.                           |
-| `flutter pub add dio`                        | Install Dio HTTP client.                                     |
-| `flutter pub add go_router`                  | Install GoRouter navigation.                                 |
-| `flutter pub add freezed freezed_annotation` | Install Freezed for immutable models.                        |
-| `flutter pub add json_annotation`            | Install JSON serialization annotations.                      |
-| `flutter pub add hive`                       | Install Hive local database.                                 |
-| `flutter pub add shared_preferences`         | Install local key-value storage.                             |
-| `flutter pub add flutter_dotenv`             | Install environment variable support.                        |
+| Command                                      | Description                              |
+| -------------------------------------------- | ---------------------------------------- |
+| `flutter doctor`                             | Check if Flutter is installed correctly. |
+| `flutter doctor -v`                          | Show detailed setup information.         |
+| `flutter create my_app`                      | Create a new Flutter project.            |
+| `flutter run`                                | Run the application.                     |
+| `flutter run -d chrome`                      | Run the application in Chrome.           |
+| `flutter devices`                            | Show available devices.                  |
+| `flutter emulators`                          | Show available emulators.                |
+| `flutter pub get`                            | Install project dependencies.            |
+| `flutter pub upgrade`                        | Update dependencies.                     |
+| `flutter pub add package_name`               | Add a package.                           |
+| `flutter pub remove package_name`            | Remove a package.                        |
+| `flutter clean`                              | Remove generated build files.            |
+| `flutter build apk`                          | Build an Android APK.                    |
+| `flutter build appbundle`                    | Build an Android App Bundle.             |
+| `flutter build ios`                          | Build an iOS application.                |
+| `flutter build web`                          | Build the web version.                   |
+| `flutter test`                               | Run tests.                               |
+| `flutter analyze`                            | Check the code for issues.               |
+| `flutter format .`                           | Format all Dart files.                   |
+| `dart create my_app`                         | Create a new Dart project.               |
+| `dart run`                                   | Run a Dart application.                  |
+| `flutter gen-l10n`                           | Generate localization files.             |
+| `flutter pub add provider`                   | Install Provider.                        |
+| `flutter pub add flutter_riverpod`           | Install Riverpod.                        |
+| `flutter pub add dio`                        | Install Dio for API requests.            |
+| `flutter pub add go_router`                  | Install GoRouter.                        |
+| `flutter pub add freezed freezed_annotation` | Install Freezed for immutable models.    |
+| `flutter pub add json_annotation`            | Install JSON serialization support.      |
+| `flutter pub add hive`                       | Install Hive database.                   |
+| `flutter pub add shared_preferences`         | Install local storage support.           |
+| `flutter pub add flutter_dotenv`             | Install environment variable support.    |
+
+```
+```

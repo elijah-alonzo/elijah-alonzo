@@ -1,6 +1,6 @@
-<h1 align="center"> Laravel  </h1>
+<h1 align="center"> Laravel </h1>
 
-Laravel is a PHP web application framework that follows the Model-View-Controller (MVC) architecture and is designed for building modern web applications.
+Laravel is a PHP framework for building web applications and APIs. It follows the MVC pattern and comes with many features already built in, making it one of the most popular frameworks in the PHP ecosystem. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
 
 ```text
 project/
@@ -32,9 +32,9 @@ project/
 └── .env                      # Environment variables
 ```
 
-To develop Laravel applications, install [Node.js](https://nodejs.org/) for frontend tooling, [Composer](https://getcomposer.org/) for PHP package management, and either [PHP](https://www.php.net/downloads) or [Laravel Herd](https://herd.laravel.com/) as the PHP runtime. If you use Laravel Herd, you do **not** need to install PHP separately because Herd already includes and manages PHP for you.
+To start building Laravel applications, install [Node.js](https://nodejs.org/) for frontend tooling, [Composer](https://getcomposer.org/) for package management, and either [PHP](https://www.php.net/downloads) or [Laravel Herd](https://herd.laravel.com/). If you're using Laravel Herd, you don't need to install PHP separately since Herd already manages it for you.
 
-After installing each tool, ensure its executable is available through the system **Environment Variables > Path**. Most installers configure this automatically, but if a command is not recognized in the terminal, verify that its installation directory has been added to the `Path` variable.
+Once everything is installed, make sure the `node`, `npm`, `composer`, `php`, and `laravel` commands work in your terminal before creating a new project.
 
 | Command                                                 | Description                                                  |
 | ------------------------------------------------------- | ------------------------------------------------------------ |
@@ -71,3 +71,6 @@ After installing each tool, ensure its executable is available through the syste
 | `composer require bezhansalleh/filament-shield`         | Install Filament Shield for roles and permissions.           |
 | `php artisan shield:install`                            | Publish and configure Filament Shield.                       |
 | `php artisan shield:generate`                           | Generate permissions from Filament resources.                |
+
+```
+```

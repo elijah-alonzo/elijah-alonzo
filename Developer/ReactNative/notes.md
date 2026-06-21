@@ -1,6 +1,6 @@
 <h1 align="center"> React Native </h1>
 
-React Native is a framework for building cross-platform mobile applications using JavaScript or TypeScript and React. It allows a single codebase to run on both Android and iOS while rendering native UI components.
+React Native is a framework for building mobile applications with React. It allows you to use a single codebase for both Android and iOS, making it a popular choice for cross-platform mobile development.
 
 ```text
 project/
@@ -26,9 +26,9 @@ project/
 └── app.json                # React Native configuration
 ```
 
-To develop React Native applications, install [Node.js](https://nodejs.org/) for JavaScript tooling and package management, and [Android Studio](https://developer.android.com/studio) for Android development and emulation. If targeting iOS, install [Xcode](https://developer.apple.com/xcode/) on macOS. For new projects, the recommended approach is to use [Expo](https://expo.dev/), which simplifies setup, development, and deployment.
+To start building React Native applications, install [Node.js](https://nodejs.org/) and [Android Studio](https://developer.android.com/studio). If you're building for iOS, you'll also need [Xcode](https://developer.apple.com/xcode/) on macOS. For most projects, it's recommended to use [Expo](https://expo.dev/) since it makes setup and development much easier.
 
-After installation, ensure that Node.js and Android SDK tools are available through **Environment Variables > Path**. Most installers configure this automatically, but if commands are not recognized in the terminal, verify that their installation directories have been added to the `Path` variable.
+Once everything is installed, make sure the `node`, `npm`, and `npx` commands work in your terminal before creating a new project. If this isn't what you're looking for, click [Me](../../NOTEBOOK.md).
 
 | Command                                                                | Description                                   |
 | ---------------------------------------------------------------------- | --------------------------------------------- |
@@ -52,7 +52,7 @@ After installation, ensure that Node.js and Android SDK tools are available thro
 | `npm install @tanstack/react-query`                                    | Install React Query.                          |
 | `npm install react-hook-form`                                          | Install React Hook Form.                      |
 | `npm install zod`                                                      | Install Zod validation.                       |
-| `npm install react-hook-form @hookform/resolvers zod`                  | Install common form validation stack.         |
+| `npm install react-hook-form @hookform/resolvers zod`                  | Install a common form validation stack.       |
 | `npx expo install expo-image-picker`                                   | Install image picker support.                 |
 | `npx expo install expo-location`                                       | Install location services.                    |
 | `npx expo install expo-notifications`                                  | Install push notification support.            |
